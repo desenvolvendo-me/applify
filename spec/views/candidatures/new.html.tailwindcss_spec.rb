@@ -1,21 +1,16 @@
+# spec/views/candidatures/new.html.erb_spec.rb
+
 require 'rails_helper'
 
-RSpec.describe "candidatures/new", type: :view do
-  before(:each) do
-    assign(:candidature, Candidature.new(
-      company_name: "MyString",
-      situation: "MyString"
-    ))
-  end
+RSpec.describe 'candidatures/new', type: :view do
+  it 'renders the new page' do
+    assign(:candidature, FactoryBot.build(:candidature))
 
-  it "renders new candidature form" do
     render
 
-    assert_select "form[action=?][method=?]", candidatures_path, "post" do
-
-      assert_select "input[name=?]", "candidature[company_name]"
-
-      assert_select "input[name=?]", "candidature[situation]"
-    end
+    expect(rendered).to have_selector('h1', text: 'New candidature')
+    expect(rendered).to render_template(partial: '_form')
+    expect(rendered).to have_link('Back to candidatures',
+                                  href: candidatures_path)
   end
 end

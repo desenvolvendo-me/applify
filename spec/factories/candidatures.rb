@@ -10,7 +10,8 @@
 #
 FactoryBot.define do
   factory :candidature do
-    company_name { "MyString" }
-    situation { "MyString" }
+    sequence(:company_name) { |n| "Rails Vacancy #{n}" }
+    situation { 'Testing' }
   end
 end
+

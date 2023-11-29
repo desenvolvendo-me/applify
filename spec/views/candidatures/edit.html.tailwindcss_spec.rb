@@ -1,21 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "candidatures/edit", type: :view do
-  before(:each) do
-    @candidature = assign(:candidature, Candidature.create!(
-      company_name: "MyString",
-      situation: "MyString"
-    ))
-  end
+RSpec.describe 'candidatures/edit', type: :view do
+  it 'renders the edit page' do
+    candidature = FactoryBot.create(:candidature)
+    assign(:candidature, candidature)
 
-  it "renders the edit candidature form" do
     render
 
-    assert_select "form[action=?][method=?]", candidature_path(@candidature), "post" do
-
-      assert_select "input[name=?]", "candidature[company_name]"
-
-      assert_select "input[name=?]", "candidature[situation]"
-    end
+    expect(rendered).to have_selector('h1', text: 'Editing candidature')
+    expect(rendered).to render_template(partial: '_form')
+    expect(rendered).to have_link('Show this candidature', href: candidature_path(candidature))
+    expect(rendered).to have_link('Back to candidatures', href: candidatures_path)
   end
 end
