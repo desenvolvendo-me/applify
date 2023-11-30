@@ -1,9 +1,22 @@
 if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
+  # Interview tests
+  interview_amazon = InterviewTest.create(company: 'Amazon')
+  interview_google = InterviewTest.create(company: 'Google')
+  interview_microsoft = InterviewTest.create(company: 'Microsoft')
+  interview_apple = InterviewTest.create(company: 'Apple')
+
+  InterviewQuestion.create!(description: 'Há quantos anos a empresa está no mercado?', interview_test: interview_amazon)
+  InterviewQuestion.create!(description: 'A empresa segue algum modelo específico de gerenciamento de projetos ou metodologia de trabalho? Como isso impacta o dia a dia dos funcionários?', interview_test: interview_amazon)
+  InterviewQuestion.create!(description: 'Você está familiarizado com a Google Cloud Platform? Como você acha que a GCP se destaca em relação a outras soluções de nuvem?', interview_test: interview_google)
+  InterviewQuestion.create!(description: 'Qual é a missão da Microsoft e como ela se alinha aos seus valores pessoais e profissionais?', interview_test: interview_microsoft)
+  InterviewQuestion.create!(description: 'Como você vê a inovação na Apple e como gostaria de contribuir para esse ambiente inovador?', interview_test: interview_apple)
+
+  # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
                       description: 'Quero criar 10 algoritmos em até 3 meses', status: 'done')
-  Task.create(name: '1ª agoritmo', description: 'Criar o algoritmo bubble sort',
+  Task.create(name: '1ª agorítmo', description: 'Criar o algorítmo bubble sort',
               status: "done", goal: goal1)
 
   goal2 = Goal.create(name: 'Aprender Framework Rails',
@@ -13,7 +26,7 @@ if Rails.env.development?
 
   goal3 = Goal.create(name: 'Aprender Linguagem Python',
                       description: 'Quero criar 5 scripts úteis em até 2 meses', status: 'doing')
-  Task.create(name: '1º script', description: 'Criar um algoritmo de automação de tarefas',
+  Task.create(name: '1º script', description: 'Criar um algorítmo de automação de tarefas',
               status: "doing", goal: goal3)
 
   goal4 = Goal.create(name: 'Aprender Banco de Dados SQL',
