@@ -4,10 +4,12 @@
   </div>
 
   <div>
-    <%= f.input :situation, collection: Candidature.situations, prompt: "Select a situation", selected: "" %>
+    <%= f.input :situation, as: :select, collection: Candidature.situations, prompt: :translate, selected: "" %>
+
   </div>
 
   <div>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"cursor-pointer" %>
   </div>
 <% end %>
+

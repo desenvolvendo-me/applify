@@ -1,0 +1,28 @@
+pt-BR:
+  views:
+    manager:
+      candidatures:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        done: 'Finalizar'
+        back: 'Voltar'
+        delete_confirm: 'Você tem certeza?'
+        index:
+          add_candidature: "Adicionar Candidatura"
+          company_name: "Empresa"
+          situation: "Situação"
+        new_view:
+          title: 'Nova Candidatura'
+        edit_view:
+          title: 'Editar Candidatura'
+        show_view:
+          title: 'Detalhando Meta'
+      index_candidatures: "Candidaturas"
+
+  simple_form:
+    labels:
+      candidature:
+        company_name: "Empresa"
+        situation: "Situação"
+

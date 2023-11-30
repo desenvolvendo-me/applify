@@ -5,10 +5,10 @@
 
   <div class="flex flex-col">
     <div class="py-4">
-      <%= link_to 'Add candidature', new_candidature_path,
+      <%= link_to t('views.manager.candidatures.index.add_candidature'), new_candidature_path,
                   class:"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
     </div>
-    <h1 class="font-bold text-4xl">Candidatures</h1>
+    <h1 class="font-bold text-4xl"><%= t('views.manager.index_candidatures') %></h1>
   </div>
 
   <div id="candidatures">
