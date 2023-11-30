@@ -1,21 +1,22 @@
 <div id="<%= dom_id candidature %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.manager.candidatures.index.company_name') %>:</strong>
+  <p class="flex mt-6">
+    <strong class="block font-medium mb-2 px-4"><%= t('views.manager.candidatures.index.company_name') %>:</strong>
     <%= candidature.company_name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1"><%= t('views.manager.candidatures.index.situation') %>:</strong>
+  <p class="flex">
+    <strong class="block font-medium mb-4 px-4"><%= t('views.manager.candidatures.index.situation') %>:</strong>
     <%= t("simple_form.options.candidature.situation.#{candidature.situation}") %>
   </p>
 
   <% if action_name != "show" %>
   <div class="flex flex-row">
-      <%= link_to t('views.manager.candidatures.edit'), edit_candidature_path(candidature), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to  candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" do %>
+      <%= link_to t('views.manager.candidatures.edit'), edit_candidature_path(candidature),
+                  class:"mr-2 items-center justify-center focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" %>
+      <%= link_to  candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                   class:"mr-2 items-center justify-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" do %>
        <%= t('views.manager.candidatures.delete') %>
       <% end %>
-    <hr class="mt-6">
   </div>
   <% end %>
 </div>
