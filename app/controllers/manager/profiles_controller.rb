@@ -9,14 +9,16 @@ module Manager
     def show; end
 
     def new
-      @manager_profile = Manager::Profile.new
+      @manager_profile = current_user.profile || current_user.build_profile
     end
 
     def create
-      @manager_profile = Manager::Profile.new(profile_params)
+      @manager_profile = current_user.profile ||
+                         current_user.build_profile(profile_params)
 
       if @manager_profile.save
-        redirect_to @manager_profile, notice: 'Profile was successfully created.'
+        redirect_to @manager_profile,
+                    notice: 'Profile was successfully created.'
       else
         render :new
       end
@@ -26,7 +28,8 @@ module Manager
 
     def update
       if @manager_profile.update(profile_params)
-        redirect_to @manager_profile, notice: 'Profile was successfully updated.'
+        redirect_to @manager_profile,
+                    notice: 'Profile was successfully updated.'
       else
         render :edit
       end
@@ -34,7 +37,8 @@ module Manager
 
     def destroy
       @manager_profile.destroy
-      redirect_to manager_profiles_url, notice: 'Profile was successfully destroyed.'
+      redirect_to manager_profiles_url,
+                  notice: 'Profile was successfully destroyed.'
     end
 
     private
