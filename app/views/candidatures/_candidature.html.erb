@@ -1,17 +1,16 @@
 <div id="<%= dom_id candidature %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Company name:</strong>
+    <strong class="block font-medium mb-1"><%= t('views.manager.candidatures.index.company_name') %>:</strong>
     <%= candidature.company_name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Situation:</strong>
-    <%= candidature.situation %>
+    <strong class="block font-medium mb-1"><%= t('views.manager.candidatures.index.situation') %>:</strong>
+    <%= t("simple_form.options.candidature.situation.#{candidature.situation}") %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this candidature", candidature, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this candidature', edit_candidature_path(candidature), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to t('views.manager.candidatures.edit'), edit_candidature_path(candidature), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

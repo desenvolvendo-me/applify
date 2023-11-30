@@ -9,8 +9,4 @@
 #  updated_at   :datetime         not null
 #
 class Candidature < ApplicationRecord
-  SITUATIONS = %i[Send Sending Answered].freeze
-  def self.situations
-    SITUATIONS.map { |situation| [situation, situation] }
-  end
 end

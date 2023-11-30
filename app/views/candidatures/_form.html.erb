@@ -1,13 +1,11 @@
-<%= simple_form_for @candidature  do |f| %>
+<%= simple_form_for @candidature do |f| %>
   <div>
     <%= f.input :company_name %>
   </div>
-
   <div>
-    <%= f.input :situation, collection: Candidature.situations, prompt: "Select a situation", selected: "" %>
+    <%= f.input :situation, collection: [:send, :sending, :answered], prompt: :translate %>
   </div>
-
   <div>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "cursor-pointer" %>
   </div>
 <% end %>

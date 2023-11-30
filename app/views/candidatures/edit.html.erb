@@ -1,8 +1,7 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing candidature</h1>
+  <h1 class="font-bold text-4xl"><%= t('views.manager.candidatures.edit_view.title') %></h1>
 
   <%= render "form", candidature: @candidature %>
 
-  <%= link_to "Show this candidature", @candidature, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to candidatures", candidatures_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to t('views.manager.candidatures.back'), candidatures_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
