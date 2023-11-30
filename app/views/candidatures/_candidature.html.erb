@@ -10,7 +10,12 @@
   </p>
 
   <% if action_name != "show" %>
+  <div class="flex flex-row">
       <%= link_to t('views.manager.candidatures.edit'), edit_candidature_path(candidature), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to  candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" do %>
+       <%= t('views.manager.candidatures.delete') %>
+      <% end %>
     <hr class="mt-6">
+  </div>
   <% end %>
 </div>

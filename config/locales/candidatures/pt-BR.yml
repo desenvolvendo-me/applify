@@ -12,13 +12,15 @@ pt-BR:
           add_candidature: "Adicionar Candidatura"
           company_name: "Empresa"
           situation: "Situação"
+          title: "Candidaturas"
         new_view:
           title: 'Nova Candidatura'
         edit_view:
           title: 'Editar Candidatura'
         show_view:
           title: 'Candidatura'
-      index_candidatures: "Candidaturas"
+
+
 
   simple_form:
     options:
