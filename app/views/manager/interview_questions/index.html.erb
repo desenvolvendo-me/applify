@@ -1,0 +1,14 @@
+<h1>Perguntas da empresa <%= @interview_test.company %></h1>
+
+<% @interview_test.interview_questions.each_with_index do |interview_question, index| %>
+  <div>
+    <%= index %>
+    <%= interview_question.description %> |
+    <%= link_to 'editar', edit_manager_interview_test_interview_question_path(@interview_test, interview_question) %>
+    <%= link_to 'apagar', manager_interview_test_interview_question_path(@interview_test, interview_question), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+<br>
+<%= link_to 'cadastrar pergunta', new_manager_interview_test_interview_question_path(@interview_test) %> |
+<%= link_to 'voltar para simulados', manager_interview_tests_path %>
+

@@ -1,0 +1,22 @@
+<%= form_for [:manager, @interview_test, @interview_question] do |form| %>
+  <% if @interview_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interview_question.errors.count, 'error') %> prohibited this interview_question from being saved:</h2>
+
+      <ul>
+        <% @interview_question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

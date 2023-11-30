@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 class InterviewTest < ApplicationRecord
-  has_many :interview_questions
+  has_many :interview_questions, dependent: :destroy
 end

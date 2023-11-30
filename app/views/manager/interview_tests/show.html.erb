@@ -1,0 +1,18 @@
+<p>
+  <strong>Company:</strong>
+  <%= @interview_test.company %>
+</p>
+<br>
+
+<h2>Interview Questions:</h2>
+<% @interview_test.interview_questions.each do |question| %>
+  <hr>
+  <p><%= question.description %></p>
+  <hr>
+<% end %>
+
+<br>
+<%= link_to 'editar', edit_manager_interview_test_path(@interview_test) %> | <br>
+<%= link_to 'voltar', manager_interview_tests_path %>| <br>
+
+<%= link_to 'Perguntas desse simulado', manager_interview_test_interview_questions_path(@interview_test) %>

@@ -1,0 +1,25 @@
+<h1>Interview Tests</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Company</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @interview_tests.each do |interview_test| %>
+    <tr>
+      <td><%= interview_test.company %></td>
+      <td><%= link_to 'Show', manager_interview_test_path(interview_test) %></td>
+      <td><%= link_to 'Edit', edit_manager_interview_test_path(interview_test) %></td>
+      <td><%= link_to 'Destroy', manager_interview_test_path(interview_test), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview Test', new_manager_interview_test_path %>
