@@ -1,0 +1,6 @@
+pt-BR:
+  active_admin:
+    interview_test:
+      interview_questions: 'Perguntas'
+      attributes:
+        questions_quantity: 'Quantidade de perguntas'

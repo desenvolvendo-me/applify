@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      interview_test:
+        one: 'Simulado'
+        other: 'Simulados'
+    attributes:
+      interview_test:
+        company: 'Empresa'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

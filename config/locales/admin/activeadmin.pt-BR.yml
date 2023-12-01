@@ -144,6 +144,7 @@ pt-BR:
       configuration: "Configuração"
       administration: "Administração"
       management: "Gestão"
+      interview: "Entrevista"
     notice:
       ticket:
         email: "Email Enviado!"

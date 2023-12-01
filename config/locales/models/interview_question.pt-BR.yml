@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      interview_question:
+        one: 'Pergunta'
+        other: 'Perguntas'
+    attributes:
+      interview_question:
+        company: 'Empresa'
+        description: 'Descrição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
