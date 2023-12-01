@@ -11,7 +11,7 @@ ActiveAdmin.register InterviewQuestion do
     actions
   end
 
-  show title: proc { |interview_question| "Exibindo #{interview_question.interview_test.company} Question" } do
+  show title: proc { |interview_question| "#{t('active_admin.interview_question.show.showing')} #{interview_question.interview_test.company}" } do
     attributes_table do
       row :company do |interview_question|
         interview_question.interview_test&.company
@@ -20,7 +20,7 @@ ActiveAdmin.register InterviewQuestion do
     end
   end
 
-  form title: proc { |interview_question| interview_question.new_record? ? 'Nova Pergunta' : "Editar Pergunta de #{interview_question.interview_test.company}" } do |f|
+  form title: proc { |interview_question| interview_question.new_record? ? I18n.t('active_admin.interview_question.form_new') : "#{I18n.t('active_admin.interview_question.form_edit')} #{interview_question.interview_test.company}" } do |f|
     f.inputs do
       f.input :interview_test, as: :select, collection: InterviewTest.all.map { |test| [test.company, test.id] }
       f.input :description

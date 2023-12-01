@@ -1,10 +1,10 @@
 <p>
-  <strong>Company:</strong>
+  <strong><%= t 'activerecord.attributes.interview_test.company' %>:</strong>
   <%= @interview_test.company %>
 </p>
 <br>
 
-<h2>Interview Questions:</h2>
+<h2><%= t('activerecord.models.interview_question', count: @interview_test.interview_questions.count) %></h2>
 <% @interview_test.interview_questions.each do |question| %>
   <hr>
   <p><%= question.description %></p>
@@ -12,4 +12,4 @@
 <% end %>
 
 <br>
-<%= link_to 'voltar', manager_interview_tests_path %>| <br>
+<%= link_to t('views.manager.interview_tests.links.back'), manager_interview_tests_path %>

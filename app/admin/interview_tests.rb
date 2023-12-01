@@ -24,13 +24,13 @@ ActiveAdmin.register InterviewTest do
   end
 
   form do |f|
-    f.inputs 'simulado' do
+    f.inputs I18n.t('activerecord.models.interview_test') do
       f.input :company
     end
-    f.inputs 'Perguntas de Simulado' do
+    f.inputs I18n.t('active_admin.interview_test.interview_questions') do
       f.object.interview_questions.build unless f.object.interview_questions.any?
 
-      f.has_many :interview_questions, allow_destroy: true, heading: 'Perguntas' do |interview_question|
+      f.has_many :interview_questions, allow_destroy: true, heading: I18n.t('active_admin.interview_test.interview_questions') do |interview_question|
         interview_question.input :description
       end
     end
