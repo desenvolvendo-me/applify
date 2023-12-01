@@ -1,6 +1,6 @@
 ActiveAdmin.register InterviewQuestion do
   menu parent: I18n.t('active_admin.menu.interview')
-  permit_params :description
+  permit_params :interview_test_id, :description
 
   index do
     id_column
@@ -20,9 +20,9 @@ ActiveAdmin.register InterviewQuestion do
     end
   end
 
-  form title: proc { |interview_question| "Edit #{interview_question.interview_test.company} Question" } do |f|
+  form title: proc { |interview_question| interview_question.new_record? ? 'Nova Pergunta' : "Editar Pergunta de #{interview_question.interview_test.company}" } do |f|
     f.inputs do
-      f.input :interview_test_id, as: :select, collection: InterviewTest.all.map { |test| [test.company, test.id] }
+      f.input :interview_test, as: :select, collection: InterviewTest.all.map { |test| [test.company, test.id] }
       f.input :description
     end
     f.actions
