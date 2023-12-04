@@ -14,29 +14,30 @@ RSpec.describe Manager::InterviewTestsController, type: :controller do
     end
 
     context 'with search parameters' do
-      it 'assigns @interview_tests based on search by company' do
-        interview_test_1 = create(:interview_test, company: 'ABC Corp')
-        interview_test_2 = create(:interview_test, company: 'XYZ Ltd')
-        create(:interview_question, description: 'Technical', interview_test: interview_test_1)
-        create(:interview_question, description: 'Behavioral', interview_test: interview_test_2)
+      let!(:google_test) do
+        create(:interview_test, company: 'Google').tap do |test|
+          create(:interview_question, description: 'Technical', interview_test: test)
+        end
+      end
 
-        get :index, params: { q: { company_or_interview_questions_description_cont: 'ABC' } }
-
-        expect(assigns(:interview_tests)).to eq([interview_test_1])
+      let!(:microsoft_test) do
+        create(:interview_test, company: 'Microsoft').tap do |test|
+          create(:interview_question, description: 'Behavioral', interview_test: test)
+        end
       end
 
       it 'assigns @interview_tests based on search by company' do
-        interview_test_1 = create(:interview_test, company: 'ABC Corp')
-        interview_test_2 = create(:interview_test, company: 'XYZ Ltd')
-        create(:interview_question, description: 'Technical', interview_test: interview_test_1)
-        create(:interview_question, description: 'Behavioral', interview_test: interview_test_2)
+        get :index, params: { q: { company_or_interview_questions_description_cont: 'Google' } }
+        expect(assigns(:interview_tests)).to eq([google_test])
+      end
 
+      it 'assigns @interview_tests based on search by description' do
         get :index, params: { q: { company_or_interview_questions_description_cont: 'behavioral' } }
-
-        expect(assigns(:interview_tests)).to eq([interview_test_2])
+        expect(assigns(:interview_tests)).to eq([microsoft_test])
       end
     end
   end
+
 
   describe 'GET #show' do
     let(:interview_test) { create(:interview_test) }
