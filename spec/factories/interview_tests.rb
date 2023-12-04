@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: interview_tests
+#
+#  id         :bigint           not null, primary key
+#  company    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 FactoryBot.define do
   factory :interview_test do
     company { FFaker::Company }

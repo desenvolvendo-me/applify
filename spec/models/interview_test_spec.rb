@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: interview_tests
+#
+#  id         :bigint           not null, primary key
+#  company    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe InterviewTest, type: :model do
