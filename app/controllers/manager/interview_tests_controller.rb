@@ -5,7 +5,9 @@ module Manager
     def index
       @q = InterviewTest.ransack(params[:q])
       @interview_tests = @q.result(distinct: true)
-      @interview_tests = @interview_tests.order('created_at').page(params[:page]).per(4)
+      @interview_tests = @interview_tests.order('created_at')
+                                         .page(params[:page])
+                                         .per(4)
     end
 
     def show; end
