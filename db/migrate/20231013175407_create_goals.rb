@@ -3,8 +3,7 @@ class CreateGoals < ActiveRecord::Migration[7.0]
     create_table :goals do |t|
       t.string :name
       t.string :description
-      t.string :status
-
+      t.integer :status, default: 0
 
       t.timestamps
     end

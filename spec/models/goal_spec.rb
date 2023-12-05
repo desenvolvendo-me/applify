@@ -6,7 +6,7 @@
 #  description :string
 #  finished_at :datetime
 #  name        :string
-#  status      :string
+#  status      :integer          default(NULL)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
