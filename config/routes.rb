@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    resources :stacks
     resources :companies
     resources :goals
     namespace :goals do
