@@ -6,7 +6,11 @@
 
   <p class="flex">
     <strong class="block font-medium mb-4 px-4"><%= t('views.manager.candidatures.index.situation') %>:</strong>
+    <% if candidature.situation.present? %>
     <%= t("simple_form.options.candidature.situation.#{candidature.situation}") %>
+    <% else %>
+      <%= t('views.manager.candidatures.index.situation_not_chosen') %>
+    <% end %>
   </p>
 
   <% if action_name != "show" %>

@@ -13,6 +13,7 @@ pt-BR:
           company_name: "Empresa"
           situation: "Situação"
           title: "Candidaturas"
+          situation_not_chosen: "Nenuma situação foi escolhida"
         new_view:
           title: 'Nova Candidatura'
         edit_view:
@@ -20,13 +21,11 @@ pt-BR:
         show_view:
           title: 'Candidatura'
 
-
-
   simple_form:
     options:
       candidature:
         situation:
-          send: "Enviado"
+          dispatch: "Enviado"
           sending: "Enviando"
           answered: "Respondido"
     labels:

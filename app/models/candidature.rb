@@ -9,4 +9,7 @@
 #  updated_at   :datetime         not null
 #
 class Candidature < ApplicationRecord
+  enum situation: { dispatch: 'dispatch', sending: 'sending',
+                    answered: 'answered' }
+
 end

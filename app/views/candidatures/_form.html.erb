@@ -4,7 +4,8 @@
       <%= f.input :company_name %>
     </div>
     <div>
-      <%= f.input :situation, collection: [:send, :sending, :answered], prompt: :translate %>
+      <%= f.input :situation, collection: Candidature.situations.keys.map { |key| [t("simple_form.options.candidature.situation.#{key}"), key] }, prompt: :translate %>
+
     </div>
     <div class="flex items-center">
       <%= f.button :submit, class: "cursor-pointer" %>
