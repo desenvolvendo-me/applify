@@ -1,1 +1,1 @@
-json.array! @candidatures, partial: "candidatures/candidature", as: :candidature
+json.array! @candidatures, partial: 'candidatures/candidature', as: :candidature

@@ -19,7 +19,6 @@ RSpec.describe CandidaturesController, type: :routing do
                                                       id: '1')
     end
 
-
     it 'routes to #create' do
       expect(post: '/candidatures').to route_to('candidatures#create')
     end
