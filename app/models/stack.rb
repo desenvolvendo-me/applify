@@ -8,6 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Stack < ApplicationRecord
-  belongs_to :manager_company, :class_name => 'Manager::Company'
+  has_and_belongs_to_many :companies
 end
 
