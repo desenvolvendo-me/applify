@@ -1,6 +1,5 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
-  resources :candidatures
 
   mount Sidekiq::Web => '/sidekiq'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    resources :candidatures
     resources :goals
     namespace :goals do
       namespace :done do
