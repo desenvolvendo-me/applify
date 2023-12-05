@@ -14,4 +14,3 @@ FactoryBot.define do
     situation { 'Testing' }
   end
 end
-

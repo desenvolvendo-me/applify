@@ -46,10 +46,10 @@ RSpec.describe Candidature, type: :request do
 
   describe 'POST /create' do
     it 'creates a new Candidature' do
-      expect {
+      expect do
         post candidatures_url,
              params: { candidature: FactoryBot.attributes_for(:candidature) }
-      }.to change(Candidature, :count).by(1)
+      end.to change(Candidature, :count).by(1)
     end
 
     it 'redirects to the created candidature' do
@@ -59,7 +59,6 @@ RSpec.describe Candidature, type: :request do
   end
 
   describe 'PATCH /update' do
-
     it 'redirects to the candidature' do
       candidature = create_candidature
       patch_update_request(candidature)
@@ -71,9 +70,9 @@ RSpec.describe Candidature, type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested candidature' do
       candidature = create_candidature
-      expect {
+      expect do
         delete candidature_url(candidature)
-      }.to change(Candidature, :count).by(-1)
+      end.to change(Candidature, :count).by(-1)
     end
 
     it 'redirects to the candidatures list' do
@@ -99,5 +98,3 @@ RSpec.describe Candidature, type: :request do
           params: { candidature: FactoryBot.attributes_for(:candidature) }
   end
 end
-
-
