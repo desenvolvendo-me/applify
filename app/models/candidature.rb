@@ -11,5 +11,4 @@
 class Candidature < ApplicationRecord
   enum situation: { dispatch: 'dispatch', sending: 'sending',
                     answered: 'answered' }
-
 end

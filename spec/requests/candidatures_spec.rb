@@ -16,7 +16,7 @@ RSpec.describe Candidature, type: :request do
   describe 'GET /index' do
     it 'renders a successful response' do
       create_candidature
-      get candidatures_url
+      get manager_candidatures_url
       expect(response).to be_successful
     end
   end
@@ -24,14 +24,14 @@ RSpec.describe Candidature, type: :request do
   describe 'GET /show' do
     it 'renders a successful response' do
       candidature = create_candidature
-      get candidature_url(candidature)
+      get manager_candidature_url(candidature)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_candidature_url
+      get new_admin_user_session_url
       expect(response).to be_successful
     end
   end
@@ -39,7 +39,7 @@ RSpec.describe Candidature, type: :request do
   describe 'GET /edit' do
     it 'renders a successful response' do
       candidature = create_candidature
-      get edit_candidature_url(candidature)
+      get edit_manager_candidature_url(candidature)
       expect(response).to be_successful
     end
   end
@@ -47,14 +47,14 @@ RSpec.describe Candidature, type: :request do
   describe 'POST /create' do
     it 'creates a new Candidature' do
       expect do
-        post candidatures_url,
+        post manager_candidatures_url,
              params: { candidature: FactoryBot.attributes_for(:candidature) }
       end.to change(Candidature, :count).by(1)
     end
 
     it 'redirects to the created candidature' do
       post_create_request
-      expect(response).to redirect_to(candidature_url(Candidature.last))
+      expect(response).to redirect_to(manager_candidature_url(Candidature.last))
     end
   end
 
@@ -63,7 +63,7 @@ RSpec.describe Candidature, type: :request do
       candidature = create_candidature
       patch_update_request(candidature)
       candidature.reload
-      expect(response).to redirect_to(candidature_url(candidature))
+      expect(response).to redirect_to(manager_candidature_path(candidature))
     end
   end
 
@@ -71,14 +71,14 @@ RSpec.describe Candidature, type: :request do
     it 'destroys the requested candidature' do
       candidature = create_candidature
       expect do
-        delete candidature_url(candidature)
+        delete manager_candidature_path(candidature)
       end.to change(Candidature, :count).by(-1)
     end
 
     it 'redirects to the candidatures list' do
       candidature = create_candidature
-      delete candidature_url(candidature)
-      expect(response).to redirect_to(candidatures_url)
+      delete manager_candidature_path(candidature)
+      expect(response).to redirect_to(manager_candidatures_path)
     end
   end
 
@@ -89,12 +89,12 @@ RSpec.describe Candidature, type: :request do
   end
 
   def post_create_request
-    post candidatures_url,
+    post manager_candidatures_url,
          params: { candidature: FactoryBot.attributes_for(:candidature) }
   end
 
   def patch_update_request(candidature)
-    patch candidature_url(candidature),
+    patch manager_candidature_url(candidature),
           params: { candidature: FactoryBot.attributes_for(:candidature) }
   end
 end

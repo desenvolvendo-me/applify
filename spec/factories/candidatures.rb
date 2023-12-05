@@ -11,6 +11,6 @@
 FactoryBot.define do
   factory :candidature do
     sequence(:company_name) { |n| "Rails Vacancy #{n}" }
-    situation { 'Testing' }
+    situation { 'sending' }
   end
 end

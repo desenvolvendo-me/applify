@@ -11,7 +11,7 @@ module Manager
     def destroy
       destroy! do |format|
         format.html do
-          redirect_to manager_candidatures_path(status: :see_other),
+          redirect_to manager_candidatures_path,
                       notice: "#{resource.company_name} #{t('controllers.candidatures.destroy')}"
         end
       end
