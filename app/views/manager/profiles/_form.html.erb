@@ -1,10 +1,10 @@
-<%= form_with(model: manager_profile, class: "contents") do |form| %>
-  <% if manager_profile.errors.any? %>
+<%= form_with(model: [:manager, profile], class: "contents") do |form| %>
+  <% if profile.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(manager_profile.errors.count, "error") %> prohibited this manager_profile from being saved:</h2>
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
-        <% manager_profile.errors.each do |error| %>
+        <% profile.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="my-5">
     <%= form.label :email %>
-    <%= form.text_field :email, value: manager_profile.user.email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", readonly: true %>
+    <%= form.text_field :email, value: profile.user.email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", readonly: true %>
   </div>
 
   <div class="my-5">
@@ -23,7 +23,7 @@
 
   <div class="my-5">
     <%= form.label :user_type %>
-    <%= form.select :user_type, Manager::Profile.user_types.keys.map { |type| [type.capitalize, type] }, {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :user_type, Profile.user_types.keys.map { |type| [type.capitalize, type] }, {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

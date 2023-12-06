@@ -3,21 +3,21 @@ module Manager
     before_action :set_profile, only: %i[show edit update destroy]
 
     def index
-      @manager_profiles = Manager::Profile.all
+      @profiles = Profile.all
     end
 
     def show; end
 
     def new
-      @manager_profile = current_user.profile || current_user.build_profile
+      @profile = current_user.profile || current_user.build_profile
     end
 
     def create
-      @manager_profile = current_user.profile ||
-                         current_user.build_profile(profile_params)
+      @profile = current_user.profile ||
+                 current_user.build_profile(profile_params)
 
-      if @manager_profile.save
-        redirect_to @manager_profile,
+      if @profile.save
+        redirect_to manager_profile_url(@profile),
                     notice: 'Profile was successfully created.'
       else
         render :new
@@ -27,8 +27,8 @@ module Manager
     def edit; end
 
     def update
-      if @manager_profile.update(profile_params)
-        redirect_to @manager_profile,
+      if @profile.update(profile_params)
+        redirect_to manager_profile_url(@profile),
                     notice: 'Profile was successfully updated.'
       else
         render :edit
@@ -36,7 +36,7 @@ module Manager
     end
 
     def destroy
-      @manager_profile.destroy
+      @profile.destroy
       redirect_to manager_profiles_url,
                   notice: 'Profile was successfully destroyed.'
     end
@@ -44,11 +44,11 @@ module Manager
     private
 
     def set_profile
-      @manager_profile = Manager::Profile.find(params[:id])
+      @profile = Profile.find(params[:id])
     end
 
     def profile_params
-      params.require(:manager_profile).permit(:user_id, :name, :user_type)
+      params.require(:profile).permit(:user_id, :name, :user_type)
     end
   end
 end

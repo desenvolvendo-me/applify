@@ -18,9 +18,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :manager_profile, class: 'Manager::Profile' do
+  factory :profile do
     user { nil }
-    name { "MyString" }
+    name { FFaker::NameBR.name }
     user_type { 1 }
   end
 end
