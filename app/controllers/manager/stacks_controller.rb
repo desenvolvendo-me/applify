@@ -16,7 +16,7 @@ module Manager
       @stack = Stack.create(stack_params)
       if @stack.save
         redirect_to manager_stack_path(@stack),
-                    notice: 'Stack successfully created.'
+                    notice: t('controller.manager.stacks.create')
       else
         render :new
       end
@@ -27,7 +27,7 @@ module Manager
     def update
       if @stack.update(stack_params)
         redirect_to manager_stack_path,
-                    notice: 'Stack successfully updated.'
+                    notice: t('controller.manager.stacks.update')
       else
         render :edit
       end
@@ -36,7 +36,7 @@ module Manager
     def destroy
       @stack.destroy
       redirect_to manager_stacks_path,
-                  notice: 'Stack successfully destroy.'
+                  notice: t('controller.manager.stacks.destroy')
     end
 
     private

@@ -1,2 +1,4 @@
-module Manager::StacksHelper
+module Manager
+  module StacksHelper
+  end
 end

@@ -1,22 +1,22 @@
 <%= form_with(model: @company, url: @company.persisted? ? manager_company_path(@company) : manager_companies_path, class: "contents") do |form| %>
 
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label t('activerecord.attributes.company.name') %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :description %>
+    <%= form.label t('activerecord.attributes.company.description') %>
     <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :linkedin %>
+    <%= form.label t('activerecord.attributes.company.linkedin') %>
     <%= form.text_field :linkedin, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :site %>
+    <%= form.label t('activerecord.attributes.company.page_web') %>
     <%= form.text_field :site, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 

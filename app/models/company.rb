@@ -10,6 +10,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-  class Company < ApplicationRecord
-    has_and_belongs_to_many :stacks
-  end
+class Company < ApplicationRecord
+  has_and_belongs_to_many :stacks
+end

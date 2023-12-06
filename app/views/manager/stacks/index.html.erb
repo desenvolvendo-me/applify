@@ -1,8 +1,8 @@
 <div class="w-full">
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Stacks</h1>
-    <%= link_to 'New stack', new_manager_stack_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl"><%= t('activerecord.models.stack.other') %></h1>
+    <%= link_to t('views.manager.stack.new'), new_manager_stack_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="stacks" class="min-w-full">

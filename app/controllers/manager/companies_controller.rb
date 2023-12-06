@@ -15,7 +15,7 @@ module Manager
       @company = Company.create(company_params)
       if @company.save
         redirect_to manager_company_path(@company),
-                    notice: 'Company successfully created.'
+                    notice: I18n.t('controller.manager.companies.create')
       else
         render :new
       end
@@ -25,7 +25,8 @@ module Manager
 
     def update
       if @company.update(company_params)
-        redirect_to manager_company_path, notice: 'Company successfully updated.'
+        redirect_to manager_company_path,
+                    notice: I18n.t('controller.manager.companies.update')
       else
         render :edit
       end
@@ -34,7 +35,7 @@ module Manager
     def destroy
       @company.destroy
       redirect_to manager_companies_path,
-                  notice: 'Company successfully destroy.'
+                  notice: I18n.t('controller.manager.companies.destroy')
     end
 
     private

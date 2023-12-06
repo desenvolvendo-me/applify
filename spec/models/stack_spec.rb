@@ -25,5 +25,4 @@ RSpec.describe Stack, type: :model do
   describe 'associations' do
     it { have_and_belong_to_many(:companies) }
   end
-
 end
