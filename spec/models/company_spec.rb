@@ -12,11 +12,11 @@
 #
 require 'rails_helper'
 
-RSpec.describe Manager::Company, type: :model do
+RSpec.describe Company, type: :model do
   describe 'validations' do
   end
 
   describe 'associations' do
-    it { should have_many(:stack)}
+    it { should have_and_belong_to_many(:stacks) }
   end
 end

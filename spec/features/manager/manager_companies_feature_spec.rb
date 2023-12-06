@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Manager Company', type: :feature do
   before do
-    create(:manager_company, name: 'Apple')
-    create(:manager_company, name: 'Google')
+    create(:stack, name: 'Apple')
+    create(:stack, name: 'Google')
   end
 
   scenario 'list companies' do
@@ -14,14 +14,14 @@ RSpec.feature 'Manager Company', type: :feature do
   end
 
   scenario 'show company' do
-    visit manager_company_path(Manager::Company.first)
+    visit manager_company_path(Company.first)
 
     expect(page).to have_text('Apple')
   end
 
   scenario 'update company' do
-    visit manager_company_path(Manager::Company.last)
-    click_link 'Edit this manager_company'
+    visit manager_company_path(Company.last)
+    click_link 'Edit this company'
 
     fill_in 'Name', with: 'Apple'
     click_button 'Atualizar Company'
@@ -31,8 +31,8 @@ RSpec.feature 'Manager Company', type: :feature do
   end
 
   scenario 'delete company' do
-    visit manager_company_path(Manager::Company.first)
-    click_button 'Destroy this manager_company'
+    visit manager_company_path(Company.first)
+    click_button 'Destroy this company'
 
     expect(page).to have_text('Company successfully destroy.')
   end

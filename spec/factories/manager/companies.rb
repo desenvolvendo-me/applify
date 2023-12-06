@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: manager_companies
+# Table name: companies
 #
 #  id          :bigint           not null, primary key
 #  description :string
@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 FactoryBot.define do
-  factory :manager_company, class: 'Manager::Company' do
+  factory :company do
     name { 'MyString' }
     description { 'MyString' }
     linkedin { 'MyString' }
