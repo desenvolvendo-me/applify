@@ -1,36 +1,21 @@
 if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
-  # # Interview tests
-  # interview_amazon = InterviewTest.create(company: 'Amazon')
-  # interview_google = InterviewTest.create(company: 'Google')
-  # interview_microsoft = InterviewTest.create(company: 'Microsoft')
-  # interview_apple = InterviewTest.create(company: 'Apple')
-  # interview_netflix = InterviewTest.create(company: 'Netflix')
-  # interview_spotify = InterviewTest.create(company: 'Spotify')
-  # interview_uber = InterviewTest.create(company: 'Uber')
-  # interview_airbnb = InterviewTest.create(company: 'Airbnb')
-  # interview_mozilla = InterviewTest.create(company: 'Mozilla')
-  #
-  #
-  # InterviewQuestion.create!(description: 'Há quantos anos a empresa está no mercado?', interview_test: interview_amazon)
-  # InterviewQuestion.create!(description: 'A empresa segue algum modelo específico de gerenciamento de projetos ou metodologia de trabalho? Como isso impacta o dia a dia dos funcionários?', interview_test: interview_amazon)
-  # InterviewQuestion.create!(description: 'Você está familiarizado com a Google Cloud Platform? Como você acha que a GCP se destaca em relação a outras soluções de nuvem?', interview_test: interview_google)
-  # InterviewQuestion.create!(description: 'Qual é a cultura organizacional da Google e como ela se reflete no ambiente de trabalho?', interview_test: interview_google)
-  # InterviewQuestion.create!(description: 'Qual é a missão da Microsoft e como ela se alinha aos seus valores pessoais e profissionais?', interview_test: interview_microsoft)
-  # InterviewQuestion.create!(description: 'Como a Microsoft aborda a diversidade e inclusão no ambiente de trabalho?', interview_test: interview_microsoft)
-  # InterviewQuestion.create!(description: 'Como você vê a inovação na Apple e como gostaria de contribuir para esse ambiente inovador?', interview_test: interview_apple)
-  # InterviewQuestion.create!(description: 'Qual é a sua opinião sobre a abordagem da Apple em termos de sustentabilidade?', interview_test: interview_apple)
-  # InterviewQuestion.create!(description: 'Como você vê a evolução da indústria do entretenimento streaming e qual papel a Netflix desempenha nesse cenário?', interview_test: interview_netflix)
-  # InterviewQuestion.create!(description: 'Qual é a estratégia da Netflix para se destacar em um mercado competitivo?', interview_test: interview_netflix)
-  # InterviewQuestion.create!(description: 'Qual é a sua opinião sobre o impacto da música digital e como o Spotify se destaca na indústria de streaming de música?', interview_test: interview_spotify)
-  # InterviewQuestion.create!(description: 'Como o Spotify lida com questões de direitos autorais na distribuição de música?', interview_test: interview_spotify)
-  # InterviewQuestion.create!(description: 'Como você enxerga a transformação digital no setor de transporte e qual papel a Uber desempenha nesse processo?', interview_test: interview_uber)
-  # InterviewQuestion.create!(description: 'Como a Uber aborda a segurança dos passageiros e motoristas?', interview_test: interview_uber)
-  # InterviewQuestion.create!(description: 'De que maneira a Airbnb revolucionou a indústria de hospedagem e como você se adaptaria a ambientes diversos como anfitrião ou hóspede?', interview_test: interview_airbnb)
-  # InterviewQuestion.create!(description: 'Como a Airbnb promove experiências autênticas para os usuários?', interview_test: interview_airbnb)
-  # InterviewQuestion.create!(description: 'Qual é a sua visão sobre a privacidade na internet e qual o papel da Mozilla na proteção dos usuários online?', interview_test: interview_mozilla)
-  # InterviewQuestion.create!(description: 'Como a Mozilla contribui para o desenvolvimento de padrões abertos na web?', interview_test: interview_mozilla)
+  # Job simulation
+  simulation_amazon = JobSimulation.create(company: 'Amazon')
+  simulation_google = JobSimulation.create(company: 'Google')
+  simulation_microsoft = JobSimulation.create(company: 'Microsoft')
+  simulation_apple = JobSimulation.create(company: 'Apple')
+
+  # Simulation Question
+  SimulationQuestion.create!(description: 'Há quantos anos a empresa está no mercado?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'A empresa segue algum modelo específico de gerenciamento de projetos ou metodologia de trabalho? Como isso impacta o dia a dia dos funcionários?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'Você está familiarizado com a Google Cloud Platform? Como você acha que a GCP se destaca em relação a outras soluções de nuvem?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Qual é a cultura organizacional da Google e como ela se reflete no ambiente de trabalho?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Qual é a missão da Microsoft e como ela se alinha aos seus valores pessoais e profissionais?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Como a Microsoft aborda a diversidade e inclusão no ambiente de trabalho?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Como você vê a inovação na Apple e como gostaria de contribuir para esse ambiente inovador?', job_simulation: simulation_apple)
+  SimulationQuestion.create!(description: 'Qual é a sua opinião sobre a abordagem da Apple em termos de sustentabilidade?', job_simulation: simulation_apple)
 
   # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
