@@ -9,7 +9,7 @@
 #
 FactoryBot.define do
   factory :job_simulation do
-    company { FFaker::Company }
+    company { FFaker::Company.name }
 
     trait :with_simulation_questions do
       after(:create) do |job_simulation, _evaluator|
