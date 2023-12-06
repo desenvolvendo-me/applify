@@ -15,7 +15,7 @@ module Manager
     private
 
     def set_job_simulation
-      @job_simulations = JobSimulation.find(params[:id])
+      @job_simulation = JobSimulation.find(params[:id])
     end
   end
 end
