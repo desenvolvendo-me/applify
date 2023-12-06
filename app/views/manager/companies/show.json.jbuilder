@@ -1,2 +1,2 @@
-json.partial! 'manager_companies/manager_company',
-              manager_company: @manager_company
+json.partial! 'manager_companies/company',
+              company: @company
