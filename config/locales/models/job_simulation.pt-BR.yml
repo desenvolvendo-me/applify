@@ -1,11 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      interview_test:
+      job_simulation:
         one: 'Simulado'
         other: 'Simulados'
     attributes:
-      interview_test:
+      job_simulation:
         company: 'Empresa'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'

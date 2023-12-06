@@ -1,12 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      interview_question:
+      simulation_question:
         one: 'Pergunta'
         other: 'Perguntas'
     attributes:
-      interview_question:
-        company: 'Empresa'
+      simulation_question:
         description: 'Descrição'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
