@@ -18,7 +18,7 @@
 #
 FactoryBot.define do
   factory :simulation_question do
-    job_simulation { nil }
-    description { "MyString" }
+    description { FFaker::Lorem.sentence }
+    association :job_simulation
   end
 end

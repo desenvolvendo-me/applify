@@ -10,5 +10,14 @@
 require 'rails_helper'
 
 RSpec.describe JobSimulation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it {
+      should have_many(:simulation_questions).dependent(:destroy)
+                                             .inverse_of(:job_simulation)
+    }
+    it {
+      should accept_nested_attributes_for(:simulation_questions)
+        .allow_destroy(true)
+    }
+  end
 end
