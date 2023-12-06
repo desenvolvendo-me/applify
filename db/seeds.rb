@@ -8,14 +8,14 @@ if Rails.env.development?
   simulation_apple = JobSimulation.create(company: 'Apple')
 
   # Simulation Question
-  SimulationQuestion.create!(description: 'Há quantos anos a empresa está no mercado?', job_simulation: simulation_amazon)
-  SimulationQuestion.create!(description: 'A empresa segue algum modelo específico de gerenciamento de projetos ou metodologia de trabalho? Como isso impacta o dia a dia dos funcionários?', job_simulation: simulation_amazon)
-  SimulationQuestion.create!(description: 'Você está familiarizado com a Google Cloud Platform? Como você acha que a GCP se destaca em relação a outras soluções de nuvem?', job_simulation: simulation_google)
-  SimulationQuestion.create!(description: 'Qual é a cultura organizacional da Google e como ela se reflete no ambiente de trabalho?', job_simulation: simulation_google)
-  SimulationQuestion.create!(description: 'Qual é a missão da Microsoft e como ela se alinha aos seus valores pessoais e profissionais?', job_simulation: simulation_microsoft)
-  SimulationQuestion.create!(description: 'Como a Microsoft aborda a diversidade e inclusão no ambiente de trabalho?', job_simulation: simulation_microsoft)
-  SimulationQuestion.create!(description: 'Como você vê a inovação na Apple e como gostaria de contribuir para esse ambiente inovador?', job_simulation: simulation_apple)
-  SimulationQuestion.create!(description: 'Qual é a sua opinião sobre a abordagem da Apple em termos de sustentabilidade?', job_simulation: simulation_apple)
+  SimulationQuestion.create!(description: 'Você possui experiência anterior na área relacionada a esta vaga?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'Possui habilidades técnicas específicas relevantes para a posição?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'Você possui a educação ou certificações necessárias para esta posição?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Possui fluência em algum idioma adicional relevante para a posição?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Já teve experiências de trabalho colaborativo bem-sucedidas no passado?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Estaria disposto(a) a se mudar para outra cidade ou país para esta posição?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Esta posição exige viagens. Você está disposto(a) a viajar conforme necessário?', job_simulation: simulation_apple)
+  SimulationQuestion.create!(description: 'Já teve experiência em startup antes?', job_simulation: simulation_apple)
 
   # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
