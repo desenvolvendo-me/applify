@@ -1,6 +1,6 @@
-ActiveAdmin.register InterviewTest do
+ActiveAdmin.register JobSimulation do
   menu parent: I18n.t('active_admin.menu.interview')
-  permit_params :company, interview_questions_attributes: %i[id description _destroy]
+  permit_params :company, simulation_questions_attributes: %i[id description _destroy]
 
   index do
     id_column
