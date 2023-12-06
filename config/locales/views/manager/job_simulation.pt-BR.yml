@@ -1,7 +1,7 @@
 pt-BR:
   views:
     manager:
-      interview_tests:
+      job_simulations:
         links:
           back: 'Voltar'
         index:
