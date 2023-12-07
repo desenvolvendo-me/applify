@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
     user_signed_in? && !creating_profile?
   }
 
+  before_action :authenticate_user!, if: lambda {
+    controller_path.start_with?('manager') && !user_signed_in?
+  }
+
   private
 
   def check_profile_completion
