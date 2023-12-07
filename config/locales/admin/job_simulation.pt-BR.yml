@@ -1,0 +1,6 @@
+pt-BR:
+  active_admin:
+    job_simulation:
+      simulation_questions: 'Perguntas'
+      attributes:
+        questions_quantity: 'Quantidade de perguntas'
