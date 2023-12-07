@@ -1,9 +1,26 @@
 if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
+  # Job simulation
+  simulation_amazon = JobSimulation.create(company: 'Amazon')
+  simulation_google = JobSimulation.create(company: 'Google')
+  simulation_microsoft = JobSimulation.create(company: 'Microsoft')
+  simulation_apple = JobSimulation.create(company: 'Apple')
+
+  # Simulation Question
+  SimulationQuestion.create!(description: 'Você possui experiência anterior na área relacionada a esta vaga?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'Possui habilidades técnicas específicas relevantes para a posição?', job_simulation: simulation_amazon)
+  SimulationQuestion.create!(description: 'Você possui a educação ou certificações necessárias para esta posição?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Possui fluência em algum idioma adicional relevante para a posição?', job_simulation: simulation_google)
+  SimulationQuestion.create!(description: 'Já teve experiências de trabalho colaborativo bem-sucedidas no passado?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Estaria disposto(a) a se mudar para outra cidade ou país para esta posição?', job_simulation: simulation_microsoft)
+  SimulationQuestion.create!(description: 'Esta posição exige viagens. Você está disposto(a) a viajar conforme necessário?', job_simulation: simulation_apple)
+  SimulationQuestion.create!(description: 'Já teve experiência em startup antes?', job_simulation: simulation_apple)
+
+  # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
                       description: 'Quero criar 10 algoritmos em até 3 meses', status: 'done')
-  Task.create(name: '1ª agoritmo', description: 'Criar o algoritmo bubble sort',
+  Task.create(name: '1ª agorítmo', description: 'Criar o algorítmo bubble sort',
               status: "done", goal: goal1)
 
   goal2 = Goal.create(name: 'Aprender Framework Rails',
@@ -13,7 +30,7 @@ if Rails.env.development?
 
   goal3 = Goal.create(name: 'Aprender Linguagem Python',
                       description: 'Quero criar 5 scripts úteis em até 2 meses', status: 'doing')
-  Task.create(name: '1º script', description: 'Criar um algoritmo de automação de tarefas',
+  Task.create(name: '1º script', description: 'Criar um algorítmo de automação de tarefas',
               status: "doing", goal: goal3)
 
   goal4 = Goal.create(name: 'Aprender Banco de Dados SQL',
