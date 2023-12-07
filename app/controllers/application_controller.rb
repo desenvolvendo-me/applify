@@ -6,11 +6,13 @@ class ApplicationController < ActionController::Base
   private
 
   def check_profile_completion
-    redirect_to new_manager_profile_path if current_user.profile.blank?
+    return if current_user.profile.present?
+
+    redirect_to complete_registration_manager_profiles_path
   end
 
   def creating_profile?
     controller_name == 'profiles' &&
-      (action_name == 'new' || action_name == 'create')
+      (action_name == 'complete_registration' || action_name == 'create')
   end
 end

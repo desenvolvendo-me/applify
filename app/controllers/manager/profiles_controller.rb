@@ -8,7 +8,7 @@ module Manager
 
     def show; end
 
-    def new
+    def complete_registration
       @profile = current_user.build_profile
     end
 
@@ -16,10 +16,10 @@ module Manager
       @profile = current_user.build_profile(profile_params)
 
       if @profile.save
-        redirect_to manager_home_url,
+        redirect_to manager_profile_url(@profile),
                     notice: 'Profile was successfully created.'
       else
-        render :new
+        render :complete_registration
       end
     end
 

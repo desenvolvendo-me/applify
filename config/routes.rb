@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
-    resources :profiles
+    resources :profiles, except: :new do
+      collection do
+        get 'complete_registration'
+      end
+    end
+
     resources :goals
     namespace :goals do
       namespace :done do
