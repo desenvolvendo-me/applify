@@ -13,7 +13,7 @@ pt-BR:
           company_name: "Empresa"
           situation: "Situação"
           title: "Candidaturas"
-          situation_not_chosen: "Nenuma situação foi escolhida"
+          situation_not_chosen: "Nenhuma situação foi escolhida"
         new_view:
           title: 'Nova Candidatura'
         edit_view:
