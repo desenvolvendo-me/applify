@@ -1,32 +1,20 @@
-<%= form_with(model: [:manager, profile], class: "contents") do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-        <% profile.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for([:manager, profile], html: { class: 'contents' }) do |f| %>
+  <%= f.error_notification %>
 
   <div class="my-5">
-    <%= form.label :email %>
-    <%= form.text_field :email, value: profile.user.email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", readonly: true %>
+    <%= f.input :email, input_html: { value: profile.user.email, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full', readonly: true } %>
   </div>
 
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= f.input :name, input_html: { class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full' } %>
   </div>
 
   <div class="my-5">
-    <%= form.label :user_type %>
-    <%= form.select :user_type, Profile.user_types.keys.map { |type| [type.capitalize, type] }, {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= f.input :user_type, collection: Profile.user_types.keys.map { |type| [type.capitalize, type] }, include_blank: false, input_html: { class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full' } %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= f.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
   </div>
+
 <% end %>
