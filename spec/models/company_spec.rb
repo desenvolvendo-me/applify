@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: manager_companies
+# Table name: companies
 #
 #  id          :bigint           not null, primary key
 #  description :string

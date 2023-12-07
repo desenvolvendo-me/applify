@@ -18,6 +18,6 @@
 #
 FactoryBot.define do
   factory :stack do
-    name { 'MyString' }
+    name { Faker::ProgrammingLanguage.name }
   end
 end
