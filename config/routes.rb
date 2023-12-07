@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
-    resources :profiles, except: :new do
+    resources :profiles, except: %i[index new] do
       collection do
         get 'complete_registration'
       end

@@ -2,10 +2,6 @@ module Manager
   class ProfilesController < InternalController
     before_action :set_profile, only: %i[show edit update destroy]
 
-    def index
-      @profiles = Profile.all
-    end
-
     def show; end
 
     def complete_registration
