@@ -1,4 +1,4 @@
-<%= simple_form_for([:manager, profile], html: { class: 'contents' }) do |f| %>
+<%= simple_form_for([:manager, profile], url: manager_profile_path, html: { class: 'contents' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="my-5">

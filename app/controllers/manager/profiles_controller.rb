@@ -12,7 +12,7 @@ module Manager
       @profile = current_user.build_profile(profile_params)
 
       if @profile.save
-        redirect_to manager_profile_url(@profile),
+        redirect_to manager_profile_url,
                     notice: t('controllers.manager.profiles.create')
       else
         render :complete_registration
@@ -23,7 +23,7 @@ module Manager
 
     def update
       if @profile.update(profile_params)
-        redirect_to manager_profile_url(@profile),
+        redirect_to manager_profile_url,
                     notice: t('controllers.manager.profiles.update')
       else
         render :edit
@@ -32,14 +32,14 @@ module Manager
 
     def destroy
       @profile.destroy
-      redirect_to manager_profiles_url,
+      redirect_to manager_home_url,
                   notice: t('controllers.manager.profiles.destroy')
     end
 
     private
 
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = current_user.profile
     end
 
     def profile_params

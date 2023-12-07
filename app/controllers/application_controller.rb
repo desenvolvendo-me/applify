@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def check_profile_completion
     return if current_user.profile.present?
 
-    redirect_to complete_registration_manager_profiles_path
+    redirect_to complete_registration_manager_profile_path
   end
 
   def creating_profile?

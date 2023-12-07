@@ -5,7 +5,7 @@
     <h1 class="font-bold text-4xl"><%= t('views.manager.profile.show_view.title') %></h1>
     <%= render @profile %>
 
-    <%= link_to t('views.manager.profile.edit'), edit_manager_profile_path, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to t('views.manager.profile.edit'), edit_manager_profile_path(@profile), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to t('views.manager.profile.delete'), manager_profile_path, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", data: { turbo_confirm: t('views.manager.profile.show_view.delete_confirm') } %>
     </div>
