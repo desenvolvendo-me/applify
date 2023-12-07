@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :candidatures
     resources :goals
+    resources :job_simulations
     namespace :goals do
       namespace :done do
         post :index
