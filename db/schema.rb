@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_29_173657) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_06_150638) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_29_173657) do
     t.datetime "finished_at"
   end
 
+  create_table "job_simulations", force: :cascade do |t|
+    t.string "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "simulation_questions", force: :cascade do |t|
+    t.bigint "job_simulation_id", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_simulation_id"], name: "index_simulation_questions_on_job_simulation_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -67,4 +81,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_29_173657) do
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
+  add_foreign_key "simulation_questions", "job_simulations"
 end
