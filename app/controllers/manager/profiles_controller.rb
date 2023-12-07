@@ -9,15 +9,14 @@ module Manager
     def show; end
 
     def new
-      @profile = current_user.profile || current_user.build_profile
+      @profile = current_user.build_profile
     end
 
     def create
-      @profile = current_user.profile ||
-                 current_user.build_profile(profile_params)
+      @profile = current_user.build_profile(profile_params)
 
       if @profile.save
-        redirect_to manager_profile_url(@profile),
+        redirect_to manager_home_url,
                     notice: 'Profile was successfully created.'
       else
         render :new
