@@ -1,23 +1,55 @@
 module Manager
-  class CandidaturesController < InheritedResources::Base
+  class CandidaturesController < InternalController
+    before_action :set_candidature, only: %i[show edit update destroy]
+
+    def index
+      @candidatures = Candidature.all
+    end
+
+    def show; end
+
+    def new
+      @candidature = Candidature.new
+    end
+
     def create
-      create!(notice: t('controllers.candidatures.create'))
-    end
+      @candidature = Candidature.new(candidature_params)
 
-    def update
-      update!(notice: t('controllers.candidatures.update'))
-    end
-
-    def destroy
-      destroy! do |format|
-        format.html do
-          redirect_to manager_candidatures_path,
-                      notice: "#{resource.company_name} #{t('controllers.candidatures.destroy')}"
-        end
+      if @candidature.save
+        redirect_to manager_candidature_path(@candidature),
+                    notice: t('controllers.candidatures.create')
+      else
+        render :new
       end
     end
 
+    def edit; end
+
+    def update
+      if @candidature.update(candidature_params)
+        redirect_to manager_candidature_path(@candidature),
+                    notice: t('controllers.candidatures.update')
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      return unless @candidature.destroy
+
+      redirect_to manager_candidatures_path,
+                  notice: "#{@candidature.company_name} #{t('controllers.candidatures.destroy')}",
+                  status: :see_other
+    end
+
     private
+
+    def set_candidature
+      @candidature = Candidature.find_by(id: params[:id])
+      return if @candidature
+
+      redirect_to manager_candidatures_path
+    end
 
     def candidature_params
       params.require(:candidature).permit(:company_name, :situation)
