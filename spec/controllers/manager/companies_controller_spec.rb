@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Manager::CompaniesController,
-               type: :controller do
+RSpec.describe Manager::CompaniesController, type: :controller do
   let(:company) { create(:company) }
   let(:valid_attributes) do
     { name: 'New name',
@@ -15,6 +14,12 @@ RSpec.describe Manager::CompaniesController,
 
   describe 'GET #index' do
     it 'returns all companies' do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'assigns @companies' do
+      company = create(:company)
       get :index
       expect(assigns(:companies)).to eq([company])
     end

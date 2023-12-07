@@ -1,7 +1,7 @@
 <%= form_with(model: @stack, url: @stack.persisted? ? manager_stack_path(@stack) : manager_stacks_path, class: "contents") do |form| %>
 
   <div class="my-5">
-    <%= form.label t('activerecord.attributes.stack.name') %>
+    <%= form.label :name %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 

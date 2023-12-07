@@ -12,8 +12,8 @@
 #
 FactoryBot.define do
   factory :company do
-    name { Faker::Company.name }
-    description { Faker::Company.catch_phrase }
+    name { FFaker::Company.name }
+    description { FFaker::Company.catch_phrase }
     linkedin { "linkedin/in/#{name}" }
     site { "www.#{name}.com.br" }
   end

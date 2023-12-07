@@ -21,19 +21,19 @@ RSpec.feature 'Manager Stack', type: :feature do
 
   scenario 'update stack' do
     visit manager_stack_path(Stack.last)
-    click_link 'Edit this manager_stack'
+    click_link 'Editar'
 
-    fill_in 'Name', with: 'Ruby'
+    fill_in 'Nome', with: 'Ruby on Rails'
     click_button 'Atualizar Stack'
 
-    expect(page).to have_text('Stack successfully updated')
-    expect(page).to have_text('Ruby')
+    expect(page).to have_text('Stack atualizada com sucesso.')
+    expect(page).to have_text('Ruby on Rails')
   end
 
   scenario 'delete stack' do
     visit manager_stack_path(Stack.first)
-    click_button 'Destroy this manager_stack'
+    click_button 'Apagar'
 
-    expect(page).to have_text('Stack successfully destroy.')
+    expect(page).to have_text('Stack apagada com sucesso.')
   end
 end

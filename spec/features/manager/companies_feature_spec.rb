@@ -2,38 +2,38 @@ require 'rails_helper'
 
 RSpec.feature 'Manager Company', type: :feature do
   before do
-    create(:stack, name: 'Apple')
-    create(:stack, name: 'Google')
+    create(:company, name: 'Amazon')
+    create(:company, name: 'Google')
   end
 
   scenario 'list companies' do
     visit manager_companies_path
 
-    expect(page).to have_text('Apple')
+    expect(page).to have_text('Amazon')
     expect(page).to have_text('Google')
   end
 
   scenario 'show company' do
     visit manager_company_path(Company.first)
 
-    expect(page).to have_text('Apple')
+    expect(page).to have_text('Amazon')
   end
 
   scenario 'update company' do
     visit manager_company_path(Company.last)
-    click_link 'Edit this company'
+    click_link 'Editar'
 
-    fill_in 'Name', with: 'Apple'
-    click_button 'Atualizar Company'
+    fill_in 'Nome', with: 'Amazon'
+    click_button 'Atualizar Empresa'
 
-    expect(page).to have_text('Company successfully updated')
-    expect(page).to have_text('Apple')
+    expect(page).to have_text('Empresa atualizada com sucesso.')
+    expect(page).to have_text('Amazon')
   end
 
   scenario 'delete company' do
     visit manager_company_path(Company.first)
-    click_button 'Destroy this company'
+    click_button 'Apagar'
 
-    expect(page).to have_text('Company successfully destroy.')
+    expect(page).to have_text('Empresa apagada com sucesso.')
   end
 end
