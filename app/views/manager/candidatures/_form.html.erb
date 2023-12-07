@@ -5,8 +5,32 @@
     </div>
     <div>
       <%= f.input :situation, collection: Candidature.situations.keys.map { |key| [t("simple_form.options.candidature.situation.#{key}"), key] }, prompt: :translate %>
-
     </div>
+    <div>
+      <%= f.input :job_position, collection: Candidature.job_positions.keys, prompt: :translate %>
+    </div>
+    <div>
+      <%= f.input :job_description, as: :text %>
+    </div>
+    <div>
+      <%= f.input :contract_type, collection: Candidature.contract_types.keys, prompt: :translate %>
+    </div>
+    <div>
+      <%= f.input :salary, as: :currency %>
+    </div>
+    <div>
+      <%= f.input :benefits %>
+    </div>
+    <div>
+      <%= f.input :contact_name %>
+    </div>
+    <div>
+      <%= f.input :contact_phone_number %>
+    </div>
+    <div>
+      <%= f.input :contact_email %>
+    </div>
+
     <div class="flex items-center">
       <%= f.button :submit, class: "cursor-pointer" %>
       <div>

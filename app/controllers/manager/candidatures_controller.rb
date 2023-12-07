@@ -52,7 +52,14 @@ module Manager
     end
 
     def candidature_params
-      params.require(:candidature).permit(:company_name, :situation)
+      params.require(:candidature).permit(:company_name,
+                                          :situation,
+                                          :job_position,
+                                          :job_description,
+                                          :location, :contract_type,
+                                          :salary, :benefits, :contact_name,
+                                          :contact_phone_number,
+                                          :contact_email)
     end
   end
 end
