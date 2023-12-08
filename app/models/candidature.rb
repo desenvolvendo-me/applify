@@ -3,13 +3,13 @@
 # Table name: candidatures
 #
 #  id                   :bigint           not null, primary key
-#  benefits             :string
+#  benefits             :text
 #  company_name         :string
 #  contact_email        :string
 #  contact_name         :string
 #  contact_phone_number :string
 #  contract_type        :string
-#  job_description      :string
+#  job_description      :text
 #  job_position         :string
 #  location             :string
 #  salary               :decimal(, )
@@ -30,6 +30,4 @@ class Candidature < ApplicationRecord
                        back_end_developer: 'back_end_developer' }
 
   enum contract_type: { CLT: 'CLT', PJ: 'PJ' }
-
-  validates :salary, numericality: { greater_than_or_equal_to: 0 }
 end

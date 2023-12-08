@@ -38,7 +38,8 @@ module Manager
       return unless @candidature.destroy
 
       redirect_to manager_candidatures_path,
-                  notice: "#{@candidature.company_name} #{t('controllers.candidatures.destroy')}",
+                  notice: "#{@candidature.company_name}
+                            #{t('controllers.candidatures.destroy')}",
                   status: :see_other
     end
 

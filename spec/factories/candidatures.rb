@@ -3,13 +3,13 @@
 # Table name: candidatures
 #
 #  id                   :bigint           not null, primary key
-#  benefits             :string
+#  benefits             :text
 #  company_name         :string
 #  contact_email        :string
 #  contact_name         :string
 #  contact_phone_number :string
 #  contract_type        :string
-#  job_description      :string
+#  job_description      :text
 #  job_position         :string
 #  location             :string
 #  salary               :decimal(, )

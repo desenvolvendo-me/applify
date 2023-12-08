@@ -16,7 +16,7 @@
       <%= f.input :contract_type, collection: Candidature.contract_types.keys, prompt: :translate %>
     </div>
     <div>
-      <%= f.input :salary, as: :currency %>
+      <%= f.input :salary, as: :decimal %>
     </div>
     <div>
       <%= f.input :benefits %>
