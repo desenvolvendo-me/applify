@@ -1,3 +1,8 @@
+# Aqui na Campus Code trabalhamos bastante com projetos Rails, então fazemos uso
+# da gem rubocop-rails
+require:
+  - rubocop-rails
+# Mude para a versão de Ruby a ser utilizada e inclua aqui outros arquivos que
 # você considera importante que o RuboCop não execute como: node_modules, etc..
 AllCops:
   TargetRubyVersion: 2.7.5
