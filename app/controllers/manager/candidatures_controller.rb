@@ -47,9 +47,6 @@ module Manager
 
     def set_candidature
       @candidature = Candidature.find_by(id: params[:id])
-      return if @candidature
-
-      redirect_to manager_candidatures_path
     end
 
     def candidature_params
