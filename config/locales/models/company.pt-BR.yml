@@ -10,7 +10,7 @@ pt-BR:
     attributes:
       company:
         name: 'Nome'
-        description: 'Decrição'
+        description: 'Descrição'
         linkedin: 'Linkedin'
         page_web: 'Página web'
         created_at: 'Criado em'

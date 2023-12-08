@@ -1,31 +1,20 @@
-<%= form_with(model: @company, url: @company.persisted? ? manager_company_path(@company) : manager_companies_path, class: "contents") do |form| %>
-
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :linkedin %>
-    <%= form.text_field :linkedin, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :site %>
-    <%= form.text_field :site, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :stack_ids %>
-    <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+<%= simple_form_for([:manager, @company], url: @company.persisted? ? manager_company_path(@company) : manager_companies_path) do |form| %>
+  <div class="flex flex-col">
+    <div class="flex">
+      <%= form.input :name, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :description, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :linkedin, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :site, placeholder: ' ' %>
+    </div>
+    <div class="flex flex-col">
+      <%= t('views.manager.company.stacks') %>
+      <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
+    </div>
   </div>
 <% end %>

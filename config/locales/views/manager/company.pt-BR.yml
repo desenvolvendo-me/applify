@@ -2,6 +2,7 @@ pt-BR:
   views:
     manager:
       company:
+        salve: 'Salvar'
         new: 'Novo'
         show: 'Mostrar'
         edit: 'Editar'
@@ -12,3 +13,6 @@ pt-BR:
           title: 'Editando empresa'
         new_view:
           title: 'Nova Empresa'
+        show_view:
+          title: 'Mostrando Empresa'
+        stacks: "Stacks"
