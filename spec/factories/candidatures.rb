@@ -23,4 +23,3 @@ FactoryBot.define do
     situation { 'sending' }
   end
 end
-
