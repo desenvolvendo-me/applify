@@ -20,6 +20,5 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  enum user_type: { student: 0, professional: 1 }
-  validates :user_type, inclusion: { in: user_types.keys }
+  enum :user_type, %i[student professional], validate: true
 end
