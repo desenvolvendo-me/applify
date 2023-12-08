@@ -3,7 +3,7 @@ ActiveAdmin.register Stack do
 
  index do
    column :name
-   column :companies do |c|
+   column :company do |c|
      c.companies.map(&:name).join(", ")
 end
  end
