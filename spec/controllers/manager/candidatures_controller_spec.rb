@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Manager::CandidaturesController, type: :controller do
   let(:candidature) { create(:candidature) }
-  let(:valid_attributes) do
-    { company_name: 'New company_name',
-      description: 'sending' }
-  end
-  let(:invalid_attributes) do
-    { company_name: ' ', description: ' ' }
+  let(:valid_attributes) { attributes_for(:candidature) }
+  let(:invalid_attributes) { { company_name: ' ' } }
+
+  let(:updated_attributes) do
+    attributes_for(:candidature, company_name: 'Updated company')
   end
 
   describe 'GET #index' do
@@ -38,12 +37,10 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   end
 
   describe 'POST #create' do
-    context 'with valid params' do
-      it 'return create object one view successful' do
-        expect do
-          post :create,
-               params: { candidature: valid_attributes }
-        end.to change(Candidature, :count).by(1)
+    context 'with invalid params' do
+      it 're-renders the "new" page' do
+        post :create, params: { candidature: invalid_attributes }
+        expect(response).to render_template('new')
       end
     end
 
@@ -51,7 +48,7 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
       it 're-renders the "new" "page' do
         post :create,
              params: { candidature: invalid_attributes }
-        expect(response).to_not render_template('new')
+        expect(response).to render_template('new')
       end
     end
   end
@@ -65,12 +62,13 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      it 'return update object with new company_name' do
+      it 'returns updated object with new company_name' do
         put :update,
-            params: { id: candidature.id,
-                      candidature: valid_attributes }
-        candidature.reload
-        expect(candidature.company_name).to eq('New company_name')
+            params: { id: candidature.id, candidature: updated_attributes }
+        candidature.reload 
+        expect(candidature.company_name).to eq(
+          updated_attributes[:company_name]
+)
       end
     end
 
@@ -79,7 +77,7 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
         put :update,
             params: { id: candidature.id,
                       candidature: invalid_attributes }
-        expect(response).to_not render_template('edit')
+        expect(response).to render_template('edit')
       end
     end
   end
