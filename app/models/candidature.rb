@@ -20,4 +20,6 @@
 class Candidature < ApplicationRecord
   enum situation: { dispatch: 'dispatch', sending: 'sending',
                     answered: 'answered' }
+
+  validates :company_name, presence: true
 end
