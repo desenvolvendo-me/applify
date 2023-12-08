@@ -8,30 +8,28 @@ pt-BR:
         done: 'Finalizar'
         back: 'Voltar'
         delete_confirm: 'Você tem certeza?'
+        add_candidature: "Adicionar Candidatura"
+        company_name: "Empresa"
+        situation: "Situação"
+        situation_not_chosen: "Nenhuma situação foi escolhida"
+        job_position: "Posição do Cargo"
+        job_position_not_chosen: "Nenhuma posição foi escolhida"
+        job_position_description: "Descrição"
+        contract_type: "Tipo de Contratação"
+        contract_not_chosen: "Nenhum tipo de contrato escolhido"
+        salary: "Salário"
+        benefits: "Benefícios"
+        contact_name: "Nome do Recrutador"
+        contact_phone_number: "Telefone do Recrutador"
+        contact_email: "Email do Recrutador"
         index:
-          add_candidature: "Adicionar Candidatura"
-          company_name: "Empresa"
-          situation: "Situação"
           title: "Candidaturas"
-          situation_not_chosen: "Nenhuma situação foi escolhida"
         new_view:
           title: 'Nova Candidatura'
         edit_view:
           title: 'Editar Candidatura'
         show_view:
           title: 'Candidatura'
-
-  simple_form:
-    options:
-      candidature:
-        situation:
-          dispatch: "Enviado"
-          sending: "Enviando"
-          answered: "Respondido"
-    labels:
-      candidature:
-        company_name: "Empresa"
-        situation: "Situação"
   helpers:
     submit:
       candidature:

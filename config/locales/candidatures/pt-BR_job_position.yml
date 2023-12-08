@@ -1,0 +1,12 @@
+pt-BR:
+  simple_form:
+    options:
+      candidature:
+        job_position:
+          junior_developer: 'Desenvolvedor Júnior'
+          senior_developer: 'Desenvolvedor Sênior'
+          technical_leader: 'Líder Técnico'
+          software_engineering: 'Engenheiro de Software'
+          full_stack_developer: 'Desenvolvedor Full Steack'
+          front_end_developer: 'Desenvolvedor Front End'
+          back_end_developer: ' Desenvolvedor Back End'

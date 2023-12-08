@@ -1,84 +1,81 @@
 <div id="<%= dom_id candidature %>">
   <div class="bg-gray-100 border p-4 rounded-lg shadow-xl">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl  grid lg:grid-cols-3 gap-8 lg:gap-16">
       <div class="flex flex-col justify-center">
 
-      <div class="flex">
-        <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.index.company_name') %>:</strong>
-        <%= candidature.company_name %>
-      </div>
+        <div class="flex">
+          <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.company_name') %>:</strong>
+          <%= candidature.company_name %>
+        </div>
 
-      <div class="flex">
-        <strong class="block font-medium mb-4 px-4"><%= t('views.manager.candidatures.index.situation') %>:</strong>
-        <% if candidature.situation.present? %>
-          <%= t("simple_form.options.candidature.situation.#{candidature.situation}") %>
-        <% else %>
-          <span><%= t('views.manager.candidatures.index.situation_not_chosen') %></span>
-        <% end %>
-      </div>
+        <div class="flex">
+          <strong class="block font-bold mb-4 px-4"><%= t('views.manager.candidatures.situation') %>:</strong>
+          <% if candidature.situation.present? %>
+            <%= t("simple_form.options.candidature.situation.#{candidature.situation}") %>
+          <% else %>
+            <span><%= t('views.manager.candidatures.situation_not_chosen') %></span>
+          <% end %>
+        </div>
 
-      <p class="flex">
-        <strong class="block font-medium mb-4 px-4">Job Position:</strong>
-        <% if candidature.job_position.present? %>
-          <%= candidature.job_position %>
-        <% else %>
-        <span>No job position made</span>
-      <% end %>
+        <p class="flex">
+          <strong class="block font-bold mb-4 px-4"><%= t('views.manager.candidatures.job_position') %>:</strong>
+          <% if candidature.job_position.present? %>
+            <%= t("simple_form.options.candidature.job_position.#{candidature.job_position}") %>
+          <% else %>
+            <span><%= t('views.manager.candidatures.job_position_not_chosen') %></span>
+          <% end %>
+        </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Job Description:</strong>
-        <span><%= candidature.job_description %></span>
-      </p>
+          <p class="flex">
+            <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.job_position_description') %>:</strong>
+            <span><%= candidature.job_description %></span>
+          </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-4 px-4">Contract Type:</strong>
-        <% if candidature.contract_type.present? %>
-          <%= candidature.contract_type %>
-        <% else %>
-        <span>No contract type</span>
-      <% end %>
+          <p class="flex">
+            <strong class="block font-bold mb-4 px-4"><%= t('views.manager.candidatures.contract_type') %>:</strong>
+            <% if candidature.contract_type.present? %>
+              <%= candidature.contract_type %>
+            <% else %>
+              <span><%= t('views.manager.candidatures.contract_not_chosen') %></span>
+            <% end %>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Salary:</strong>
-        <%= candidature.salary %>
-      </p>
+            <p class="flex">
+              <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.salary') %>:</strong>
+              <%= candidature.salary %>
+            </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Benefits:</strong>
-        <%= candidature.benefits %>
-      </p>
+            <p class="flex">
+              <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.benefits') %>:</strong>
+              <%= candidature.benefits %>
+            </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Contact Name:</strong>
-        <%= candidature.contact_name %>
-      </p>
+            <p class="flex">
+              <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.contact_name') %>:</strong>
+              <%= candidature.contact_name %>
+            </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Contact Phone Number:</strong>
-        <%= candidature.contact_phone_number %>
-      </p>
+            <p class="flex">
+              <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.contact_phone_number') %>:</strong>
+              <%= candidature.contact_phone_number %>
+            </p>
 
-      <p class="flex">
-        <strong class="block font-medium mb-2 px-4">Contact Email:</strong>
-        <%= candidature.contact_email %>
-      </p>
+            <p class="flex">
+              <strong class="block font-bold mb-2 px-4"><%= t('views.manager.candidatures.contact_email') %>:</strong>
+              <%= candidature.contact_email %>
+            </p>
+            </div>
     </div>
 
-  </div>
-
-
-
-  <% if action_name != "show" %>
-    <div class="flex flex-row">
+    <% if action_name != "show" %>
+      <div class="flex flex-row">
         <%= link_to t('views.manager.candidatures.edit'), edit_manager_candidature_path(candidature),
-                    class:"mr-2 items-center justify-center focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" %>
-        <%= link_to  manager_candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                     class:"mr-2 items-center justify-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" do %>
-         <%= t('views.manager.candidatures.delete') %>
+                    class: "mr-2 items-center justify-center focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" %>
+        <%= link_to manager_candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                    class: "mr-2 items-center justify-center focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-bold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" do %>
+          <%= t('views.manager.candidatures.delete') %>
         <% end %>
-    </div>
-  <% end %>
-
+      </div>
+    <% end %>
   </div>
 </div>
 

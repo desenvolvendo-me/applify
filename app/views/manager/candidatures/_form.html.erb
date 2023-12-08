@@ -7,7 +7,7 @@
       <%= f.input :situation, collection: Candidature.situations.keys.map { |key| [t("simple_form.options.candidature.situation.#{key}"), key] }, prompt: :translate %>
     </div>
     <div>
-      <%= f.input :job_position, collection: Candidature.job_positions.keys, prompt: :translate %>
+      <%= f.input :job_position, collection: Candidature.job_positions.keys.map { |key| [t("simple_form.options.candidature.job_position.#{key}"), key] }, prompt: :translate %>
     </div>
     <div>
       <%= f.input :job_description, as: :text %>
