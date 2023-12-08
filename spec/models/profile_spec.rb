@@ -17,10 +17,17 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-FactoryBot.define do
-  factory :profile do
-    user { nil }
-    name { FFaker::NameBR.name }
-    user_type { 1 }
+require 'rails_helper'
+
+RSpec.describe Profile, type: :model do
+  describe 'associations' do
+    it { should belong_to(:user) }
+  end
+
+  describe 'validations' do
+    it {
+      should define_enum_for(:user_type)
+        .with_values(student: 0, professional: 1)
+    }
   end
 end

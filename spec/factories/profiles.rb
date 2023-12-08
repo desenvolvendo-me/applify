@@ -17,8 +17,10 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-require 'rails_helper'
-
-RSpec.describe Manager::Profile, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+FactoryBot.define do
+  factory :profile do
+    user { nil }
+    name { FFaker::NameBR.name }
+    user_type { Profile.user_types.keys.sample }
+  end
 end
