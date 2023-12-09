@@ -30,4 +30,6 @@ class Candidature < ApplicationRecord
                        back_end_developer: 'back_end_developer' }
 
   enum contract_type: { CLT: 'CLT', PJ: 'PJ' }
+
+  validates :company_name, presence: true
 end
