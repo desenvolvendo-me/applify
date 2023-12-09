@@ -30,6 +30,33 @@ pt-BR:
           title: 'Editar Candidatura'
         show_view:
           title: 'Candidatura'
+
+  simple_form:
+    options:
+      candidature:
+        situation:
+          dispatch: "Enviado"
+          sending: "Enviando"
+          answered: "Respondido"
+        job_position:
+          junior_developer: 'Desenvolvedor Júnior'
+          senior_developer: 'Desenvolvedor Sênior'
+          technical_leader: 'Líder Técnico'
+          software_engineering: 'Engenheiro de Software'
+          full_stack_developer: 'Desenvolvedor Full Steack'
+          front_end_developer: 'Desenvolvedor Front End'
+          back_end_developer: ' Desenvolvedor Back End'
+    labels:
+      candidature:
+        company_name: "Empresa"
+        situation: "Situação"
+        job_position: "Posição do Cargo"
+        contract-type: "Tipo de Contrato"
+        salary: "Salário"
+        benefits: "Beneficios"
+        contact_name: "Nome do Recrutador"
+        contact_phone_number: "Telefone do Recrutador"
+        contact_email: "Email do Recrutador"
   helpers:
     submit:
       candidature:
