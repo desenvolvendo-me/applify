@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    resources :job_simulations
+    
     resource :profile, except: :new do
       collection do
         get 'complete_registration'
