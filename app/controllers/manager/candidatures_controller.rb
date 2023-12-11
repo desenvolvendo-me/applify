@@ -3,7 +3,11 @@ module Manager
     before_action :set_candidature, only: %i[show edit update destroy]
 
     def index
-      @candidatures = Candidature.all
+      @q = Candidature.ransack(params[:q])
+      @candidatures = @q.result(distinct: true)
+      @candidatures = @candidatures.order('created_at').page(params[:page]).per(
+        4
+      )
     end
 
     def show; end

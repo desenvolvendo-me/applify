@@ -93,4 +93,18 @@ if Rails.env.development?
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
               status: "done", goal: goal15)
 
+  #Candidatures
+
+  Candidature.create(company_name: 'Amazon',situation: 'answered')
+  Candidature.create(company_name: 'Google',situation: 'sending')
+  Candidature.create(company_name: 'Microsoft',situation: 'dispatch')
+  Candidature.create(company_name: 'Apple',situation: 'dispatch')
+  Candidature.create(company_name: 'IBM',situation: 'answered')
+  Candidature.create(company_name: 'Dell',situation: 'answered')
+  Candidature.create(company_name: 'Oracle',situation: 'sending')
+  Candidature.create(company_name: 'DXC Technology',situation: 'sending')
+  Candidature.create(company_name: 'TOTVS',situation: 'dispatch')
 end
+
+
+
