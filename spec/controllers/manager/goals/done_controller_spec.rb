@@ -13,8 +13,6 @@ RSpec.describe Manager::Goals::DoneController,
   end
 
   context 'POST #index' do
-
-
     it 'status todo to done' do
       expect do
         post :index,
