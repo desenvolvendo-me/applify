@@ -24,7 +24,7 @@ RSpec.feature 'Manager Stack', type: :feature do
     click_link 'Editar'
 
     fill_in 'Nome', with: 'Ruby on Rails'
-    click_button 'Atualizar Stack'
+    click_button I18n.t('views.manager.stack.salve')
 
     expect(page).to have_text('Stack atualizada com sucesso.')
     expect(page).to have_text('Ruby on Rails')
@@ -32,8 +32,9 @@ RSpec.feature 'Manager Stack', type: :feature do
 
   scenario 'delete stack' do
     visit manager_stack_path(Stack.first)
-    click_button 'Apagar'
+    click_link 'Apagar'
 
+    page.accept_alert I18n.t('views.manager.stack.delete_confirm')
     expect(page).to have_text('Stack apagada com sucesso.')
   end
 end

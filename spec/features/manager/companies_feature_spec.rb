@@ -24,7 +24,7 @@ RSpec.feature 'Manager Company', type: :feature do
     click_link 'Editar'
 
     fill_in 'Nome', with: 'Amazon'
-    click_button 'Atualizar Empresa'
+    click_button I18n.t('views.manager.company.salve')
 
     expect(page).to have_text('Empresa atualizada com sucesso.')
     expect(page).to have_text('Amazon')
@@ -32,8 +32,9 @@ RSpec.feature 'Manager Company', type: :feature do
 
   scenario 'delete company' do
     visit manager_company_path(Company.first)
-    click_button 'Apagar'
+    click_link I18n.t('views.manager.company.delete')
 
+    page.accept_alert I18n.t('views.manager.company.delete_confirm')
     expect(page).to have_text('Empresa apagada com sucesso.')
   end
 end
