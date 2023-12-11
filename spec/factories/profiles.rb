@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: manager_profiles
+# Table name: profiles
 #
 #  id         :bigint           not null, primary key
 #  name       :string
@@ -11,7 +11,7 @@
 #
 # Indexes
 #
-#  index_manager_profiles_on_user_id  (user_id)
+#  index_profiles_on_user_id  (user_id)
 #
 # Foreign Keys
 #

@@ -49,6 +49,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_192919) do
     t.datetime "finished_at"
   end
 
+  create_table "job_simulations", force: :cascade do |t|
+    t.string "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
@@ -56,6 +62,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_192919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "simulation_questions", force: :cascade do |t|
+    t.bigint "job_simulation_id", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_simulation_id"], name: "index_simulation_questions_on_job_simulation_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -82,4 +96,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_192919) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "simulation_questions", "job_simulations"
 end
