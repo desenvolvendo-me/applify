@@ -2,10 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Manager::Goals::DoneController,
                type: :controller do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
   let(:goal) { create(:goal) }
   let(:goals) { create_list(:goal, 3) }
 
+  before(:each) do
+    sign_in user
+  end
+
   context 'POST #index' do
+
+
     it 'status todo to done' do
       expect do
         post :index,
