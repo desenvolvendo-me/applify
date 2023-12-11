@@ -20,5 +20,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  enum :user_type, %i[student professional], validate: true
+  enum :user_type, %i[student professional]
+  validates :user_type, presence: true
 end
