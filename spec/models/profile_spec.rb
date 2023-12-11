@@ -29,5 +29,9 @@ RSpec.describe Profile, type: :model do
       should define_enum_for(:user_type)
         .with_values(student: 0, professional: 1)
     }
+
+    it { should validate_presence_of(:name) }
+
+    it { should validate_presence_of(:user_type) }
   end
 end
