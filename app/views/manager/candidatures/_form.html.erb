@@ -1,42 +1,38 @@
 <div>
   <%= simple_form_for [:manager, @candidature] do |f| %>
-    <div>
-      <%= f.input :company_name %>
-    </div>
-    <div>
-      <%= f.input :situation, collection: Candidature.situations.keys.map { |key| [t("simple_form.options.candidature.situation.#{key}"), key] }, prompt: :translate %>
-    </div>
-    <div>
-      <%= f.input :job_position, collection: Candidature.job_positions.keys.map { |key| [t("simple_form.options.candidature.job_position.#{key}"), key] }, prompt: :translate %>
-    </div>
-    <div>
-      <%= f.input :job_description, as: :text %>
-    </div>
-    <div>
-      <%= f.input :contract_type, collection: Candidature.contract_types.keys, prompt: :translate %>
-    </div>
-    <div>
-      <%= f.input :salary, as: :decimal %>
-    </div>
-    <div>
-      <%= f.input :benefits %>
-    </div>
-    <div>
-      <%= f.input :contact_name %>
-    </div>
-    <div>
-      <%= f.input :contact_phone_number %>
-    </div>
-    <div>
-      <%= f.input :contact_email %>
-    </div>
-
-    <div class="flex items-center">
-      <%= f.button :submit, class: "cursor-pointer" %>
-      <div>
-        <%= link_to t('views.manager.candidatures.back'), manager_candidatures_path,
-                    class: "mr-2 items-center justify-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
+    <div class="flex flex-col">
+      <div class="flex">
+        <%= f.input :company_name %>
+        <%= f.input :situation, as: :select, collection: Candidature.situations.keys.map{ |key| [t("enum.situations.#{key}"), key] }, selected:'send' %>
       </div>
+        <div>
+          <%= f.input :job_position, collection: Candidature.job_positions.keys.map { |key| [t("simple_form.options.candidature.job_position.#{key}"), key] }, prompt: :translate %>
+        </div>
+        <div>
+          <%= f.input :job_description, as: :text %>
+        </div>
+        <div>
+          <%= f.input :contract_type, collection: Candidature.contract_types.keys, prompt: :translate %>
+        </div>
+        <div>
+          <%= f.input :salary, as: :decimal %>
+        </div>
+        <div>
+          <%= f.input :benefits %>
+        </div>
+        <div>
+          <%= f.input :contact_name %>
+        </div>
+        <div>
+          <%= f.input :contact_phone_number %>
+        </div>
+        <div>
+          <%= f.input :contact_email %>
+        </div>
+
+    <div class="flex">
+      <%= f.button :submit, class: "cursor-pointer" %>
+    </div>
     </div>
   <% end %>
 </div>

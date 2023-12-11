@@ -4,6 +4,9 @@ module Manager
 
     def index
       @candidatures = Candidature.all
+      @candidatures = @candidatures.order('created_at').page(params[:page]).per(
+        4
+      )
     end
 
     def show; end
