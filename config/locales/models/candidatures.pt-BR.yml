@@ -11,10 +11,25 @@ pt-BR:
       candidature:
         company_name: 'Nome da Empresa'
         situation: 'Situação'
-        created_at: 'Criado em'
-        updated_at: 'Atualizado em'
+        job_position: 'Posição da vaga '
+        job_description: 'Descrição sobre a posição'
+        frame_work: 'Frame Work'
+        programming_language: 'Linguagem de Programação'
+        application_date: 'Data da aplicação'
+        presentation_letter: 'Carta de Apresentação'
+        knowledge_about_company: 'Conhecimentos sobre a empresa'
+        personal_projects: 'Projetos Pessoais'
+
   enum:
     situations:
       dispatch: 'Enviado'
       sending: 'Enviando'
       answered: 'Respondido'
+    job_positions:
+      junior_developer: 'Desenvolvedor Júnior'
+      senior_developer: 'Desenvolvedor Sênior'
+      technical_leader: 'Líder Técnico'
+      software_engineering: 'Engenheiro de Software'
+      full_stack_developer: 'Desenvolvedor Full Steack'
+      front_end_developer: 'Desenvolvedor Front End'
+      back_end_developer: 'Desenvolvedor Back End'

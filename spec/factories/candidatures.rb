@@ -2,20 +2,19 @@
 #
 # Table name: candidatures
 #
-#  id                   :bigint           not null, primary key
-#  benefits             :text
-#  company_name         :string
-#  contact_email        :string
-#  contact_name         :string
-#  contact_phone_number :string
-#  contract_type        :string
-#  job_description      :text
-#  job_position         :string
-#  location             :string
-#  salary               :decimal(, )
-#  situation            :string
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
+#  id                      :bigint           not null, primary key
+#  application_date        :date
+#  company_name            :string
+#  frame_work              :integer
+#  job_description         :text
+#  job_position            :string
+#  knowledge_about_company :text
+#  personal_projects       :string
+#  presentation_letter     :text
+#  programming_language    :integer
+#  situation               :string
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
 #
 FactoryBot.define do
   factory :candidature do

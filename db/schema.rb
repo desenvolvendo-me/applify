@@ -47,13 +47,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.datetime "updated_at", null: false
     t.string "job_position"
     t.text "job_description"
-    t.string "location"
-    t.string "contract_type"
-    t.decimal "salary"
-    t.text "benefits"
-    t.string "contact_name"
-    t.string "contact_phone_number"
-    t.string "contact_email"
+    t.integer "frame_work"
+    t.integer "programming_language"
+    t.date "application_date"
+    t.text "presentation_letter"
+    t.text "knowledge_about_company"
+    t.string "personal_projects"
   end
 
   create_table "goals", force: :cascade do |t|

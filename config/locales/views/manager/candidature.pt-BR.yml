@@ -1,15 +1,49 @@
 pt-BR:
+  views:
+    manager:
+      candidatures:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        back: 'Voltar'
+        delete_confirm: 'Você tem certeza?'
+  helpers:
+    submit:
+      candidature:
+        create: "Salvar"
+        update: "Atualizar"
+
+  manager:
+    candidatures:
+      show: 'Mostrar'
+      edit: 'Editar'
+      delete: 'Apagar'
+      done: 'Finalizar'
+      back: 'Voltar'
+      delete_confirm: 'Você tem certeza?'
+      index:
+        add_candidature: "Adicionar Candidatura"
+        company_name: "Empresa"
+        situation: "Situação"
+        title: "Candidaturas"
+        programming_language: "Linguagem de Programação"
+      new_view:
+        title: 'Nova Candidatura'
+      edit_view:
+        title: 'Editar Candidatura'
+      show_view:
+        title: 'Candidatura'
+
   activerecord:
     errors:
-      model:
+      models:
+        candidature:
+          attributes:
+            company_name:
+              blank: "Name can not be blank"
 
-    models:
-      candidature:
-        one: 'Candidatura'
-        other: 'Candidaturas'
-    attributes:
-      candidature:
-        company_name: 'Nome da Empresa'
-        situation: 'Situação'
-        created_at: 'Criado em'
-        updated_at: 'Atualizado em'
+  models:
+    candidature:
+      one: 'Candidatura'
+      other: 'Candidaturas'
+
