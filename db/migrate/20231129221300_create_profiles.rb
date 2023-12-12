@@ -1,6 +1,6 @@
-class CreateManagerProfiles < ActiveRecord::Migration[7.0]
+class CreateProfiles < ActiveRecord::Migration[7.0]
   def change
-    create_table :manager_profiles do |t|
+    create_table :profiles do |t|
       t.references :user, null: false, foreign_key: true
       t.string :name
       t.integer :user_type
