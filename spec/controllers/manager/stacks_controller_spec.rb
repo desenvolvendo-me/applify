@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Manager::StacksController,
                type: :controller do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    sign_in user
+  end
+
   let(:stack) { create(:stack) }
   let(:valid_attributes) do
     { name: 'Ruby on Rails' }

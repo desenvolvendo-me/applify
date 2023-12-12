@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+
+  devise_for :users
+
   devise_for :admin_users,
              ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -23,6 +26,12 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :stacks
     resources :companies
+    resource :profile, except: :new do
+      collection do
+        get 'complete_registration'
+      end
+    end
+
     resources :goals
     namespace :goals do
       namespace :done do

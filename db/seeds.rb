@@ -2,6 +2,10 @@ if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
 
+  user = User.create!(email: 'user@mail.com',
+                    password: '000000', password_confirmation: '000000')
+  Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
+
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')
   stack2 = Stack.create(name: 'Ruby')
@@ -112,5 +116,4 @@ if Rails.env.development?
                        description: 'Quero criar um chatbot em 1 mês', status: 'done')
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
               status: "done", goal: goal15)
-
 end
