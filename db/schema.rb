@@ -55,6 +55,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.string "personal_projects"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "linkedin"
+    t.string "site"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies_stacks", id: false, force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "stack_id", null: false
+  end
+
   create_table "goals", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -76,6 +90,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_simulation_id"], name: "index_simulation_questions_on_job_simulation_id"
+  end
+
+  create_table "stacks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
