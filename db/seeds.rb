@@ -1,6 +1,30 @@
 if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
+
+  user = User.create!(email: 'user@mail.com',
+                      password: '000000', password_confirmation: '000000')
+  Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
+
+  # Stack
+  stack1 = Stack.create(name: 'Ruby on Rails')
+  stack2 = Stack.create(name: 'Ruby')
+  stack3 = Stack.create(name: 'JavaScript')
+  stack4 = Stack.create(name: 'Python')
+
+  # Company
+  company1 = Company.create!(name: 'Amazon',
+                             description: 'Amazon comercializa produtos de todos os tipos, incluindo brinquedos, eletrônicos, vestuários e acessórios.',
+                             linkedin: 'www.linkedin.com/company/amazon',
+                             site: 'www.amazon.com.br')
+  company1.stack_ids = [stack1.id, stack3.id]
+
+  company2 = Company.create!(name: 'Google',
+                             description: 'Empresa multinacional que oferece serviços online e softwares para download.',
+                             linkedin: 'www.linkedin.com/company/google',
+                             site: 'www.google.com.br')
+  company2.stack_ids = [stack2.id, stack4.id]
+
   # Job simulation
   simulation_amazon = JobSimulation.create(company: 'Amazon')
   simulation_google = JobSimulation.create(company: 'Google')

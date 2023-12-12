@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Candidature', type: :feature do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    login_as(user)
+  end
+
   before do
     create(:candidature, company_name: 'Ruby')
     create(:candidature, company_name: 'Rails')
