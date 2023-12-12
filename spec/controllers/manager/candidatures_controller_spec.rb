@@ -74,8 +74,8 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
             params: { id: candidature.id, candidature: updated_attributes }
         candidature.reload
         expect(candidature.company_name).to eq(
-          updated_attributes[:company_name]
-        )
+                                              updated_attributes[:company_name]
+                                            )
       end
     end
 
