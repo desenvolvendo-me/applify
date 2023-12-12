@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Manager::CompaniesController, type: :controller do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    sign_in user
+  end
+
   let(:company) { create(:company) }
   let(:valid_attributes) do
     { name: 'New name',
