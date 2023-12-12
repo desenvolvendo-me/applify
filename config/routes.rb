@@ -1,6 +1,5 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
-
   mount Sidekiq::Web => '/sidekiq'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount Rswag::Ui::Engine => '/api-docs'
@@ -23,10 +22,17 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    resources :candidatures
     resources :stacks
     resources :companies
     resources :job_simulations
-    resources :candidatures
+
+    resource :profile, except: :new do
+      collection do
+        get 'complete_registration'
+      end
+    end
+
     resources :goals
     namespace :goals do
       namespace :done do
