@@ -27,6 +27,9 @@ Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
 Lint/MissingSuper:
   Enabled: false
 
