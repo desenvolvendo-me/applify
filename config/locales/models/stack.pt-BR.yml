@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    errors:
+      model:
+
+    models:
+      stack:
+        one: 'Stack'
+        other: 'Stacks'
+    attributes:
+      stack:
+        name: 'Nome'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

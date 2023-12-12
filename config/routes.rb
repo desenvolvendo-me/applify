@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    resources :stacks
+    resources :companies
     resources :job_simulations
     
     resource :profile, except: :new do
