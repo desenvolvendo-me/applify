@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Manager::CandidaturesController, type: :controller do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    sign_in user
+  end
+
   let(:candidature) { create(:candidature) }
   let(:valid_attributes) { attributes_for(:candidature) }
   let(:invalid_attributes) { { company_name: ' ' } }
@@ -67,8 +74,8 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
             params: { id: candidature.id, candidature: updated_attributes }
         candidature.reload
         expect(candidature.company_name).to eq(
-          updated_attributes[:company_name]
-        )
+                                              updated_attributes[:company_name]
+                                            )
       end
     end
 
