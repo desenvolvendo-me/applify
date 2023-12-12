@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Company', type: :feature do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    login_as(user)
+  end
+
   before do
     create(:company, name: 'Amazon')
     create(:company, name: 'Google')

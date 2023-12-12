@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Stack', type: :feature do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    login_as(user)
+  end
+
   before do
     create(:stack, name: 'Ruby')
     create(:stack, name: 'Ruby on Rails')
