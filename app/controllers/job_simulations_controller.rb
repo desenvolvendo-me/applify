@@ -9,7 +9,9 @@ class JobSimulationsController < InternalController
                                        .per(4)
   end
 
-  def show; end
+  def show
+
+  end
 
   private
 
