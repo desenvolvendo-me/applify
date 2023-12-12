@@ -1,0 +1,17 @@
+pt-BR:
+  views:
+    manager:
+      stack:
+        new: 'Novo'
+        salve: 'Salvar'
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+        back: 'Voltar'
+        edit_view:
+          title: 'Editando stack'
+        new_view:
+          title: 'Nova stack'
+        show_view:
+          title: 'Mostrando stack'

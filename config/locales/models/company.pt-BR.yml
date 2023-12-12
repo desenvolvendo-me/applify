@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    errors:
+      model:
+
+    models:
+      company:
+        one: 'Empresa'
+        other: 'Empresas'
+    attributes:
+      company:
+        name: 'Nome'
+        description: 'Descrição'
+        linkedin: 'Linkedin'
+        page_web: 'Página web'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
