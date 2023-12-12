@@ -84,6 +84,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "simulation_questions", force: :cascade do |t|
     t.bigint "job_simulation_id", null: false
     t.string "description"
@@ -109,5 +118,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "profiles", "users"
   add_foreign_key "simulation_questions", "job_simulations"
 end
