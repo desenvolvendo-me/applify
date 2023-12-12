@@ -6,7 +6,8 @@ module Manager
       @q = Candidature.ransack(params[:q])
       @candidatures = @q.result(distinct: true)
       @candidatures = @candidatures.order('created_at')
-                                   .page(params[:page]).per(4)
+                                   .page(params[:page])
+                                   .per(4)
     end
 
     def show; end
@@ -63,6 +64,5 @@ module Manager
                                           :knowledge_about_company,
                                           :personal_project)
     end
-
   end
 end
