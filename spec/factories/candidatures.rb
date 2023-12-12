@@ -18,7 +18,21 @@
 #
 FactoryBot.define do
   factory :candidature do
-    sequence(:company_name) { |n| "Rails Vacancy #{n}" }
+    company_name { FFaker::Company.name }
     situation { 'sending' }
+    job_position { 'junior_developer' }
+    frame_work { 'React' }
+    programming_language { 'Python' }
+    application_date { '10/12/2023' }
+    personal_projects { 'links' }
+    job_description do
+      'There are many variations of passages of Lorem Ipsum...'
+    end
+    presentation_letter do
+      'It is a long established fact that a reader will be...'
+    end
+    knowledge_about_company do
+      'Contrary to popular belief, Lorem Ipsum is not simply random text...'
+    end
   end
 end
