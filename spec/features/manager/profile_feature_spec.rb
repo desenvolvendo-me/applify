@@ -75,7 +75,7 @@ RSpec.feature 'Manager Profiles', type: :feature do
 
     visit manager_profile_path
 
-    click_button I18n.t('views.manager.profile.delete')
+    click_link I18n.t('views.manager.profile.delete')
 
     page.accept_alert I18n.t('views.manager.profile.show_view.delete_confirm')
     expect(page).to have_current_path(
