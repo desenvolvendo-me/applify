@@ -12,3 +12,6 @@ pt-BR:
           title: 'Editando empresa'
         new_view:
           title: 'Nova Empresa'
+        index_view:
+          filter_by: 'Filtrar'
+          stacks: 'Stacks'
