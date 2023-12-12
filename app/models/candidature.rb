@@ -32,4 +32,8 @@ class Candidature < ApplicationRecord
   enum contract_type: { CLT: 'CLT', PJ: 'PJ' }
 
   validates :company_name, presence: true
+
+  def to_s
+    company_name
+  end
 end
