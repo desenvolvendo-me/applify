@@ -3,6 +3,10 @@
 # Table name: simulation_questions
 #
 #  id                :bigint           not null, primary key
+#  answer_check      :boolean
+#  answer_link       :string
+#  answer_text       :text
+#  answer_type       :integer
 #  description       :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
