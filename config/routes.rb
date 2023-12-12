@@ -18,10 +18,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :job_simulations
+
   namespace :manager do
     resources :stacks
     resources :companies
-    resources :job_simulations
     resources :goals
     namespace :goals do
       namespace :done do
