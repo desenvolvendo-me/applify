@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+
+  devise_for :users
+
   devise_for :admin_users,
              ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -40,4 +43,3 @@ Rails.application.routes.draw do
     get '', to: 'home#index', as: :home
     get 'stimulus', to: 'home#stimulus', as: :stimulus
   end
-end

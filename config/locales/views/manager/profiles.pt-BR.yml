@@ -1,0 +1,19 @@
+pt-BR:
+  views:
+    manager:
+      profile:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+        save: 'Salvar'
+        edit_view:
+          title: 'Editando Perfil'
+        show_view:
+          title: 'Perfil'
+          user: 'Usuário'
+          name: 'Nome'
+          user_type: 'Tipo de perfil'
+          delete_confirm: 'Você tem certeza?'
+        complete_registration_view:
+          title: 'Complete o cadastro'
