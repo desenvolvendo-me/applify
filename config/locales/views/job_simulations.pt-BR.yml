@@ -1,0 +1,14 @@
+pt-BR:
+  views:
+    job_simulations:
+      links:
+        back: 'Voltar'
+        show: 'Mostrar'
+        fill_out: 'Responder'
+      index:
+        filter_by: 'Filtrar'
+      partials:
+        simulation_question:
+          choose: 'Escolha uma opção'
+        form:
+          save: 'Salvar'
