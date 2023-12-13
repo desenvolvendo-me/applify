@@ -19,9 +19,9 @@ RSpec.feature 'Manager Candidature', type: :feature do
                          programming_language: 'Python',
                          application_date: '10/12/2023',
                          personal_projects: 'links',
-                         job_description: 'There are many variations of passages of Lorem',
-                         presentation_letter: 'It is a long established fact that a reader',
-                         knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum')
+                         job_description: 'There are many variations of ',
+                         presentation_letter: 'It is a long established fact',
+                         knowledge_about_company: 'Contrary to popular belief')
   end
 
   scenario 'list candidatures' do
