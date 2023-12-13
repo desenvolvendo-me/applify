@@ -23,10 +23,8 @@
           </li>
         </ul>
         <div class="py-1">
-          <%= link_to  manager_candidature_path(candidature), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                       class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
-            <%= t('views.manager.candidatures.delete') %>
-          <% end %>
+          <%= link_to t('views.manager.candidatures.delete') , manager_candidature_path(@candidature),
+                      data: { turbo_method: :delete, turbo_confirm: t('views.manager.candidatures.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
         </div>
       <% end %>
     </div>
