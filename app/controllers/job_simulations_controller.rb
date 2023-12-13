@@ -1,5 +1,5 @@
 class JobSimulationsController < InternalController
-  before_action :set_job_simulation, only: :show
+  before_action :set_job_simulation, only: %i[show edit update]
 
   def index
     @q = JobSimulation.ransack(params[:q])
@@ -9,13 +9,33 @@ class JobSimulationsController < InternalController
                                        .per(4)
   end
 
-  def show
+  def show; end
 
+  def edit
+    @job_simulation.simulation_questions.build
   end
+
+  def update
+    if @job_simulation.update(params_permit)
+      flash[:notice] = 'Atualizado com sucesso'
+      redirect_to job_simulations_path
+    else
+      flash[:alert] = 'Erro na atualização'
+      render :edit
+    end
+  end
+
 
   private
 
   def set_job_simulation
     @job_simulation = JobSimulation.find(params[:id])
+  end
+
+  def params_permit
+    params.require(:job_simulation).permit(
+      simulation_questions_attributes: %i[id job_simulation_id answer_check
+                                          answer_text answer_link answer_file]
+    )
   end
 end

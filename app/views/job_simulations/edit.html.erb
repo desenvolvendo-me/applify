@@ -1,0 +1,23 @@
+<p>
+  <strong><%= t 'activerecord.attributes.job_simulation.company' %>:</strong>
+  <%= @job_simulation.company %>
+</p>
+<br>
+
+<h2><%= t('activerecord.models.simulation_question', count: @job_simulation.simulation_questions.count) %></h2>
+
+<%= simple_form_for(@job_simulation) do |form| %>
+  <%= form.error_notification %>
+
+  <%= form.simple_fields_for :simulation_questions do |builder| %>
+    <%= render 'simulation_question', { form: builder } %>
+  <% end %>
+  <hr>
+  <%= form.submit "Salvar" %>
+<% end %>
+
+
+
+
+<br>
+<%= link_to t('views.job_simulations.links.back'), job_simulations_path %>
