@@ -33,7 +33,12 @@ ActiveAdmin.register JobSimulation do
 
       f.has_many :simulation_questions, allow_destroy: true, heading: I18n.t('active_admin.job_simulation.simulation_questions') do |simulation_question|
         simulation_question.input :description
-        simulation_question.input :answer_type, as: :select
+
+        # TODO: Extract variable answer_type_options to helper
+        answer_type_options = SimulationQuestion.answer_types.map do |type, _|
+          [I18n.t("activerecord.attributes.simulation_question.#{type}"), type.to_s]
+        end
+        simulation_question.input :answer_type, as: :select, collection: answer_type_options
       end
     end
     f.actions

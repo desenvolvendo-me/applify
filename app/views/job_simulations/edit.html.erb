@@ -6,15 +6,7 @@
 
 <h2><%= t('activerecord.models.simulation_question', count: @job_simulation.simulation_questions.count) %></h2>
 
-<%= simple_form_for(@job_simulation) do |form| %>
-  <%= form.error_notification %>
-
-  <%= form.simple_fields_for :simulation_questions do |builder| %>
-    <%= render 'simulation_question', { form: builder } %>
-  <% end %>
-  <hr>
-  <%= form.submit "Salvar" %>
-<% end %>
+<%= render 'form', job_simulation: @job_simulation %>
 
 
 

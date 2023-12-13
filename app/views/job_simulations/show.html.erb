@@ -9,13 +9,13 @@
   <hr>
   <p><%= question.description %></p>
   <% if question.answer_type == "answer_check" %>
-    <%= "answer_check" %>
+    <%= question.answer_check %>
   <% elsif question.answer_type == "answer_text" %>
-    <%= "answer_text" %>
+    <%= question.answer_text %>
   <% elsif question.answer_type == "answer_link" %>
-    <%= "answer_link" %>
+    <%= question.answer_link %>
   <% elsif question.answer_type == "answer_file" %>
-    <%= "answer_file" %>
+    <%= question.answer_file %>
   <% end %>
   <hr>
 <% end %>

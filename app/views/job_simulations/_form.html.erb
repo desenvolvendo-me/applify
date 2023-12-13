@@ -1,0 +1,21 @@
+<%= form_with(model: job_simulation) do |form| %>
+  <% if job_simulation.errors.any? %>
+    <div>
+      <h2><%= pluralize(job_simulation.errors.count, "error") %> <%= t('views.error_message', model: @job_simulation) %>:</h2>
+      <ul>
+        <% job_simulation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= form.fields_for :simulation_questions do |builder| %>
+    <%= render 'simulation_question', form: builder %>
+  <% end %>
+
+  <hr>
+
+  <%= form.submit t('views.job_simulations.partials.form.save') %>
+<% end %>

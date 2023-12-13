@@ -1,11 +1,13 @@
 <%= form.object.description %>
 <br>
-<% if form.object.answer_type == "answer_check" %>
-  <%= form.input :answer_check, as: :select, collection: [['Sim', true], ['Não', false]], prompt: 'Escolha uma opção' %>
-<% elsif form.object.answer_type == "answer_text" %>
-  <%= form.input :answer_text, as: :text %>
-<% elsif form.object.answer_type == "answer_link" %>
-  <%= form.input :answer_link, as: :string %>
-<% elsif form.object.answer_type == "answer_file" %>
+
+<% if form.object.answer_type == 'answer_check' %>
+  <%= form.select :answer_check, [['Sim', true], ['Não', false]], {}, prompt: t('views.job_simulations.partials.simulation_question.choose') %>
+<% elsif form.object.answer_type == 'answer_text' %>
+  <%= form.text_field :answer_text %>
+<% elsif form.object.answer_type == 'answer_link' %>
+  <%= form.text_field :answer_link %>
+<% elsif form.object.answer_type == 'answer_file' %>
   <%= form.file_field :answer_file %>
 <% end %>
+<br>
