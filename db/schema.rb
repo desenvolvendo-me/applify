@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_13_152813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.text "presentation_letter"
     t.text "knowledge_about_company"
     t.string "personal_projects"
+    t.bigint "profile_id", null: false
+    t.index ["profile_id"], name: "index_candidatures_on_profile_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -130,6 +132,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidatures", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "simulation_questions", "job_simulations"
 end

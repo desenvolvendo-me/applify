@@ -19,6 +19,7 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
+  has_many :candidatures
 
   enum :user_type, %i[student professional]
 
