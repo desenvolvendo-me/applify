@@ -67,7 +67,8 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
       it 'redirects to the created candidature' do
         post :create, params: { candidature: valid_attributes }
-        expect(response).to redirect_to(manager_candidature_path(Candidature.last))
+        expect(response).to
+        redirect_to(manager_candidature_path(Candidature.last))
       end
     end
   end
