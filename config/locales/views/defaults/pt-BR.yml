@@ -1,3 +1,0 @@
-pt-BR:
-  views:
-    error_message: 'impediu esse %{model} de ser salvo'

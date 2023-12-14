@@ -1,28 +1,3 @@
-<!--<p>-->
-<!--  <strong><%#= t 'activerecord.attributes.job_simulation.company' %>:</strong>-->
-  <%#= @job_simulation.company %>
-<!--</p>-->
-<!--<br>-->
-
-<!--<h2><%#= t('activerecord.models.simulation_question', count: @job_simulation.simulation_questions.count) %></h2>-->
-<%# @job_simulation.simulation_questions.each do |question| %>
-<!--  <hr>-->
-<!--  <p><%#= question.description %></p>-->
-  <%# if question.answer_type == "answer_check" %>
-    <%#= question.answer_check %>
-  <%# elsif question.answer_type == "answer_text" %>
-    <%#= question.answer_text %>
-  <%# elsif question.answer_type == "answer_link" %>
-    <%#= question.answer_link %>
-  <%# elsif question.answer_type == "answer_file" %>
-    <%#= question.answer_file %>
-  <%# end %>
-<!--  <hr>-->
-<%# end %>
-
-<!--<br>-->
-<%#= link_to t('views.defaults.links.back'), job_simulations_path %>
-
 <div class="relative">
   <div class="flex justify-between items-center mb-4">
     <h1 class="font-bold text-4xl">Detalhando checklist para candidatura na empresa <%= @job_simulation.company %></h1>

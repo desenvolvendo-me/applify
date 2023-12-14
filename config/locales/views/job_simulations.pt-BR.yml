@@ -1,14 +1,18 @@
 pt-BR:
-  views:
-    job_simulations:
-      links:
-        back: 'Voltar'
-        show: 'Mostrar'
-        fill_out: 'Responder'
-      index:
-        filter_by: 'Filtrar'
-      partials:
-        simulation_question:
-          choose: 'Escolha uma opção'
-        form:
-          save: 'Salvar'
+  job_simulations:
+    index:
+      filter_by: 'Filtrar'
+      questions_quantity: 'Quantidade de perguntas'
+      company: 'Empresa'
+      search: 'Pesquisar'
+    edit:
+      title: 'Checklist da candidatura na empresa'
+      save: 'Salvar'
+    partials:
+      _form:
+        title: 'Perguntas'
+    _simulation_question_fields:
+      choose: 'Escolha uma opção'
+      yes: 'Sim'
+      no: 'Não'
+
