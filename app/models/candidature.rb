@@ -22,6 +22,7 @@ class Candidature < ApplicationRecord
 
   enum job_position: { junior_developer: 'junior_developer',
                        senior_developer: 'senior_developer',
+                       full_developer: 'full_developer',
                        technical_leader: 'technical_leader',
                        software_engineering: 'software_engineering',
                        full_stack_developer: 'full_stack_developer',
