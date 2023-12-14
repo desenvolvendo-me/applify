@@ -5,34 +5,26 @@ pt-BR:
         show: 'Mostrar'
         edit: 'Editar'
         delete: 'Apagar'
+        done: 'Finalizar'
         back: 'Voltar'
         delete_confirm: 'Você tem certeza?'
+        index:
+          add_candidature: "Adicionar Candidatura"
+          company_name: "Empresa"
+          situation: "Situação"
+          title: "Candidaturas"
+          programming_language: "Linguagem de Programação"
+        new_view:
+          title: 'Nova Candidatura'
+        edit_view:
+          title: 'Editar Candidatura'
+        show_view:
+          title: 'Candidatura'
   helpers:
     submit:
       candidature:
         create: "Salvar"
         update: "Atualizar"
-
-  manager:
-    candidatures:
-      show: 'Mostrar'
-      edit: 'Editar'
-      delete: 'Apagar'
-      done: 'Finalizar'
-      back: 'Voltar'
-      delete_confirm: 'Você tem certeza?'
-      index:
-        add_candidature: "Adicionar Candidatura"
-        company_name: "Empresa"
-        situation: "Situação"
-        title: "Candidaturas"
-        programming_language: "Linguagem de Programação"
-      new_view:
-        title: 'Nova Candidatura'
-      edit_view:
-        title: 'Editar Candidatura'
-      show_view:
-        title: 'Candidatura'
 
   activerecord:
     errors:
@@ -40,7 +32,7 @@ pt-BR:
         candidature:
           attributes:
             company_name:
-              blank: "Name can not be blank"
+              blank: "Empresa não pode ficar em branco"
 
   models:
     candidature:
