@@ -1,8 +1,5 @@
 pt-BR:
   activerecord:
-    errors:
-      model:
-
     models:
       candidature:
         one: 'Candidatura'
