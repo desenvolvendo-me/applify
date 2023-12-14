@@ -11,10 +11,10 @@
       <% if action_name != "show" %>
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="<%= job_simulation.id %>-dropdown-button">
           <li>
-            <%= link_to t('views.job_simulations.links.show'), job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('views.defaults.links.show'), job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
           <li>
-            <%= link_to t('views.job_simulations.links.fill_out'), edit_job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('views.defaults.links.fill_out'), edit_job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
       <% end %>
