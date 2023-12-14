@@ -27,7 +27,8 @@
 #
 FactoryBot.define do
   factory :candidature do
-    company_name { FFaker::Company.name }
+    association :profile
+    company_name { 'Amazon' }
     situation { 'sending' }
     job_position { 'junior_developer' }
     frame_work { 'React' }
