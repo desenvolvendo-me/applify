@@ -1,0 +1,7 @@
+pt-BR:
+  helpers:
+    job_simulation:
+      private:
+        file_loaded:
+          success: 'Arquivo enviado.'
+          failure: 'Nenhum arquivo enviado'

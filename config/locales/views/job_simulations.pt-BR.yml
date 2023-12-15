@@ -8,11 +8,13 @@ pt-BR:
     edit:
       title: 'Checklist da candidatura na empresa'
       save: 'Salvar'
+    show:
+      title: 'Checklist para candidatura na empresa'
+      questions: 'Perguntas'
     partials:
       _form:
         title: 'Perguntas'
     _simulation_question_fields:
       choose: 'Escolha uma opção'
-      yes: 'Sim'
-      no: 'Não'
-
+      check_yes: 'Sim'
+      check_no: 'Não'
