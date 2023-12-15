@@ -2,11 +2,11 @@ module JobSimulationHelper
   def display_answer(question)
     case question.answer_type
     when 'answer_check'
-      question.answer_check
+      answer_check(question)
     when 'answer_text'
       question.answer_text
     when 'answer_link'
-      question.answer_link
+      link_to question.answer_link, question.answer_link, target: '_blank'
     when 'answer_file'
       file_loaded(question)
     end
@@ -43,5 +43,9 @@ module JobSimulationHelper
 
   def file_loaded(question)
     question.answer_file ? I18n.t('helpers.job_simulation.private.file_loaded.success') : I18n.t('helpers.job_simulation.private.file_loaded.failure')
+  end
+
+  def answer_check(question)
+    question.answer_check ? I18n.t('helpers.job_simulation.private.answer_check.check_yes') : I18n.t('helpers.job_simulation.private.answer_check.check_no')
   end
 end
