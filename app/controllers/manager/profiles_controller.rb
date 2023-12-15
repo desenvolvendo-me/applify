@@ -47,7 +47,8 @@ module Manager
         :user_id,
         :name,
         :user_type,
-        :profile_picture
+        :profile_picture,
+        :bio
       )
     end
   end

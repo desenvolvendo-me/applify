@@ -24,4 +24,8 @@
       <%= form.input :user_type, collection: Profile.user_types.keys.map { |type| [I18n.t("enum.statuses.#{type}").capitalize, type] }, include_blank: false %>
     </div>
   </div>
+
+  <div class="flex w-full">
+    <%= form.input :bio, placeholder: '', as: :text, input_html: { rows: '3' } %>
+  </div>
 <% end %>

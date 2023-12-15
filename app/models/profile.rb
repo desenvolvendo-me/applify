@@ -3,6 +3,7 @@
 # Table name: profiles
 #
 #  id         :bigint           not null, primary key
+#  bio        :text
 #  name       :string
 #  user_type  :integer
 #  created_at :datetime         not null
