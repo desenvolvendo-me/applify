@@ -10,6 +10,5 @@
 class JobSimulation < ApplicationRecord
   has_many :simulation_questions, dependent: :destroy,
                                   inverse_of: :job_simulation
-  accepts_nested_attributes_for :simulation_questions, allow_destroy: true,
-                                                       reject_if: :all_blank
+  accepts_nested_attributes_for :simulation_questions, reject_if: :all_blank
 end
