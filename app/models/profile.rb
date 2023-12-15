@@ -20,6 +20,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
+  has_one_attached :profile_picture
+
   enum :user_type, %i[student professional]
 
   validates :user_type, :name, presence: true

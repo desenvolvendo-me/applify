@@ -43,7 +43,12 @@ module Manager
     end
 
     def profile_params
-      params.require(:profile).permit(:user_id, :name, :user_type)
+      params.require(:profile).permit(
+        :user_id,
+        :name,
+        :user_type,
+        :profile_picture
+      )
     end
   end
 end
