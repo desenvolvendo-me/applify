@@ -2,7 +2,10 @@ module Manager
   class CompaniesController < InternalController
     before_action :set_company, only: %i[show edit update destroy]
     def index
-      @companies = Company.all
+      @q = Company.ransack(params[:q])
+      @companies = @q.result(distinct: true)
+      @companies = @companies.order('created_at').page(params[:page]).per(4)
+      @stacks = Stack.all
     end
 
     def show; end
