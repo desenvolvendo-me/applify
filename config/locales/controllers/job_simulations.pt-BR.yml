@@ -1,0 +1,5 @@
+pt-BR:
+  job_simulations:
+    update:
+      success: 'Atualizado com sucesso'
+      failure: 'Erro na atualização'

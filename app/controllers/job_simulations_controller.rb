@@ -17,10 +17,10 @@ class JobSimulationsController < InternalController
 
   def update
     if @job_simulation.update(params_permit)
-      flash[:notice] = 'Atualizado com sucesso'
+      flash[:notice] = t '.success'
       redirect_to job_simulations_path
     else
-      flash[:alert] = 'Erro na atualização'
+      flash[:alert] = t '.failure'
       render :edit
     end
   end
