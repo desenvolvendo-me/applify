@@ -23,6 +23,9 @@ class Profile < ApplicationRecord
 
   has_one_attached :profile_picture
 
+  has_many :profile_skills, dependent: :destroy
+  has_many :skills, through: :profile_skills
+
   enum :user_type, %i[student professional]
 
   validates :user_type, :name, presence: true
