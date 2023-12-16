@@ -19,7 +19,7 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :candidatures
+  has_many :candidatures, dependent: :destroy
 
   enum :user_type, %i[student professional]
 
