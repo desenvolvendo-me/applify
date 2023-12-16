@@ -58,7 +58,7 @@ module Manager
 
       return if @candidature
 
-      flash[:alert] = 'Candidature not found.'
+      flash[:alert] = t('controllers.candidatures.not_found')
       redirect_to manager_candidatures_path
     end
 
