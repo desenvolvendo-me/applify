@@ -1,0 +1,10 @@
+<div class="flex flex-col">
+  <div class="relative z-0 mb-6 group mt-4">
+    <div readonly="readonly" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text"><%= skill.name %></div>
+    <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><%= Skill.human_attribute_name("name") %></label>
+
+    <div class="flex justify-end">
+      <%= link_to 'Remover', remove_skill_manager_profile_path(skill), data: { turbo_method: :delete, turbo_confirm: t('views.manager.profile.show_view.delete_confirm') }, class: 'mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 cursor-pointer' %>
+    </div>
+  </div>
+</div>
