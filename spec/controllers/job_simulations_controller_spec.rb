@@ -74,8 +74,7 @@ RSpec.describe JobSimulationsController, type: :controller do
     it 'builds a new simulation question' do
       get :edit, params: { id: job_simulation.id }
       expect(assigns(:job_simulation).simulation_questions.size).to eq(1)
-      expect(assigns(:job_simulation).simulation_questions.first).to
-      be_new_record
+      expect(assigns(:job_simulation).simulation_questions.first).to be_new_record
     end
   end
 
@@ -161,8 +160,7 @@ RSpec.describe JobSimulationsController, type: :controller do
           }
         }
         simulation_question_file.reload
-        expect(simulation_question_file.answer_file.download).to
-        eq('arquivo de teste do active storage')
+        expect(simulation_question_file.answer_file.download).to eq('arquivo de teste do active storage')
       end
     end
   end
