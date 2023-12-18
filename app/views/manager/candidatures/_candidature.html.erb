@@ -3,6 +3,8 @@
     <input type="checkbox" id="<%= convert_to_id(candidature) %>-checkbox" data-goals--index-target="checkbox" value="<%= candidature.id %>">
   </td>
   <td class="px-4 py-3"> <%= candidature.company_name %></td>
+  <td class="px-4 py-3"> <%= candidature.frame_work %></td>
+  <td class="px-4 py-3"> <%= candidature.programming_language %></td>
   <td class="px-4 py-3"> <%= I18n.t("enum.situations.#{candidature.situation}") %></td>
   <td class="px-4 py-3 flex items-center justify-end">
     <button id="<%= convert_to_id(candidature) %>-dropdown-button" data-dropdown-toggle="<%= convert_to_id(candidature) %>-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
@@ -28,6 +30,3 @@
     </div>
   </td>
 </tr>
-
-
-

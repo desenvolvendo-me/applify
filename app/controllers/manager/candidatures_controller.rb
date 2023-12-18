@@ -3,10 +3,11 @@ module Manager
     before_action :set_candidature, only: %i[show edit update destroy]
 
     def index
-      @candidatures = Candidature.all
-      @candidatures = @candidatures.order('created_at').page(params[:page]).per(
-        4
-      )
+      @q = Candidature.ransack(params[:q])
+      @candidatures = @q.result(distinct: true)
+      @candidatures = @candidatures.order('created_at')
+                                   .page(params[:page])
+                                   .per(4)
     end
 
     def show; end
@@ -42,7 +43,7 @@ module Manager
 
       redirect_to manager_candidatures_path,
                   notice: "#{@candidature.company_name}
-                  #{t('controllers.candidatures.destroy')}",
+                            #{t('controllers.candidatures.destroy')}",
                   status: :see_other
     end
 
@@ -53,7 +54,17 @@ module Manager
     end
 
     def candidature_params
-      params.require(:candidature).permit(:company_name, :situation)
+      params.require(:candidature).permit(:company_name,
+                                          :situation,
+                                          :job_position,
+                                          :job_description,
+                                          :personal_projects,
+                                          :frame_work,
+                                          :programming_language,
+                                          :application_date,
+                                          :presentation_letter,
+                                          :knowledge_about_company,
+                                          :personal_project)
     end
   end
 end

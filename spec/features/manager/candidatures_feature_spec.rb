@@ -9,21 +9,38 @@ RSpec.feature 'Manager Candidature', type: :feature do
   end
 
   before do
-    create(:candidature, company_name: 'Ruby')
-    create(:candidature, company_name: 'Rails')
+    create(:candidature,
+           company_name: 'Amazon',
+           situation: 'answered',
+           job_position: 'junior_developer',
+           frame_work: 'React',
+           programming_language: 'Python',
+           application_date: '10/12/2023',
+           personal_projects: 'links',
+           job_description: 'There are many variations of passages of Lorem',
+           presentation_letter: 'It is a long established fact that a reader',
+           knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum')
   end
 
   scenario 'list candidatures' do
     visit manager_candidatures_path
 
-    expect(page).to have_text('Ruby')
-    expect(page).to have_text('Rails')
+    expect(page).to have_text('Amazon')
+    expect(page).to have_text('React')
+    expect(page).to have_text('Python')
+    expect(page).to have_text('Respondido')
   end
 
   scenario 'show candidature' do
     visit manager_candidature_path(Candidature.first)
 
-    expect(page).to have_text('Ruby')
+    expect(page).to have_text('Amazon')
+    expect(page).to have_text('React')
+    expect(page).to have_text('Python')
+    expect(page).to have_text('Respondido')
+    expect(page).to have_text('There are many variations of passages of Lorem')
+    expect(page).to have_text('It is a long established fact that a reader')
+    expect(page).to have_text('Contrary to popular belief, Lorem Ipsum')
   end
 
   scenario 'update candidature' do

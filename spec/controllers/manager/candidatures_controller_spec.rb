@@ -13,7 +13,16 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   let(:invalid_attributes) { { company_name: ' ' } }
 
   let(:updated_attributes) do
-    attributes_for(:candidature, company_name: 'Updated company')
+    attributes_for(:candidature,
+                   company_name: 'Updated company',
+                   job_position: 'Updated position',
+                   framework: 'Updated framework',
+                   programming_language: 'Updated language',
+                   application_date: '12/12/2023',
+                   personal_projects: 'Updated projects',
+                   job_description: 'Updated description',
+                   presentation_letter: 'Updated letter',
+                   knowledge_about_company: 'Updated knowledge')
   end
 
   describe 'GET #index' do
@@ -69,13 +78,12 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      it 'returns updated object with new company_name' do
+      it 'returns updated object with new attributes' do
         put :update,
-            params: { id: candidature.id, candidature: updated_attributes }
+            params: { id: candidature.id,
+                      candidature: { job_position: 'junior_developer' } }
         candidature.reload
-        expect(candidature.company_name).to eq(
-          updated_attributes[:company_name]
-        )
+        expect(candidature.job_position).to eq('junior_developer')
       end
     end
 
