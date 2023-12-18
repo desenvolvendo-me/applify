@@ -6,7 +6,8 @@ module JobSimulationHelper
     when 'answer_text'
       question.answer_text
     when 'answer_link'
-      link_to question.answer_link, question.answer_link, target: '_blank'
+      link_to question.answer_link, question.answer_link, target: '_blank',
+                                                          rel: 'noopener'
     when 'answer_file'
       file_loaded(question)
     end
@@ -29,7 +30,20 @@ module JobSimulationHelper
 
   def render_check_field(form)
     form.select :answer_check,
-                [[I18n.t('job_simulations._simulation_question_fields.choose'), nil], [I18n.t('job_simulations._simulation_question_fields.check_yes'), true], [I18n.t('job_simulations._simulation_question_fields.check_no'), false]], {}, class: 'w-1/2 py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer'
+                [[t('job_simulations._simulation_question_fields.choose'),
+                  nil],
+                 [
+                   t('job_simulations._simulation_question_fields.check_yes'),
+                   true
+                 ],
+                 [
+                   t('job_simulations._simulation_question_fields.check_no'),
+                   false
+                 ]], {},
+                class: 'w-1/2 py-2.5 px-0 text-sm text-gray-500 bg-transparent
+        border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400
+    dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200
+                  peer'
   end
 
   def render_text_field(form)
@@ -42,7 +56,7 @@ module JobSimulationHelper
   end
 
   def file_loaded(question)
-    question.answer_file ? I18n.t('helpers.job_simulation.private.file_loaded.success') : I18n.t('helpers.job_simulation.private.file_loaded.failure')
+    question.answer_file ? t('helpers.job_simulation.private.file_loaded.success') : t('helpers.job_simulation.private.file_loaded.failure')
   end
 
   def answer_check(question)

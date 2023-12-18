@@ -2,14 +2,21 @@ require 'rails_helper'
 
 RSpec.feature 'Job Simulations', type: :feature do
   let(:job_simulation_google) { create(:job_simulation, company: 'Google') }
-  let(:job_simulation_microsoft) { create(:job_simulation, company: 'Microsoft') }
+  let(:job_simulation_microsoft) do
+    create(:job_simulation, company: 'Microsoft')
+  end
 
   before do
-    create(:simulation_question, job_simulation: job_simulation_google, answer_type: 0)
-    create(:simulation_question, job_simulation: job_simulation_google, answer_type: 1)
-    create(:simulation_question, job_simulation: job_simulation_google, answer_type: 2)
-    create(:simulation_question, job_simulation: job_simulation_google, answer_type: 3)
-    create(:simulation_question, job_simulation: job_simulation_microsoft, answer_type: 1, answer_text: 'Pergunta')
+    create(:simulation_question, job_simulation: job_simulation_google,
+                                 answer_type: 0)
+    create(:simulation_question, job_simulation: job_simulation_google,
+                                 answer_type: 1)
+    create(:simulation_question, job_simulation: job_simulation_google,
+                                 answer_type: 2)
+    create(:simulation_question, job_simulation: job_simulation_google,
+                                 answer_type: 3)
+    create(:simulation_question, job_simulation: job_simulation_microsoft,
+                                 answer_type: 1, answer_text: 'Pergunta')
   end
 
   scenario '#INDEX', 'list job_simulations' do
@@ -34,39 +41,22 @@ RSpec.feature 'Job Simulations', type: :feature do
     expect(page).to have_text(I18n.t('job_simulations.partials._form.title'))
   end
 
-  scenario 'edit select from job_simulation' do
+  scenario 'edit each kind of input from job_simulation' do
     visit edit_job_simulation_path(job_simulation_google)
 
-    select('Sim', from: 'job_simulation[simulation_questions_attributes][0][answer_check]')
-    click_on 'Salvar'
+    select(I18n.t('job_simulations._simulation_question_fields.check_yes'),
+           from: 'job_simulation[simulation_questions_attributes][0][answer_check]')
+    fill_in('job_simulation[simulation_questions_attributes][1][answer_text]',
+            with: 'Possuo fluência em Inglês')
+    fill_in('job_simulation[simulation_questions_attributes][2][answer_link]',
+            with: 'https://google.com.br')
+    attach_file(
+      'job_simulation[simulation_questions_attributes][3][answer_file]',
+      Rails.root.join('spec/fixtures/files/arquivo_exemplo.txt'), visible: false
+    )
 
-    expect(page).to have_text('Check list atualizado com sucesso')
-  end
+    click_on I18n.t 'job_simulations.edit.save'
 
-  scenario 'edit text input from job_simulation' do
-    visit edit_job_simulation_path(job_simulation_google)
-
-    fill_in('job_simulation[simulation_questions_attributes][1][answer_text]', with: 'Possuo fluência em Inglês')
-    click_on 'Salvar'
-
-    expect(page).to have_text('Check list atualizado com sucesso')
-  end
-
-  scenario 'edit link input from job_simulation' do
-    visit edit_job_simulation_path(job_simulation_google)
-
-    fill_in('job_simulation[simulation_questions_attributes][2][answer_link]', with: 'https://google.com.br')
-    click_on 'Salvar'
-
-    expect(page).to have_text('Check list atualizado com sucesso')
-  end
-
-  scenario 'edit file input from job_simulation' do
-    visit edit_job_simulation_path(job_simulation_google)
-
-    attach_file('job_simulation[simulation_questions_attributes][3][answer_file]', Rails.root.join('spec/fixtures/files/arquivo_exemplo.txt'), visible: false)
-    click_on 'Salvar'
-
-    expect(page).to have_text('Check list atualizado com sucesso')
+    expect(page).to have_text(I18n.t('job_simulations.update.success'))
   end
 end

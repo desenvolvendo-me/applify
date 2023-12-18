@@ -25,7 +25,6 @@ class JobSimulationsController < InternalController
     end
   end
 
-
   private
 
   def set_job_simulation

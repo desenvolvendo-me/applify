@@ -74,16 +74,33 @@ RSpec.describe JobSimulationsController, type: :controller do
     it 'builds a new simulation question' do
       get :edit, params: { id: job_simulation.id }
       expect(assigns(:job_simulation).simulation_questions.size).to eq(1)
-      expect(assigns(:job_simulation).simulation_questions.first).to be_new_record
+      expect(assigns(:job_simulation).simulation_questions.first).to
+      be_new_record
     end
   end
 
   describe 'PATCH #update' do
     let(:job_simulation) { create(:job_simulation) }
-    let(:simulation_question_check) { create(:simulation_question, job_simulation: job_simulation, description: 'Você possui experiência?', answer_type: 0) }
-    let(:simulation_question_text) { create(:simulation_question, job_simulation: job_simulation, description: 'Possui fluência em qual idioma adicional?', answer_type: 1) }
-    let(:simulation_question_link) { create(:simulation_question, job_simulation: job_simulation, description: 'Você possui experiência?', answer_type: 2) }
-    let(:simulation_question_file) { create(:simulation_question, job_simulation: job_simulation, description: 'Você possui experiência?', answer_type: 3) }
+    let(:simulation_question_check) do
+      create(:simulation_question, job_simulation: job_simulation,
+                                   description: 'Você possui experiência?',
+                                   answer_type: 0)
+    end
+    let(:simulation_question_text) do
+      create(:simulation_question, job_simulation: job_simulation,
+                                   description: 'Possui fluência em qual idioma additional?',
+                                   answer_type: 1)
+    end
+    let(:simulation_question_link) do
+      create(:simulation_question, job_simulation: job_simulation,
+                                   description: 'Você possui experiência?',
+                                   answer_type: 2)
+    end
+    let(:simulation_question_file) do
+      create(:simulation_question, job_simulation: job_simulation,
+                                   description: 'Você possui experiência?',
+                                   answer_type: 3)
+    end
 
     context 'with answer_type check' do
       it 'updates the job simulation with valid answer_check parameters' do
@@ -131,19 +148,21 @@ RSpec.describe JobSimulationsController, type: :controller do
     end
 
     context 'with answer_type file' do
-      file_path = Rails.root.join('spec', 'fixtures', 'files', 'arquivo_exemplo.txt')
+      file_path = Rails.root.join('spec/fixtures/files/arquivo_exemplo.txt')
 
       it 'updates the job simulation with valid answer_file parameters' do
         patch :update, params: {
           id: job_simulation.id,
           job_simulation: {
             simulation_questions_attributes: [
-              { id: simulation_question_file.id, answer_file: fixture_file_upload(file_path, 'text/plain') }
+              { id: simulation_question_file.id,
+                answer_file: fixture_file_upload(file_path, 'text/plain') }
             ]
           }
         }
         simulation_question_file.reload
-        expect(simulation_question_file.answer_file.download).to eq('arquivo de teste do active storage')
+        expect(simulation_question_file.answer_file.download).to
+        eq('arquivo de teste do active storage')
       end
     end
   end

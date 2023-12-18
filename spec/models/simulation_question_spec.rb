@@ -29,8 +29,11 @@ RSpec.describe SimulationQuestion, type: :model do
 
   describe 'validations' do
     it {
- should define_enum_for(:answer_type).with_values(answer_check: 0, 
-                                                  answer_text: 1, answer_link: 2, answer_file: 3) }
+      should define_enum_for(:answer_type).with_values(answer_check: 0,
+                                                       answer_text: 1,
+                                                       answer_link: 2,
+                                                       answer_file: 3)
+    }
   end
 
   describe 'file attachment' do
@@ -39,7 +42,8 @@ RSpec.describe SimulationQuestion, type: :model do
       file_path = Rails.root.join('spec/fixtures/files/arquivo_exemplo.txt')
 
       question.answer_file.attach(io: File.open(file_path),
-                                  filename: 'arquivo_exemplo.txt', content_type: 'text/plain')
+                                  filename: 'arquivo_exemplo.txt',
+                                  content_type: 'text/plain')
 
       expect(question.answer_file).to be_attached
     end
