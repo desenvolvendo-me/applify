@@ -66,6 +66,8 @@ module Manager
       params.require(:candidature).permit(:company_name,
                                           :situation,
                                           :job_position,
+                                          :job_description,
+                                          :personal_projects,
                                           :frame_work,
                                           :programming_language,
                                           :application_date,

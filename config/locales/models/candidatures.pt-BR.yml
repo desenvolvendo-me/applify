@@ -1,8 +1,5 @@
 pt-BR:
   activerecord:
-    errors:
-      model:
-
     models:
       candidature:
         one: 'Candidatura'
@@ -11,7 +8,7 @@ pt-BR:
       candidature:
         company_name: 'Nome da Empresa'
         situation: 'Situação'
-        job_position: 'Posição da vaga '
+        job_position: 'Posição da vaga'
         job_description: 'Descrição sobre a posição'
         frame_work: 'Frame Work'
         programming_language: 'Linguagem de Programação'
@@ -28,8 +25,9 @@ pt-BR:
     job_positions:
       junior_developer: 'Desenvolvedor Júnior'
       senior_developer: 'Desenvolvedor Sênior'
+      full_developer: 'Desenvolvedor Pleno'
       technical_leader: 'Líder Técnico'
       software_engineering: 'Engenheiro de Software'
-      full_stack_developer: 'Desenvolvedor Full Steack'
+      full_stack_developer: 'Full Steack'
       front_end_developer: 'Desenvolvedor Front End'
       back_end_developer: 'Desenvolvedor Back End'
