@@ -117,7 +117,6 @@ if Rails.env.development?
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
               status: "done", goal: goal15)
 
-
   #Candidatures
   Candidature.create(company_name: 'Amazon',situation: 'answered', job_position:'junior_developer', frame_work: 'React',
                      programming_language: 'Python', application_date: '10/12/2023',
@@ -181,5 +180,7 @@ if Rails.env.development?
                      job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
                      presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
                      knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
 end
+
+
+
