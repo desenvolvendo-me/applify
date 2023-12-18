@@ -1,20 +1,28 @@
 <%= simple_form_for([:manager, @company], url: @company.persisted? ? manager_company_path(@company) : manager_companies_path) do |form| %>
-  <div class="flex flex-col">
-    <div class="flex">
-      <%= form.input :name, placeholder: ' ' %>
+
+  <div class="flex justify-between items-start">
+    <div class="w-1/2">
+      <div class="flex flex-col">
+        <div class="flex">
+          <%= form.input :name, placeholder: ' ' %>
+        </div>
+        <div class="flex">
+          <%= form.input :description, placeholder: ' ' %>
+        </div>
+        <div class="flex">
+          <%= form.input :linkedin, placeholder: ' ' %>
+        </div>
+        <div class="flex">
+          <%= form.input :site, placeholder: ' ' %>
+        </div>
+        <div class="flex flex-col">
+          <%= t 'views.manager.company.index_view.stacks' %>
+          <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
+        </div>
+      </div>
     </div>
-    <div class="flex">
-      <%= form.input :description, placeholder: ' ' %>
-    </div>
-    <div class="flex">
-      <%= form.input :linkedin, placeholder: ' ' %>
-    </div>
-    <div class="flex">
-      <%= form.input :site, placeholder: ' ' %>
-    </div>
-    <div class="flex flex-col">
-      <%= t('views.manager.company.stacks') %>
-      <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
+    <div class="w-1/2">
+      <%= render "manager/companies/accord" %>
     </div>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 module Manager
   class CompaniesController < InternalController
+    before_action :set_accord, only: %i[new edit update]
     before_action :set_company, only: %i[show edit update destroy]
     def index
       @q = Company.ransack(params[:q])
@@ -50,6 +51,10 @@ module Manager
     def company_params
       params.require(:company)
             .permit(:name, :description, :linkedin, :site, stack_ids: [])
+    end
+
+    def set_accord
+      @accord = Accord.first
     end
   end
 end

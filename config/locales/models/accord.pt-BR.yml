@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    errors:
+      model:
+
+    models:
+      accord:
+        one: 'Acordo'
+        other: 'Acordos'
+    attributes:
+      accord:
+        description: 'Descrição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

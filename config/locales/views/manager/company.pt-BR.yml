@@ -16,4 +16,5 @@ pt-BR:
         show_view:
           title: 'Mostrando Empresa'
         index_view:
-          stacks: "Stacks"
+          stacks: 'Stacks'
+          filter_by: 'Filtrar'
