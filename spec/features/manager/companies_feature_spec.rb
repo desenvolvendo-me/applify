@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Company', type: :feature do
+  let!(:accord) { create(:accord) }
   let!(:user) { create(:user) }
   let!(:profile) { create(:profile, user: user) }
 
@@ -17,6 +18,18 @@ RSpec.feature 'Manager Company', type: :feature do
     visit manager_companies_path
 
     expect(page).to have_text('Amazon')
+    expect(page).to have_text('Google')
+  end
+
+  scenario 'create company' do
+    visit manager_companies_path
+    click_link I18n.t 'views.manager.company.new'
+    visit new_manager_company_path
+
+    fill_in 'Nome', with: 'Google'
+    click_button I18n.t('views.manager.company.salve')
+
+    expect(page).to have_text(I18n.t('controller.manager.companies.create'))
     expect(page).to have_text('Google')
   end
 
