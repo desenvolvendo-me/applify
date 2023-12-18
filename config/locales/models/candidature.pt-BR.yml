@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    errors:
+      model:
+
+    models:
+      candidature:
+        one: 'Candidatura'
+        other: 'Candidaturas'
+    attributes:
+      candidature:
+        company_name: 'Nome da Empresa'
+        situation: 'Situação'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+  enum:
+    situations:
+      dispatch: 'Enviado'
+      sending: 'Enviando'
+      answered: 'Respondido'

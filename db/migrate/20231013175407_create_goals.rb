@@ -5,7 +5,6 @@ class CreateGoals < ActiveRecord::Migration[7.0]
       t.string :description
       t.string :status
 
-
       t.timestamps
     end
   end

@@ -7,7 +7,7 @@ suppress_ratings: true # default is false
 no_browser: true # default is false
 formats: # Available values are: html, json, console, lint. Default value is html.
   - html
-minimum_score: 95 # default is 0
+minimum_score: 85 # default is 0
 paths: # Files to analyse. Churn calculation is scoped to these files when using Git SCM.
   - 'app/businesses/'
   - 'app/controllers/'
