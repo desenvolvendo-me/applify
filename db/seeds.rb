@@ -3,7 +3,7 @@ if Rails.env.development?
                     password: 'password', password_confirmation: 'password')
 
   user = User.create!(email: 'user@mail.com',
-                    password: '000000', password_confirmation: '000000')
+                      password: '000000', password_confirmation: '000000')
   Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
 
   # Stack
@@ -116,4 +116,19 @@ if Rails.env.development?
                        description: 'Quero criar um chatbot em 1 mês', status: 'done')
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
               status: "done", goal: goal15)
+
+  #Candidatures
+
+  Candidature.create(company_name: 'Amazon',situation: 'answered')
+  Candidature.create(company_name: 'Google',situation: 'sending')
+  Candidature.create(company_name: 'Microsoft',situation: 'dispatch')
+  Candidature.create(company_name: 'Apple',situation: 'dispatch')
+  Candidature.create(company_name: 'IBM',situation: 'answered')
+  Candidature.create(company_name: 'Dell',situation: 'answered')
+  Candidature.create(company_name: 'Oracle',situation: 'sending')
+  Candidature.create(company_name: 'DXC Technology',situation: 'sending')
+  Candidature.create(company_name: 'TOTVS',situation: 'dispatch')
 end
+
+
+
