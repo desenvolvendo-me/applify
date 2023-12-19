@@ -4,11 +4,11 @@ pt-BR:
       model:
 
     models:
-      accord:
-        one: 'Acordo'
-        other: 'Acordos'
+      setting:
+        one: 'Configuração'
+        other: 'Configurações'
     attributes:
-      accord:
-        description: 'Descrição'
+      setting:
+        Accord: 'Acordo'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'

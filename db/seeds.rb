@@ -42,7 +42,7 @@ if Rails.env.development?
   SimulationQuestion.create!(description: 'Já teve experiência em startup antes?', job_simulation: simulation_apple)
 
   # Agreement
-  Accord.create!(description:
+  Setting.create!(accord:
                       'Ao colocar informações de uma empresa no sistema, você concorda em cumprir os seguintes termos:
                         - As informações fornecidas, incluindo nome, descrição, LinkedIn, site e tecnologias são precisas e representam devidamente a empresa em questão.
                         - Como usuário responsável por criar uma nova empresa, compromete-se a manter as informações atualizadas e refletindo com precisão a situação atual da empresa.

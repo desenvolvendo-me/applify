@@ -54,7 +54,7 @@ module Manager
     end
 
     def set_accord
-      @accord = Accord.first
+      @accord = Setting.first
     end
   end
 end
