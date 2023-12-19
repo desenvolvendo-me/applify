@@ -30,9 +30,6 @@ Rails.application.routes.draw do
       collection do
         get 'complete_registration'
       end
-      member do
-        delete 'remove_skill/:id', to: 'profiles#remove_skill', as: :remove_skill
-      end
     end
 
     resources :goals

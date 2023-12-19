@@ -8,8 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Skill < ApplicationRecord
-  has_many :profile_skills, dependent: :destroy
-  has_many :profiles, through: :profile_skills
+  has_and_belongs_to_many :profiles, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

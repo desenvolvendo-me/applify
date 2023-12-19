@@ -22,9 +22,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one_attached :profile_picture
-
-  has_many :profile_skills, dependent: :destroy
-  has_many :skills, through: :profile_skills
+  has_and_belongs_to_many :skills, dependent: :destroy
 
   enum :user_type, %i[student professional]
 

@@ -1,6 +1,6 @@
 module Manager
   class ProfilesController < InternalController
-    before_action :set_profile, only: %i[show edit update destroy remove_skill]
+    before_action :set_profile, only: %i[show edit update destroy]
 
     def show; end
 
@@ -36,13 +36,6 @@ module Manager
                   notice: t('controllers.manager.profiles.destroy')
     end
 
-    def remove_skill
-      skill_id = params[:id]
-      @profile.skills.delete(skill_id)
-
-      redirect_to edit_manager_profile_url, notice: 'Skill apagada com sucesso.'
-    end
-
     private
 
     def set_profile
@@ -55,7 +48,8 @@ module Manager
         :name,
         :user_type,
         :profile_picture,
-        :bio
+        :bio,
+        skill_ids: []
       )
     end
   end
