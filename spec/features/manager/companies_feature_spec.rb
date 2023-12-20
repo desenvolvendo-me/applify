@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Company', type: :feature do
-  let!(:accord) { create(:accord) }
+  let!(:accord) { create(:setting) }
   let!(:user) { create(:user) }
   let!(:profile) { create(:profile, user: user) }
 
@@ -27,9 +27,9 @@ RSpec.feature 'Manager Company', type: :feature do
     visit new_manager_company_path
 
     fill_in 'Nome', with: 'Google'
-    click_button I18n.t('views.manager.company.salve')
+    click_button I18n.t 'views.manager.company.salve'
 
-    expect(page).to have_text(I18n.t('controller.manager.companies.create'))
+    expect(page).to have_text I18n.t 'controller.manager.companies.create'
     expect(page).to have_text('Google')
   end
 
@@ -41,12 +41,12 @@ RSpec.feature 'Manager Company', type: :feature do
 
   scenario 'update company' do
     visit manager_company_path(Company.last)
-    click_link 'Editar'
+    click_link I18n.t 'views.manager.company.edit'
 
     fill_in 'Nome', with: 'Amazon'
-    click_button I18n.t('views.manager.company.salve')
+    click_button I18n.t 'views.manager.company.salve'
 
-    expect(page).to have_text('Empresa atualizada com sucesso.')
+    expect(page).to have_text I18n.t 'controller.manager.companies.update'
     expect(page).to have_text('Amazon')
   end
 
@@ -54,7 +54,7 @@ RSpec.feature 'Manager Company', type: :feature do
     visit manager_company_path(Company.first)
     click_link I18n.t('views.manager.company.delete')
 
-    page.accept_alert I18n.t('views.manager.company.delete_confirm')
-    expect(page).to have_text('Empresa apagada com sucesso.')
+    page.accept_alert I18n.t 'views.manager.company.delete_confirm'
+    expect(page).to have_text I18n.t 'controller.manager.companies.destroy'
   end
 end
