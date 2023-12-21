@@ -1,25 +1,25 @@
 pt-BR:
-  views:
-    manager:
-      candidatures:
-        show: 'Mostrar'
-        edit: 'Editar'
-        delete: 'Apagar'
-        done: 'Finalizar'
-        back: 'Voltar'
-        delete_confirm: 'Você tem certeza?'
-        index:
-          add_candidature: "Adicionar Candidatura"
-          company_name: "Empresa"
-          situation: "Situação"
-          title: "Candidaturas"
-          programming_language: "Linguagem de Programação"
-        new_view:
-          title: 'Nova Candidatura'
-        edit_view:
-          title: 'Editar Candidatura'
-        show_view:
-          title: 'Candidatura'
+  manager:
+    candidatures:
+      show: 'Mostrar'
+      edit: 'Editar'
+      delete: 'Apagar'
+      done: 'Finalizar'
+      back: 'Voltar'
+      delete_confirm: 'Você tem certeza?'
+      index:
+        add_candidature: "Adicionar Candidatura"
+        company_name: "Empresa"
+        framework: 'Framework'
+        situation: "Situação"
+        title: "Candidaturas"
+        programming_language: "Linguagem de Programação"
+      new_view:
+        title: 'Nova Candidatura'
+      edit_view:
+        title: 'Editar Candidatura'
+      show_view:
+        title: 'Candidatura'
   helpers:
     submit:
       candidature:
