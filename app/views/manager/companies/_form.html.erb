@@ -19,8 +19,6 @@
         <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
       </div>
     </div>
-    <div>
-      <%= render "manager/companies/accord" %>
-    </div>
+    <%= render "manager/companies/accord" %>
   </div>
 <% end %>
