@@ -6,7 +6,6 @@ RSpec.describe JobSimulationHelper, type: :helper do
   let(:question3) { create(:simulation_question, answer_type: 2, answer_link: 'https://google.com.br') }
   let(:question4) { create(:simulation_question, answer_type: 3, answer_file: Rack::Test::UploadedFile.new('spec/fixtures/files/arquivo_exemplo.txt', 'text/plain')) }
 
-
   describe '#display_answer' do
     it 'returns the correct output for answer_check' do
       expect(helper.display_answer(question1)).to eq(I18n.t('helpers.job_simulation.private.answer_check.check_yes'))
@@ -27,35 +26,41 @@ RSpec.describe JobSimulationHelper, type: :helper do
 
   describe '#render_answer_field' do
     it 'renders the correct field for answer_check' do
-      form_builder = ActionView::Helpers::FormBuilder.new(:simulation_question, question1, helper, {})
+      form_builder = SimpleForm::FormBuilder.new(:simulation_question, question1, helper, {})
+      rendered_html = helper.render_answer_field(form_builder).to_s
 
-      expected_output = <<~HTML.strip_heredoc
-        <select name="simulation_question[answer_check]" id="simulation_question_answer_check" class="w-1/2 py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-          <option value="">#{I18n.t('job_simulations._simulation_question_fields.choose')}</option>
-          <option value="true" selected>#{I18n.t('job_simulations._simulation_question_fields.check_yes')}</option>
-          <option value="false">#{I18n.t('job_simulations._simulation_question_fields.check_no')}</option>
-        </select>
-      HTML
-
-      expect(helper.render_answer_field(form_builder)).to eq(expected_output)
+      expect(rendered_html).to have_select('simulation_question_answer_check') do |options|
+        expect(options).to have_selector("option[value='']", text: I18n.t('job_simulations._simulation_question_fields.choose'))
+        expect(options).to have_selector("option[value='true'][selected='selected']", text: I18n.t('job_simulations._simulation_question_fields.check_yes'))
+        expect(options).to have_selector("option[value='false']", text: I18n.t('job_simulations._simulation_question_fields.check_no'))
+      end
     end
 
-    it 'renders the correct field for answer_type' do
-      form_builder = ActionView::Helpers::FormBuilder.new(:simulation_question, question2, helper, {})
+    it 'renders the correct field for answer_text' do
+      form_builder = SimpleForm::FormBuilder.new(:simulation_question, question2, helper, {})
+      result = helper.render_answer_field(form_builder)
 
-      expect(helper.render_answer_field(form_builder)).to eq()
+      expect(result).to include('textarea')
+      expect(result).to include('answer_text')
+      expect(result).to include('rows="1"')
+      expect(result).to include('placeholder=" "')
     end
 
     it 'renders the correct field for answer_link' do
-      allow(form.object).to receive(:answer_type).and_return('answer_link')
-      expect(helper).to receive(:render_link_field).with(form)
-      helper.render_answer_field(form)
+      form_builder = SimpleForm::FormBuilder.new(:simulation_question, question3, helper, {})
+      expected_result = form_builder.input :answer_link, placeholder: ' '
+      result = helper.render_answer_field(form_builder)
+
+      expect(result).to eq(expected_result)
     end
 
     it 'renders the correct field for answer_file' do
-      allow(form.object).to receive(:answer_type).and_return('answer_file')
-      expect(helper).to receive(:render).with('upload_file', form: form)
-      helper.render_answer_field(form)
+      form_builder = SimpleForm::FormBuilder.new(:simulation_question, question4, helper, {})
+      expected_result = helper.render(partial: 'job_simulations/upload_file', locals: { form: form_builder})
+
+      result = helper.render_answer_field(form_builder)
+
+      expect(result).to eq(expected_result)
     end
   end
 end

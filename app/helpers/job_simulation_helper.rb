@@ -22,7 +22,7 @@ module JobSimulationHelper
     when 'answer_link'
       render_link_field(form)
     when 'answer_file'
-      render 'upload_file', form: form
+      render 'job_simulations/upload_file', form: form
     end
   end
 
