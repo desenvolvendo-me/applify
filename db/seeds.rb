@@ -4,7 +4,16 @@ if Rails.env.development?
 
   user = User.create!(email: 'user@mail.com',
                     password: '000000', password_confirmation: '000000')
-  Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
+  profile = Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
+
+  # Skill
+  Skill.create(description: "Communication Skills", type_skill: :soft_skill)
+  Skill.create(description: "Ruby on Rails", type_skill: :hard_skill)
+  Skill.create(description: "Teamwork", type_skill: :soft_skill)
+  Skill.create(description: "JavaScript", type_skill: :hard_skill)
+
+  # Experiences
+  profile.skills << Skill.all
 
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')
