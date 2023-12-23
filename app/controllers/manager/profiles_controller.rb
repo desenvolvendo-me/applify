@@ -6,6 +6,8 @@ module Manager
 
     def complete_registration
       @profile = current_user.build_profile
+
+      associate_skills
     end
 
     def create
@@ -49,8 +51,14 @@ module Manager
         :user_type,
         :profile_picture,
         :bio,
-        skill_ids: []
+        experiences_attributes: %i[id skill_id level _destroy]
       )
+    end
+
+    def associate_skills
+      return if Skill.all.empty?
+
+      @profile.skills << Skill.all
     end
   end
 end
