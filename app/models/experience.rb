@@ -3,7 +3,7 @@
 # Table name: experiences
 #
 #  id         :bigint           not null, primary key
-#  level      :string           default(NULL)
+#  level      :integer          default("0")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  profile_id :bigint           not null
@@ -23,5 +23,7 @@ class Experience < ApplicationRecord
   belongs_to :profile
   belongs_to :skill
 
-  enum :level, (0..10).to_a.map(&:to_s)
+  enum :level, %i[0 1 2 3 4 5 6 7 8 9 10]
+
+  accepts_nested_attributes_for :skill
 end

@@ -3,7 +3,7 @@
 # Table name: experiences
 #
 #  id         :bigint           not null, primary key
-#  level      :string           default(NULL)
+#  level      :integer          default("0")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  profile_id :bigint           not null

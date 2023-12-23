@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_20_121803) do
   create_table "experiences", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "skill_id", null: false
-    t.string "level", default: "0"
+    t.integer "level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_experiences_on_profile_id"
