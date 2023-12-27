@@ -2,9 +2,18 @@ if Rails.env.development?
   AdminUser.create!(email: 'admin@mail.com',
                     password: 'password', password_confirmation: 'password')
 
-  user = User.create!(email: 'user@mail.com',
-                    password: '000000', password_confirmation: '000000')
-  Profile.create!(name: 'Perfil 1', user_type: :student, user: user)
+  user = User.create!(
+    email: 'user@mail.com',
+    password: '000000',
+    password_confirmation: '000000'
+  )
+
+  Profile.create!(
+    name: FFaker::NameBR.name,
+    user_type: :student,
+    user: user,
+    bio: FFaker::LoremBR.paragraphs(2).first
+  )
 
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')
