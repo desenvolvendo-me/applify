@@ -12,7 +12,8 @@ if Rails.env.development?
     name: FFaker::NameBR.name,
     user_type: :student,
     user: user,
-    bio: FFaker::LoremBR.paragraphs(2).first
+    bio: FFaker::LoremBR.paragraphs(2).first,
+    profile_picture: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/images/profile.jpg'), 'image/jpeg')
   )
 
   # Stack
