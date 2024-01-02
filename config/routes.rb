@@ -25,12 +25,7 @@ Rails.application.routes.draw do
     resources :stacks
     resources :companies
     resources :job_simulations
-    
-    resource :profile, except: :new do
-      collection do
-        get 'complete_registration'
-      end
-    end
+    resource :profile
 
     resources :goals
     namespace :goals do

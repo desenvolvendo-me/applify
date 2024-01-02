@@ -4,7 +4,7 @@ module Manager
 
     def show; end
 
-    def complete_registration
+    def new
       @profile = current_user.build_profile
     end
 
@@ -15,7 +15,7 @@ module Manager
         redirect_to manager_profile_url,
                     notice: t('controllers.manager.profiles.create')
       else
-        render :complete_registration
+        render :new
       end
     end
 
