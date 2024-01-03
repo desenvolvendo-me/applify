@@ -1,0 +1,6 @@
+pt-BR:
+  controllers:
+    candidatures:
+      create: "Candidatura salva com sucesso"
+      update: "Candidatura atualizada com sucesso"
+      destroy: " deletada com sucesso"

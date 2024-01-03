@@ -3,7 +3,11 @@ module Manager
     before_action :set_stack, only: %i[show edit update destroy]
 
     def index
-      @stacks = Stack.all
+      @q = Stack.ransack(params[:q])
+      @stacks = @q.result(distinct: true)
+      @stacks = @stacks.order('created_at')
+                       .page(params[:page])
+                       .per(4)
     end
 
     def show; end

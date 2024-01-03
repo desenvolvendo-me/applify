@@ -15,4 +15,5 @@ pt-BR:
           title: 'Nova Empresa'
         show_view:
           title: 'Mostrando Empresa'
-        stacks: "Stacks"
+        index_view:
+          stacks: "Stacks"
