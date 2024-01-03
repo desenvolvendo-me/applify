@@ -1,11 +1,11 @@
 <div class="relative">
   <div class="flex justify-between items-center mb-4">
-    <h1 class="font-bold text-4xl"> <%= t('manager.candidatures.show_view.title') %> </h1>
+    <h1 class="font-bold text-4xl"> <%= t('.title') %> </h1>
     <div>
-      <%= link_to t('views.manager.candidatures.edit'), edit_manager_candidature_path(@candidature), class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
-      <%= link_to t('views.manager.candidatures.back'), manager_candidatures_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
-      <%= link_to t('views.manager.candidatures.delete') , manager_candidature_path(@candidature),
-                  data: { turbo_method: :delete, turbo_confirm: t('views.manager.candidatures.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.edit'), edit_manager_candidature_path(@candidature), class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.back'), manager_candidatures_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.delete') , manager_candidature_path(@candidature),
+                  data: { turbo_method: :delete, turbo_confirm: t('.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
     </div>
   </div>
   <div class="flex justify-around">

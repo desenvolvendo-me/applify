@@ -1,8 +1,8 @@
 pt-BR:
   manager:
     candidatures:
-      show: 'Mostrar'
-      edit: 'Editar'
+      show_candidature: 'Mostrar'
+      edit_candidature: 'Editar'
       delete: 'Apagar'
       done: 'Finalizar'
       back: 'Voltar'
@@ -14,12 +14,17 @@ pt-BR:
         situation: "Situação"
         title: "Candidaturas"
         programming_language: "Linguagem de Programação"
-      new_view:
+      new:
         title: 'Nova Candidatura'
-      edit_view:
+      edit:
         title: 'Editar Candidatura'
-      show_view:
+      show:
         title: 'Candidatura'
+        edit: 'Editar'
+        show: 'Mostrar'
+        back: 'Voltar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
   helpers:
     submit:
       candidature:
