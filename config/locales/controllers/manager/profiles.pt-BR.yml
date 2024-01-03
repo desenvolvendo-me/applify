@@ -1,7 +1,9 @@
 pt-BR:
-  controllers:
-    manager:
-      profiles:
-        create: 'Perfil cadastrado com sucesso.'
-        update: 'Perfil atualizado com sucesso.'
-        destroy: 'Perfil apagado com sucesso.'
+  manager:
+    profiles:
+      create:
+        success: 'Perfil cadastrado com sucesso.'
+      update:
+        success: 'Perfil atualizado com sucesso.'
+      destroy:
+        success: 'Perfil apagado com sucesso.'

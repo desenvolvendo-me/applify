@@ -13,7 +13,7 @@ module Manager
 
       if @profile.save
         redirect_to manager_profile_url,
-                    notice: t('controllers.manager.profiles.create')
+                    notice: t('.success')
       else
         render :new
       end
@@ -24,7 +24,7 @@ module Manager
     def update
       if @profile.update(profile_params)
         redirect_to manager_profile_url,
-                    notice: t('controllers.manager.profiles.update')
+                    notice: t('.success')
       else
         render :edit
       end
@@ -33,7 +33,7 @@ module Manager
     def destroy
       @profile.destroy
       redirect_to manager_home_url,
-                  notice: t('controllers.manager.profiles.destroy')
+                  notice: t('.success')
     end
 
     private
