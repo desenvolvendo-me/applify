@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       simulation_question:
-        one: 'Pergunta'
-        other: 'Perguntas'
+        one: 'Pergunta de checklist'
+        other: 'Perguntas de checklist'
     attributes:
       simulation_question:
         description: 'Descrição'

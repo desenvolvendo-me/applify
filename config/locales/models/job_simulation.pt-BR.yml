@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       job_simulation:
-        one: 'Simulado'
-        other: 'Simulados'
+        one: 'CheckList'
+        other: 'CheckLists'
     attributes:
       job_simulation:
         company: 'Empresa'
