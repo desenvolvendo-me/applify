@@ -35,7 +35,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :candidatures
     resources :goals
     namespace :goals do
       namespace :done do
