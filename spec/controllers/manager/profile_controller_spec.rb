@@ -46,24 +46,24 @@ RSpec.describe Manager::ProfilesController, type: :controller do
       end
 
       context 'when user does not have a profile' do
-        it 'redirects to complete_registration action' do
+        it 'redirects to new action' do
           get :show
 
           expect(response).to redirect_to(
-            complete_registration_manager_profile_path
+            new_manager_profile_path
           )
         end
       end
     end
   end
 
-  describe 'GET #complete_registration' do
+  describe 'GET #new' do
     before do
       sign_in user
     end
 
     it 'assigns a new profile to @profile' do
-      get :complete_registration
+      get :new
       expect(assigns(:profile)).to be_a_new(Profile)
     end
   end
@@ -82,7 +82,7 @@ RSpec.describe Manager::ProfilesController, type: :controller do
         end.to change(Profile, :count).by(1)
         expect(response).to redirect_to manager_profile_url
         expect(flash[:notice]).to eq(
-          I18n.t('controllers.manager.profiles.create')
+          I18n.t('manager.profiles.create.success')
         )
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe Manager::ProfilesController, type: :controller do
             profile: invalid_attributes
           }
         end.to change(Profile, :count).by(0)
-        expect(response).to render_template :complete_registration
+        expect(response).to render_template :new
       end
     end
   end
@@ -119,7 +119,7 @@ RSpec.describe Manager::ProfilesController, type: :controller do
         expect(profile.name).to eq(valid_attributes[:name])
         expect(response).to redirect_to manager_profile_url
         expect(flash[:notice]).to eq(
-          I18n.t('controllers.manager.profiles.update')
+          I18n.t('manager.profiles.update.success')
         )
       end
     end
@@ -138,7 +138,7 @@ RSpec.describe Manager::ProfilesController, type: :controller do
       end.to change(Profile, :count).by(-1)
       expect(response).to redirect_to manager_home_url
       expect(flash[:notice]).to eq(
-        I18n.t('controllers.manager.profiles.destroy')
+        I18n.t('manager.profiles.destroy.success')
       )
     end
   end
