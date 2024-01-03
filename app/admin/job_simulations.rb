@@ -1,5 +1,5 @@
 ActiveAdmin.register JobSimulation do
-  menu parent: I18n.t('active_admin.menu.prep_interview')
+  menu parent: I18n.t('active_admin.menu.configuration')
   permit_params :company, simulation_questions_attributes: %i[id description answer_check answer_text answer_link answer_type _destroy]
 
   index do
