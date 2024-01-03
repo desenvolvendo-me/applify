@@ -1,7 +1,6 @@
 pt-BR:
-  views:
-    manager:
+  manager:
+    companies:
       accord:
         Important to know SPD!: 'Importante saber SPD!'
-        Click_here: 'Clique aqui.'
         Agreed: 'De acordo.'

@@ -3,19 +3,19 @@
   <div class="flex justify-between">
     <div class="flex flex-col w-full">
       <div class="flex">
-        <%= form.input :name, placeholder: ' ' %>
+        <%= form.input :name, placeholder: ' ', wrapper: :vertical_form_full_width %>
       </div>
       <div class="flex">
-        <%= form.input :description, placeholder: ' ' %>
+        <%= form.input :description, placeholder: ' ', wrapper: :vertical_form_full_width %>
       </div>
       <div class="flex">
-        <%= form.input :linkedin, placeholder: ' ' %>
+        <%= form.input :linkedin, placeholder: ' ', wrapper: :vertical_form_full_width %>
       </div>
       <div class="flex">
-        <%= form.input :site, placeholder: ' ' %>
+        <%= form.input :site, placeholder: ' ', wrapper: :vertical_form_full_width %>
       </div>
       <div class="flex flex-col">
-        <%= t 'views.manager.company.index_view.stacks' %>
+        <%= t '.stacks' %>
         <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
       </div>
     </div>
