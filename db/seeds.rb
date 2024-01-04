@@ -26,10 +26,10 @@ if Rails.env.development?
   company2.stack_ids = [stack2.id, stack4.id]
 
   # Job simulation
-  checklist_padrao = JobSimulation.create(name: 'Perguntas Padrão')
-  checklist_jr0 = JobSimulation.create(name: 'Perguntas Jr 0')
-  checklist_jr1 = JobSimulation.create(name: 'Perguntas Jr 1')
-  checklist_versao1 = JobSimulation.create(name: 'Perguntas Versão 1')
+  checklist_padrao = JobSimulation.create(name: 'Perguntas Padrão', status: 0)
+  checklist_jr0 = JobSimulation.create(name: 'Perguntas Jr 0', status: 0)
+  checklist_jr1 = JobSimulation.create(name: 'Perguntas Jr 1', status: 0)
+  checklist_versao1 = JobSimulation.create(name: 'Perguntas Versão 1', status: 0)
 
   # Simulation Question
   SimulationQuestion.create!(description: 'Você possui experiência anterior na área relacionada a esta vaga?', answer_type: 0, job_simulation: checklist_padrao)
