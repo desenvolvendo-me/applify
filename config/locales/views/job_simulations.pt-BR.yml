@@ -8,6 +8,14 @@ pt-BR:
     edit:
       title: 'Editando'
       save: 'Salvar'
+    job_simulation:
+      show: 'Mostrar'
+      back: 'Voltar'
+      fill_out: 'Responder'
+    upload_file:
+      click_to_send: 'Clique para enviar'
+      drag_and_drop: 'ou arraste e solte'
+      description: 'SVG, PNG, JPG ou GIF (MÁX. 800x400px)'
     partials:
       _form:
         title: 'Perguntas'
