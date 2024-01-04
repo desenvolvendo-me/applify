@@ -1,0 +1,7 @@
+pt-BR:
+  controller:
+    manager:
+      stacks:
+        create: 'Stack cadastrada com sucesso.'
+        update: 'Stack atualizada com sucesso.'
+        destroy: 'Stack apagada com sucesso.'

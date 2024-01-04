@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_133145) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_07_183708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_133145) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "candidatures", force: :cascade do |t|
+    t.string "company_name"
+    t.string "situation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "job_position"
+    t.text "job_description"
+    t.integer "frame_work"
+    t.integer "programming_language"
+    t.date "application_date"
+    t.text "presentation_letter"
+    t.text "knowledge_about_company"
+    t.string "personal_projects"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "linkedin"
+    t.string "site"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies_stacks", id: false, force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "stack_id", null: false
+  end
+
   create_table "goals", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -47,6 +76,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_133145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "finished_at"
+  end
+
+  create_table "job_simulations", force: :cascade do |t|
+    t.string "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "simulation_questions", force: :cascade do |t|
+    t.bigint "job_simulation_id", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_simulation_id"], name: "index_simulation_questions_on_job_simulation_id"
+  end
+
+  create_table "stacks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -60,4 +118,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_133145) do
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "profiles", "users"
+  add_foreign_key "simulation_questions", "job_simulations"
 end

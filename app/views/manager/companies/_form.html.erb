@@ -1,0 +1,20 @@
+<%= simple_form_for([:manager, @company], url: @company.persisted? ? manager_company_path(@company) : manager_companies_path) do |form| %>
+  <div class="flex flex-col">
+    <div class="flex">
+      <%= form.input :name, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :description, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :linkedin, placeholder: ' ' %>
+    </div>
+    <div class="flex">
+      <%= form.input :site, placeholder: ' ' %>
+    </div>
+    <div class="flex flex-col">
+      <%= t('views.manager.company.stacks') %>
+      <%= form.collection_check_boxes(:stack_ids, Stack.all, :id, :name) %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      profile:
+        one: 'Perfil'
+        other: 'Perfis'
+    attributes:
+      profile:
+        name: 'Nome'
+        user_type: 'Tipo de perfil'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

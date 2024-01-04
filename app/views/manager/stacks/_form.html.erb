@@ -1,0 +1,5 @@
+<%= simple_form_for([:manager, @stack], url: @stack.persisted? ? manager_stack_path(@stack) : manager_stacks_path, class: "contents") do |form| %>
+  <div class="flex">
+    <%= form.input :name, placeholder: ' ' %>
+  </div>
+<% end %>

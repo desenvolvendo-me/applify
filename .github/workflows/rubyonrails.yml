@@ -42,6 +42,7 @@ jobs:
       - uses: joshmfrankel/simplecov-check-action@main
         with:
           minimum_suite_coverage: 85
+          minimum_file_coverage: 56
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Show Coverage directory
         run: cat coverage/coverage.json

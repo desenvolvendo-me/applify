@@ -1,0 +1,19 @@
+pt-BR:
+  views:
+    manager:
+      company:
+        salve: 'Salvar'
+        new: 'Novo'
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+        back: 'Voltar'
+        edit_view:
+          title: 'Editando empresa'
+        new_view:
+          title: 'Nova Empresa'
+        show_view:
+          title: 'Mostrando Empresa'
+        index_view:
+          stacks: "Stacks"

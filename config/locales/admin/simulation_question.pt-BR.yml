@@ -1,0 +1,10 @@
+pt-BR:
+  active_admin:
+    simulation_question:
+      attributes:
+        description: 'Pergunta'
+        questions_quantity: 'Quantidade de perguntas'
+      show:
+        showing: 'Detalhes da pergunta de'
+      form_new: 'Nova Pergunta'
+      form_edit: 'Editar Pergunta de'
