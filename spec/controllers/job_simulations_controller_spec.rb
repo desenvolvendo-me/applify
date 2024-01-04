@@ -14,32 +14,32 @@ RSpec.describe JobSimulationsController, type: :controller do
     end
 
     context 'with search parameters' do
-      let!(:google_test) do
-        create(:job_simulation, company: 'Google').tap do |test|
+      let!(:checklist_padrao) do
+        create(:job_simulation, name: 'Perguntas Padrão').tap do |test|
           create(:simulation_question, description: 'Technical',
                                        job_simulation: test)
         end
       end
 
-      let!(:microsoft_test) do
-        create(:job_simulation, company: 'Microsoft').tap do |test|
+      let!(:checklist_jr1) do
+        create(:job_simulation, name: 'Perguntas Jr 1').tap do |test|
           create(:simulation_question, description: 'Behavioral',
                                        job_simulation: test)
         end
       end
 
-      it 'assigns @job_simulations based on search by company' do
+      it 'assigns @job_simulations based on search by name' do
         get :index, params: { q: {
-          company_or_simulation_questions_description_cont: 'Google'
+          name_or_simulation_questions_description_cont: 'Perguntas Padrão'
         } }
-        expect(assigns(:job_simulations)).to eq([google_test])
+        expect(assigns(:job_simulations)).to eq([checklist_padrao])
       end
 
       it 'assigns @job_simulations based on search by description' do
         get :index, params: { q: {
-          company_or_simulation_questions_description_cont: 'behavioral'
+          name_or_simulation_questions_description_cont: 'behavioral'
         } }
-        expect(assigns(:job_simulations)).to eq([microsoft_test])
+        expect(assigns(:job_simulations)).to eq([checklist_jr1])
       end
     end
   end

@@ -9,7 +9,7 @@
 #
 FactoryBot.define do
   factory :job_simulation do
-    company { FFaker::Company.name }
+    name { %w['Perguntas Versão 1' 'Perguntas Jr 1' 'Perguntas Jr 0' 'Perguntas Padrão'].sample }
 
     trait :with_simulation_questions do
       after(:create) do |job_simulation, _evaluator|
