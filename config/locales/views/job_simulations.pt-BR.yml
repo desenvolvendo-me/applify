@@ -6,11 +6,8 @@ pt-BR:
       name: 'Nome'
       search: 'Pesquisar'
     edit:
-      title: 'Checklist da candidatura na empresa'
+      title: 'Editando'
       save: 'Salvar'
-    show:
-      title: 'Checklist para candidatura na empresa'
-      questions: 'Perguntas'
     partials:
       _form:
         title: 'Perguntas'

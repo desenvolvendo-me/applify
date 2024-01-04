@@ -1,10 +1,9 @@
 <div class="relative">
   <div class="flex justify-between items-center mb-4">
-    <h1 class="font-bold text-4xl"><%= t '.title' %>: <%= @job_simulation.company %></h1>
+    <h1 class="font-bold text-4xl"><%= @job_simulation.name %></h1>
   </div>
 
   <fieldset>
-    <legend><%= t '.questions' %></legend>
     <% @job_simulation.simulation_questions.each do |question| %>
       <div class="flex">
         <div class="relative z-0 w-full mb-6 group mt-4">
