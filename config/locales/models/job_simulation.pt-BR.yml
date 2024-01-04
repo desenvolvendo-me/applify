@@ -6,6 +6,6 @@ pt-BR:
         other: 'CheckLists'
     attributes:
       job_simulation:
-        company: 'Empresa'
+        name: 'Nome'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'

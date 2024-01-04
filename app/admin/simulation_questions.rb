@@ -4,7 +4,7 @@ ActiveAdmin.register SimulationQuestion do
 
   index do
     id_column
-    column :company do |simulation_question|
+    column :name do |simulation_question|
       simulation_question.job_simulation.company
     end
     column :description
@@ -13,7 +13,7 @@ ActiveAdmin.register SimulationQuestion do
 
   show title: proc { |simulation_question| "#{t('active_admin.simulation_question.show.showing')} #{simulation_question.job_simulation.company}" } do
     attributes_table do
-      row :company do |simulation_question|
+      row :name do |simulation_question|
         simulation_question.job_simulation&.company
       end
       row :description

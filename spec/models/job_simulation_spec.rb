@@ -3,7 +3,7 @@
 # Table name: job_simulations
 #
 #  id         :bigint           not null, primary key
-#  company    :string
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
