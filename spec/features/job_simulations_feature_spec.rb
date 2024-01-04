@@ -36,7 +36,7 @@ RSpec.feature 'Job Simulations', type: :feature do
     visit job_simulations_path
 
     first('td.flex button').click
-    click_on I18n.t('views.defaults.links.fill_out')
+    click_on I18n.t('job_simulations.job_simulation.fill_out')
 
     expect(page).to have_text(I18n.t('job_simulations.partials._form.title'))
   end

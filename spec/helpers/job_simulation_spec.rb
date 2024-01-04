@@ -56,7 +56,7 @@ RSpec.describe JobSimulationHelper, type: :helper do
 
     it 'renders the correct field for answer_file' do
       form_builder = SimpleForm::FormBuilder.new(:simulation_question, question4, helper, {})
-      expected_result = helper.render(partial: 'job_simulations/upload_file', locals: { form: form_builder})
+      expected_result = helper.render(partial: 'job_simulations/upload_file', locals: { form: form_builder })
 
       result = helper.render_answer_field(form_builder)
 
