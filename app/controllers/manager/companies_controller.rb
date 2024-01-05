@@ -1,5 +1,6 @@
 module Manager
   class CompaniesController < InternalController
+    before_action :set_accord, only: %i[new edit]
     before_action :set_company, only: %i[show edit update destroy]
     def index
       @q = Company.ransack(params[:q])
@@ -18,7 +19,7 @@ module Manager
       @company = Company.create(company_params)
       if @company.save
         redirect_to manager_company_path(@company),
-                    notice: I18n.t('controller.manager.companies.create')
+                    notice: t('.success')
       else
         render :new
       end
@@ -29,7 +30,7 @@ module Manager
     def update
       if @company.update(company_params)
         redirect_to manager_company_path,
-                    notice: I18n.t('controller.manager.companies.update')
+                    notice: t('.success')
       else
         render :edit
       end
@@ -38,7 +39,7 @@ module Manager
     def destroy
       @company.destroy
       redirect_to manager_companies_path,
-                  notice: I18n.t('controller.manager.companies.destroy')
+                  notice: t('.success')
     end
 
     private
@@ -50,6 +51,10 @@ module Manager
     def company_params
       params.require(:company)
             .permit(:name, :description, :linkedin, :site, stack_ids: [])
+    end
+
+    def set_accord
+      @accords = Setting.all
     end
   end
 end

@@ -51,6 +51,16 @@ if Rails.env.development?
   SimulationQuestion.create!(description: 'Esta posição exige viagens. Você está disposto(a) a viajar conforme necessário?', answer_type: 2, job_simulation: checklist_versao1)
   SimulationQuestion.create!(description: 'Já teve experiência em startup antes?', answer_type: 3, job_simulation: checklist_versao1)
 
+  # Agreement
+  Setting.create!(accord:
+                      'Ao colocar informações de uma empresa no sistema, você concorda em cumprir os seguintes termos:
+                        - As informações fornecidas, incluindo nome, descrição, LinkedIn, site e tecnologias são precisas e representam devidamente a empresa em questão.
+                        - Como usuário responsável por criar uma nova empresa, compromete-se a manter as informações atualizadas e refletindo com precisão a situação atual da empresa.
+                        - Compromete-se a fornecer informações verdadeiras e não enganosas sobre a empresa.
+                        - As informações fornecidas não infringem os direitos autorais ou propriedade intelectual de terceiros.
+                        - Ao criar ou atualizar uma empresa, reconhece e aceita a responsabilidade legal pelas informações fornecidas.'
+  )
+
   # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
                       description: 'Quero criar 10 algoritmos em até 3 meses', status: 'done')
