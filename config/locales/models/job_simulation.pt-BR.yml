@@ -2,10 +2,13 @@ pt-BR:
   activerecord:
     models:
       job_simulation:
-        one: 'Simulado'
-        other: 'Simulados'
+        one: 'CheckList'
+        other: 'CheckLists'
     attributes:
       job_simulation:
-        company: 'Empresa'
+        name: 'Nome'
+        statuses:
+          active: 'Ativo'
+          inactive: 'Inativo'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'

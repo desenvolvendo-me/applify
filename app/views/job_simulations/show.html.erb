@@ -1,0 +1,19 @@
+<div class="relative">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="font-bold text-4xl"><%= @job_simulation.name %></h1>
+  </div>
+
+  <fieldset>
+    <% @job_simulation.simulation_questions.each do |question| %>
+      <div class="flex">
+        <div class="relative z-0 w-full mb-6 group mt-4">
+          <div placeholder=" " readonly="readonly" class="block py-2.5 px-0 w-1/2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text">
+            <%= question.description %>
+            <br>
+            <%= display_answer(question) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+</div>

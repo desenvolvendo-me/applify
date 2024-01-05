@@ -3,6 +3,7 @@
 # Table name: profiles
 #
 #  id         :bigint           not null, primary key
+#  bio        :text
 #  name       :string
 #  user_type  :integer
 #  created_at :datetime         not null
@@ -20,6 +21,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_many :candidatures, dependent: :destroy
+
+  has_one_attached :profile_picture
 
   enum :user_type, %i[student professional]
 

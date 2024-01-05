@@ -1,5 +1,5 @@
 <tr class="border-b dark:border-gray-700" id="<%= dom_id job_simulation %>">
-  <td class="px-4 py-3"> <%= job_simulation.company %></td>
+  <td class="px-4 py-3"> <%= job_simulation.name %></td>
   <td class="px-4 py-3"> <%= job_simulation.simulation_questions.count %></td>
   <td class="px-4 py-3 flex items-center justify-end">
     <button id="<%= job_simulation.id %>-dropdown-button" data-dropdown-toggle="<%= job_simulation.id %>-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
@@ -11,7 +11,10 @@
       <% if action_name != "show" %>
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="<%= job_simulation.id %>-dropdown-button">
           <li>
-            <%= link_to t('views.manager.goals.show'), manager_job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('.show'), job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+          </li>
+          <li>
+            <%= link_to t('.fill_out'), edit_job_simulation_path(job_simulation), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
       <% end %>

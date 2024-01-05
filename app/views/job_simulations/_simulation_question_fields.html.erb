@@ -1,0 +1,10 @@
+<div class="nested-form-wrapper" data-new-record="<%= form.object.new_record? %>">
+  <div class="flex flex-col">
+    <div class=" flex w-full">
+      <%= form.object.description %>
+    </div>
+    <div class=" flex w-full">
+      <%= render_answer_field(form) %>
+    </div>
+  </div>
+</div>

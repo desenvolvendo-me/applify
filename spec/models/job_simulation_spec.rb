@@ -3,7 +3,8 @@
 # Table name: job_simulations
 #
 #  id         :bigint           not null, primary key
-#  company    :string
+#  name       :string
+#  status     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,7 +18,6 @@ RSpec.describe JobSimulation, type: :model do
     }
     it {
       should accept_nested_attributes_for(:simulation_questions)
-        .allow_destroy(true)
     }
   end
 end

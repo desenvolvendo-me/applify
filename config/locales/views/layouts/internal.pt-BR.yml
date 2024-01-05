@@ -1,16 +1,20 @@
 pt-BR:
-  views:
-    layouts:
-      internal:
-        sr-only:
-          open_menu: "Abrir menu principal"
-        settings: "Configurações"
-        sign_out: "Sair da conta"
-        dashboard: "Painel"
-        goal: "Meta"
-        new: "Novo"
-        interview_prepare: 'Prepara Entrevista'
-        job_simulations: 'Checklist'
-        job_application: 'Candidaturas'
-        companies: 'Empresas'
-        stacks: 'Stacks'
+  layouts:
+    internal:
+      profile: 'Perfil'
+      logout: 'Sair'
+      are_you_sure_you_want_to_quit: 'Tem certeza que deseja sair?'
+      job_simulations: 'Checklist'
+      interview_prepare: 'Prepara Entrevista'
+      new: "Novo"
+      goal: "Meta"
+      dashboard: "Painel"
+      open_menu: "Abrir menu principal"
+      phase_1: "Fase 1"
+      sr-only:
+        open_menu: "Abrir menu principal"
+      settings: "Configurações"
+      sign_out: "Sair da conta"
+      job_application: 'Candidaturas'
+      companies: 'Empresas'
+      stacks: 'Stacks'

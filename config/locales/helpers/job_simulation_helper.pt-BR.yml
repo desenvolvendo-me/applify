@@ -1,0 +1,11 @@
+pt-BR:
+  helpers:
+    job_simulation:
+      display_answer:
+      private:
+        file_loaded:
+          success: 'Arquivo enviado.'
+          failure: 'Nenhum arquivo enviado'
+        answer_check:
+          check_yes: 'Sim'
+          check_no: 'Não'

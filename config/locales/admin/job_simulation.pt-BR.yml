@@ -4,3 +4,4 @@ pt-BR:
       simulation_questions: 'Perguntas'
       attributes:
         questions_quantity: 'Quantidade de perguntas'
+        name: 'Nome'

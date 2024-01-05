@@ -1,19 +1,23 @@
 pt-BR:
-  views:
-    manager:
+  manager:
+    profiles:
       profile:
+        profile_image_not_available: 'Image do perfil não disponível'
+        picture: 'Foto'
+        user: 'Usuário'
+        name: 'Nome'
+        user_type: 'Tipo de perfil'
+        bio: 'Bio'
+      form:
         show: 'Mostrar'
+      show:
+        title: 'Perfil'
         edit: 'Editar'
         delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
-        save: 'Salvar'
-        edit_view:
-          title: 'Editando Perfil'
-        show_view:
-          title: 'Perfil'
-          user: 'Usuário'
-          name: 'Nome'
-          user_type: 'Tipo de perfil'
-          delete_confirm: 'Você tem certeza?'
-        complete_registration_view:
-          title: 'Complete o cadastro'
+      edit:
+        title: 'Editando Perfil'
+        show: 'Mostrar'
+      new:
+        title: 'Complete o cadastro'
+        show: 'Mostrar'
