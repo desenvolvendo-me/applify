@@ -13,10 +13,8 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  describe 'validations' do
-  end
-
   describe 'associations' do
     it { should have_and_belong_to_many(:stacks) }
+    it { should have_many(:candidatures) }
   end
 end
