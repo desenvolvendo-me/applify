@@ -24,7 +24,7 @@ class Profile < ApplicationRecord
 
   has_one_attached :profile_picture
 
-  enum :user_type, %i[student professional]
+  enum user_type: { student: 0, professional: 1 }
 
   validates :user_type, :name, presence: true
 end
