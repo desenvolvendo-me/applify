@@ -3,6 +3,7 @@
 # Table name: profiles
 #
 #  id         :bigint           not null, primary key
+#  bio        :text
 #  name       :string
 #  user_type  :integer
 #  created_at :datetime         not null
@@ -21,6 +22,7 @@ FactoryBot.define do
   factory :profile do
     user { nil }
     name { FFaker::NameBR.name }
+    bio { FFaker::LoremBR.paragraphs(2).first }
     user_type { Profile.user_types.keys.sample }
   end
 end

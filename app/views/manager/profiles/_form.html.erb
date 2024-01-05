@@ -1,20 +1,17 @@
-<%= simple_form_for([:manager, profile], url: manager_profile_path,
-                    html: { class: 'relative' }) do |form| %>
-  <%= form.error_notification %>
-
-  <div class="flex justify-between items-center mb-4">
-    <h1 class="font-bold text-4xl"><%= profile_title %></h1>
-    <div>
-      <%= form.submit class: 'cursor-pointer mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800' %>
-      <%= link_to t('views.manager.profile.show'), manager_profile_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" if action_name == 'edit' %>
-    </div>
+<div class="flex flex-col">
+  <div class="flex">
+    <%= form.input :profile_picture, as: :file, input_html: { style: 'padding: 0;', class: 'mb-4 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400' } %>
   </div>
+</div>
 
-  <div class="flex flex-col">
-    <div class="flex">
-      <%= form.input :email, input_html: { value: profile.user.email, readonly: true } %>
-      <%= form.input :name, placeholder: '' %>
-      <%= form.input :user_type, collection: Profile.user_types.keys.map { |type| [I18n.t("enum.statuses.#{type}").capitalize, type] }, include_blank: false %>
-    </div>
+<div class="flex flex-col">
+  <div class="flex">
+    <%= form.input :email, input_html: { value: profile.user.email, readonly: true } %>
+    <%= form.input :name, placeholder: '' %>
+    <%= form.input :user_type, collection: Profile.user_types.keys.map { |type| [I18n.t("enum.statuses.#{type}").capitalize, type] }, include_blank: false %>
   </div>
-<% end %>
+</div>
+
+<div class="flex w-full">
+  <%= form.input :bio, placeholder: '', as: :text, input_html: { rows: '3' }, wrapper: :vertical_form_full_width %>
+</div>

@@ -4,7 +4,7 @@ module Manager
 
     def show; end
 
-    def complete_registration
+    def new
       @profile = current_user.build_profile
     end
 
@@ -13,9 +13,9 @@ module Manager
 
       if @profile.save
         redirect_to manager_profile_url,
-                    notice: t('controllers.manager.profiles.create')
+                    notice: t('.success')
       else
-        render :complete_registration
+        render :new
       end
     end
 
@@ -24,7 +24,7 @@ module Manager
     def update
       if @profile.update(profile_params)
         redirect_to manager_profile_url,
-                    notice: t('controllers.manager.profiles.update')
+                    notice: t('.success')
       else
         render :edit
       end
@@ -33,7 +33,7 @@ module Manager
     def destroy
       @profile.destroy
       redirect_to manager_home_url,
-                  notice: t('controllers.manager.profiles.destroy')
+                  notice: t('.success')
     end
 
     private
@@ -43,7 +43,13 @@ module Manager
     end
 
     def profile_params
-      params.require(:profile).permit(:user_id, :name, :user_type)
+      params.require(:profile).permit(
+        :user_id,
+        :name,
+        :user_type,
+        :profile_picture,
+        :bio
+      )
     end
   end
 end
