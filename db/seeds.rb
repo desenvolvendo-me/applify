@@ -16,6 +16,12 @@ if Rails.env.development?
     profile_picture: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/images/profile.jpg'), 'image/jpeg')
   )
 
+  # Skill
+  Skill.create(description: "Communication Skills", skill_type: :soft_skill)
+  Skill.create(description: "Ruby on Rails", skill_type: :hard_skill)
+  Skill.create(description: "Teamwork", skill_type: :soft_skill)
+  Skill.create(description: "JavaScript", skill_type: :hard_skill)
+
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')
   stack2 = Stack.create(name: 'Ruby')
