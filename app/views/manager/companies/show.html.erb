@@ -4,8 +4,10 @@
     <div>
       <%= link_to I18n.t('views.manager.company.edit'), edit_manager_company_path(@company), class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
       <%= link_to I18n.t('views.manager.company.back'), manager_companies_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
-      <%= link_to I18n.t('views.manager.company.delete'), manager_company_path(@company),
-                  data: { turbo_method: :delete, turbo_confirm: t('views.manager.company.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <% if @company.candidatures.empty? %>
+        <%= link_to I18n.t('views.manager.company.delete'), manager_company_path(@company),
+                    data: { turbo_method: :delete, turbo_confirm: t('views.manager.company.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+        <% end %>
     </div>
   </div>
   <div class="flex flex-col">
