@@ -8,7 +8,7 @@ if Rails.env.development?
     password_confirmation: '000000'
   )
 
-  Profile.create!(
+  profile = Profile.create!(
     name: FFaker::NameBR.name,
     user_type: :student,
     user: user,
@@ -21,6 +21,9 @@ if Rails.env.development?
   Skill.create(description: "Ruby on Rails", skill_type: :hard_skill)
   Skill.create(description: "Teamwork", skill_type: :soft_skill)
   Skill.create(description: "JavaScript", skill_type: :hard_skill)
+
+  # Experiences
+  profile.skills << Skill.all
 
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')

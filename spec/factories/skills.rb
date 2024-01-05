@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string
-#  type_skill  :integer
+#  skill_type  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

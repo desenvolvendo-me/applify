@@ -15,6 +15,9 @@
 class Skill < ApplicationRecord
   enum :skill_type, %i[soft_skill hard_skill]
 
+  has_many :experiences, dependent: :destroy
+  has_many :profiles, through: :experiences
+
   validates :description, presence: true, uniqueness: true
   validates :skill_type, presence: true
 end
