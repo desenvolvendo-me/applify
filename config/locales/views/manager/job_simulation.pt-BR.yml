@@ -1,8 +1,0 @@
-pt-BR:
-  views:
-    manager:
-      job_simulations:
-        links:
-          back: 'Voltar'
-        index:
-          filter_by: 'Filtrar'

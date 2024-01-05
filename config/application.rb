@@ -16,6 +16,9 @@ module StartupMissionBaseRails
     # Specify location below
     config.i18n.default_locale = 'pt-BR'
 
+    # Config active storage files locally.
+    config.active_storage.service = :local
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

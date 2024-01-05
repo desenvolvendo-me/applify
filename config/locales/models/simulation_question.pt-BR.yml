@@ -2,10 +2,15 @@ pt-BR:
   activerecord:
     models:
       simulation_question:
-        one: 'Pergunta'
-        other: 'Perguntas'
+        one: 'Pergunta de checklist'
+        other: 'Perguntas de checklist'
     attributes:
       simulation_question:
         description: 'Descrição'
+        answer_check: 'Sim ou não'
+        answer_text: 'Texto'
+        answer_link: 'Link'
+        answer_type: 'Tipo de resposta'
+        answer_file: 'Arquivo'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'

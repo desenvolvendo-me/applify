@@ -22,9 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :job_simulations
+
   namespace :manager do
     resources :candidatures
-    resources :job_simulations
     resources :stacks
     resources :companies
     resources :job_simulations
