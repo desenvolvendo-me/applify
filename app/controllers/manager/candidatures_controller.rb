@@ -42,7 +42,7 @@ module Manager
       return unless @candidature.destroy
 
       redirect_to manager_candidatures_path,
-                  notice: "#{@candidature.company_name}
+                  notice: "#{@candidature}
                             #{t('controllers.candidatures.destroy')}",
                   status: :see_other
     end
@@ -54,8 +54,7 @@ module Manager
     end
 
     def candidature_params
-      params.require(:candidature).permit(:company_name,
-                                          :situation,
+      params.require(:candidature).permit(:situation,
                                           :job_position,
                                           :job_description,
                                           :personal_projects,
@@ -64,7 +63,8 @@ module Manager
                                           :application_date,
                                           :presentation_letter,
                                           :knowledge_about_company,
-                                          :personal_project)
+                                          :personal_project,
+                                          :company_id)
     end
   end
 end
