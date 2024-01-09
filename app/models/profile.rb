@@ -25,6 +25,8 @@ class Profile < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :skills, through: :experiences
 
+  accepts_nested_attributes_for :experiences
+
   enum :user_type, %i[student professional]
 
   validates :user_type, :name, presence: true

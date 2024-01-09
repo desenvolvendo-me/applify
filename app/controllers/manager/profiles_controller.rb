@@ -48,7 +48,8 @@ module Manager
         :name,
         :user_type,
         :profile_picture,
-        :bio
+        :bio,
+        experiences_attributes: %i[id level]
       )
     end
   end
