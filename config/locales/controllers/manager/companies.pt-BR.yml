@@ -1,7 +1,9 @@
 pt-BR:
-  controller:
-    manager:
-      companies:
-        create: 'Empresa cadastrada com sucesso.'
-        update: 'Empresa atualizada com sucesso.'
-        destroy: 'Empresa apagada com sucesso.'
+  manager:
+    companies:
+      create:
+        success: 'Empresa cadastrada com sucesso.'
+      update:
+        success: 'Empresa atualizada com sucesso.'
+      destroy:
+        success: 'Empresa apagada com sucesso.'

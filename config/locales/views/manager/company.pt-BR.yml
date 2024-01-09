@@ -1,19 +1,29 @@
 pt-BR:
-  views:
-    manager:
+  manager:
+    companies:
       company:
-        salve: 'Salvar'
-        new: 'Novo'
-        show: 'Mostrar'
         edit: 'Editar'
+        show: 'Mostrar'
         delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
+      form:
+        stacks: 'Stacks'
+      edit:
+        salve: 'Salvar'
         back: 'Voltar'
-        edit_view:
-          title: 'Editando empresa'
-        new_view:
-          title: 'Nova Empresa'
-        show_view:
-          title: 'Mostrando Empresa'
-        index_view:
-          stacks: "Stacks"
+        title: 'Editando empresa'
+      new:
+        back: 'Voltar'
+        salve: 'Salvar'
+        title: 'Nova Empresa'
+      show:
+        title: 'Mostrando Empresa'
+        edit: 'Editar'
+        back: 'Voltar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+      index:
+        search: 'Pesquisar'
+        new: 'Novo'
+        stacks: 'Stacks'
+        filter_by: 'Filtrar'

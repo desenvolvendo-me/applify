@@ -1,9 +1,9 @@
 <%= simple_form_for @company, url: manager_companies_path, html: { class: 'relative'} do |form| %>
   <div class="flex justify-between items-center mb-4">
-    <h1 class="font-bold text-4xl"><%= I18n.t('views.manager.company.new_view.title') %></h1>
+    <h1 class="font-bold text-4xl"><%= t '.title' %></h1>
     <div>
-      <%= form.button :submit, t('views.manager.company.salve') %>
-      <%= link_to I18n.t('views.manager.company.back'), manager_companies_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-3 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= form.button :submit, t('.salve') %>
+      <%= link_to t('.back'), manager_companies_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-3 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
     </div>
   </div>
   <%= render "form", company: @company, form: form %>
