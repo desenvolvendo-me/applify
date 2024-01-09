@@ -15,8 +15,19 @@
 #  situation               :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  company_id              :bigint           not null
+#
+# Indexes
+#
+#  index_candidatures_on_company_id  (company_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
 #
 class Candidature < ApplicationRecord
+  belongs_to :company
+
   enum situation: { dispatch: 'dispatch', sending: 'sending',
                     answered: 'answered' }
 
@@ -35,10 +46,4 @@ class Candidature < ApplicationRecord
 
   enum programming_language: { 'Java' => 0, 'Python' => 1, 'JavaScript' => 2,
                                'Ruby' => 3, 'C#' => 4, 'PHP' => 5 }
-
-  validates :company_name, presence: true
-
-  def to_s
-    company_name
-  end
 end
