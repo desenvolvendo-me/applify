@@ -21,8 +21,6 @@ if Rails.env.development?
   stack2 = Stack.create(name: 'Ruby')
   stack3 = Stack.create(name: 'JavaScript')
   stack4 = Stack.create(name: 'Python')
-  stack5 = Stack.create(name: 'C')
-  stack6 = Stack.create(name: 'C++')
 
   # Company
   company1 = Company.create!(name: 'Amazon',
@@ -36,12 +34,6 @@ if Rails.env.development?
                              linkedin: 'www.linkedin.com/company/google',
                              site: 'www.google.com.br')
   company2.stack_ids = [stack2.id, stack4.id]
-
-  company3 = Company.create!(name: 'Microsoft',
-                             description: 'Empresa multinacional que oferece serviços online e softwares para download.',
-                             linkedin: 'www.linkedin.com/company/microsoft',
-                             site: 'www.microsoft.com')
-  company3.stack_ids = [stack5.id, stack6.id]
 
   # Job simulation
   checklist_padrao = JobSimulation.create(name: 'Perguntas Padrão', status: 0)
@@ -59,63 +51,15 @@ if Rails.env.development?
   SimulationQuestion.create!(description: 'Esta posição exige viagens. Você está disposto(a) a viajar conforme necessário?', answer_type: 2, job_simulation: checklist_versao1)
   SimulationQuestion.create!(description: 'Já teve experiência em startup antes?', answer_type: 3, job_simulation: checklist_versao1)
 
-  #Candidatures
-  Candidature.create!(company_id: company1.id, situation: 'answered', job_position:'junior_developer', frame_work: 'React',
-                     programming_language: 'Python', application_date: '10/12/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company2.id, situation: 'sending', job_position:'junior_developer', frame_work: 'Angular',
-                     programming_language: 'Python', application_date: '8/10/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company1.id, situation: 'dispatch', job_position:'junior_developer', frame_work: 'Ruby on Rails',
-                     programming_language: 'Ruby', application_date: '20/06/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company2.id, situation: 'dispatch', job_position:'junior_developer', frame_work: 'Laravel',
-                     programming_language: 'PHP', application_date: '12/11/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  #Candidatures
-  Candidature.create!(company_id: company1.id, situation: 'answered', job_position:'junior_developer', frame_work: 'React',
-                     programming_language: 'Python', application_date: '10/12/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company2.id, situation: 'sending', job_position:'junior_developer', frame_work: 'Angular',
-                     programming_language: 'Python', application_date: '8/10/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company1.id, situation: 'dispatch', job_position:'junior_developer', frame_work: 'Ruby on Rails',
-                     programming_language: 'Ruby', application_date: '20/06/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
-
-  Candidature.create!(company_id: company2.id, situation: 'dispatch', job_position:'junior_developer', frame_work: 'Laravel',
-                     programming_language: 'PHP', application_date: '12/11/2023',
-                     personal_projects: 'links',
-                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
-                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
-                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+  # Agreement
+  Setting.create!(accord:
+                      'Ao colocar informações de uma empresa no sistema, você concorda em cumprir os seguintes termos:
+                        - As informações fornecidas, incluindo nome, descrição, LinkedIn, site e tecnologias são precisas e representam devidamente a empresa em questão.
+                        - Como usuário responsável por criar uma nova empresa, compromete-se a manter as informações atualizadas e refletindo com precisão a situação atual da empresa.
+                        - Compromete-se a fornecer informações verdadeiras e não enganosas sobre a empresa.
+                        - As informações fornecidas não infringem os direitos autorais ou propriedade intelectual de terceiros.
+                        - Ao criar ou atualizar uma empresa, reconhece e aceita a responsabilidade legal pelas informações fornecidas.'
+  )
 
   # Goals and tasks
   goal1 = Goal.create(name: 'Aprender Linguagem Ruby',
@@ -192,4 +136,71 @@ if Rails.env.development?
                        description: 'Quero criar um chatbot em 1 mês', status: 'done')
   Task.create(name: 'Treinamento do modelo', description: 'Treinar um modelo de chatbot',
               status: "done", goal: goal15)
+
+  #Candidatures
+  Candidature.create(company_name: 'Amazon',situation: 'answered', job_position:'junior_developer', frame_work: 'React',
+                     programming_language: 'Python', application_date: '10/12/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'Google',situation: 'sending', job_position:'junior_developer', frame_work: 'Angular',
+                     programming_language: 'Python', application_date: '8/10/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'Microsoft',situation: 'dispatch', job_position:'junior_developer', frame_work: 'Ruby on Rails',
+                     programming_language: 'Ruby', application_date: '20/06/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'Apple',situation: 'dispatch', job_position:'junior_developer', frame_work: 'Laravel',
+                     programming_language: 'PHP', application_date: '12/11/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'IBM',situation: 'answered', job_position:'junior_developer', frame_work: 'React',
+                     programming_language: 'PHP', application_date: '10/12/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'Dell',situation: 'answered', job_position:'junior_developer', frame_work: 'React',
+                     programming_language: 'Python', application_date: '07/03/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'Oracle',situation: 'sending', job_position:'junior_developer', frame_work: 'React',
+                     programming_language: 'Python', application_date: '15/09/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'DXC Technology',situation: 'sending', job_position:'junior_developer', frame_work: 'Angular',
+                     programming_language: 'Python', application_date: '10/07/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
+
+  Candidature.create(company_name: 'TOTVS',situation: 'dispatch', job_position:'junior_developer', frame_work: 'Angular',
+                     programming_language: 'JavaScript', application_date: '9/08/2023',
+                     personal_projects: 'links',
+                     job_description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.',
+                     presentation_letter: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, making it look like readable English.',
+                     knowledge_about_company: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old')
 end
+
+
+
