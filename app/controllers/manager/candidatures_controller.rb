@@ -2,7 +2,6 @@ module Manager
   class CandidaturesController < InternalController
     before_action :authenticate_user!
     before_action :set_candidature, only: %i[show edit update destroy]
-    before_action :authorize_user, except: %i[index new create]
 
     def index
       return unless current_user&.profile
@@ -74,10 +73,6 @@ module Manager
                                           :presentation_letter,
                                           :knowledge_about_company,
                                           :personal_project, :profile_id)
-    end
-
-    def authorize_user
-      nil if current_user && current_user.profile == @candidature.profile
     end
   end
 end
