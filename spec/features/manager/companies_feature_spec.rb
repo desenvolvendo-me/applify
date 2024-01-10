@@ -23,13 +23,13 @@ RSpec.feature 'Manager Company', type: :feature do
 
   scenario 'create company' do
     visit manager_companies_path
-    click_link I18n.t('manager.companies.index.new')
+    click_link I18n.t 'manager.companies.index.new'
     visit new_manager_company_path
 
     fill_in 'Nome', with: 'Google'
-    click_button I18n.t('manager.companies.new.salve')
+    click_button I18n.t 'manager.companies.new.salve'
 
-    expect(page).to have_text I18n.t('manager.companies.create.success')
+    expect(page).to have_text I18n.t 'manager.companies.create.success'
     expect(page).to have_text('Google')
   end
 
@@ -41,10 +41,10 @@ RSpec.feature 'Manager Company', type: :feature do
 
   scenario 'update company' do
     visit manager_company_path(Company.last)
-    click_link I18n.t 'manager.companies.show.edit'
+    click_link I18n.t 'manager.companies.company.edit'
 
     fill_in 'Nome', with: 'Amazon'
-    click_button I18n.t 'manager.job_simulations.edit.save'
+    click_button I18n.t 'manager.companies.edit.salve'
 
     expect(page).to have_text I18n.t 'manager.companies.update.success'
     expect(page).to have_text('Amazon')
@@ -52,9 +52,9 @@ RSpec.feature 'Manager Company', type: :feature do
 
   scenario 'delete company' do
     visit manager_company_path(Company.first)
-    click_link I18n.t('manager.companies.show.delete')
+    click_link I18n.t 'manager.companies.company.delete'
 
-    page.accept_alert I18n.t 'manager.companies.show.delete_confirm'
+    page.accept_alert I18n.t 'manager.companies.company.delete_confirm'
     expect(page).to have_text I18n.t 'manager.companies.destroy.success'
   end
 end

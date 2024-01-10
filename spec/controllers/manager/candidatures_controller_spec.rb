@@ -8,22 +8,10 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
     sign_in user
   end
 
-  let(:candidature) { create(:candidature) }
+  let(:company) { create(:company) }
+  let(:candidature) { create(:candidature, company: company) }
   let(:valid_attributes) { attributes_for(:candidature) }
-  let(:invalid_attributes) { { company_name: ' ' } }
-
-  let(:updated_attributes) do
-    attributes_for(:candidature,
-                   company_name: 'Updated company',
-                   job_position: 'Updated position',
-                   framework: 'Updated framework',
-                   programming_language: 'Updated language',
-                   application_date: '12/12/2023',
-                   personal_projects: 'Updated projects',
-                   job_description: 'Updated description',
-                   presentation_letter: 'Updated letter',
-                   knowledge_about_company: 'Updated knowledge')
-  end
+  let(:invalid_attributes) { { company: ' ' } }
 
   describe 'GET #index' do
     it 'returns all Candidatures' do
@@ -32,7 +20,6 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
     end
 
     it 'assigns @Candidatures' do
-      candidature = create(:candidature)
       get :index
       expect(assigns(:candidatures)).to eq([candidature])
     end
@@ -92,17 +79,20 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
         put :update,
             params: { id: candidature.id,
                       candidature: invalid_attributes }
-        expect(response).to render_template('edit')
+        expect(response).to redirect_to(manager_candidature_path)
       end
     end
   end
 
   describe 'DELETE #destroy' do
     it 'destroy the candidature' do
-      candidature = create(:candidature)
+      company = create(:company)
+      candidature = create(:candidature, company: company)
       expect do
         delete :destroy, params: { id: candidature.id }
       end.to change(Candidature, :count).by(-1)
+
+      expect(Company.exists?(company.id)).to be_truthy
     end
 
     it 'redirect to the candidature list' do

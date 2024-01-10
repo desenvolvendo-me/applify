@@ -15,11 +15,20 @@
 #  situation               :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  company_id              :bigint           not null
+#
+# Indexes
+#
+#  index_candidatures_on_company_id  (company_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
 #
 require 'rails_helper'
 
 RSpec.describe Candidature, type: :model do
-  describe 'validations' do
-    it { should validate_presence_of(:company_name) }
+  describe 'association' do
+    it { should belong_to(:company) }
   end
 end
