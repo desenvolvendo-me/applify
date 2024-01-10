@@ -16,7 +16,7 @@ RSpec.describe Manager::CompaniesController, type: :controller do
       site: 'www.newsite.com.br' }
   end
   let(:invalid_attributes) do
-    { name: '  ', description: ' ' }
+    { name: ' ', description: ' ' }
   end
 
   describe 'GET #index' do

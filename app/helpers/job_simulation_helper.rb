@@ -30,14 +30,14 @@ module JobSimulationHelper
 
   def render_check_field(form)
     form.select :answer_check,
-                [[t('manager.job_simulations._simulation_question_fields.choose'),
+                [[t('helpers.job_simulation.render_check_field.choose'),
                   nil],
                  [
-                   t('manager.job_simulations._simulation_question_fields.check_yes'),
+                   t('helpers.job_simulation.private.answer_check.check_yes'),
                    true
                  ],
                  [
-                   t('manager.job_simulations._simulation_question_fields.check_no'),
+                   t('helpers.job_simulation.private.answer_check.check_no'),
                    false
                  ]], {},
                 class: 'w-1/2 py-2.5 px-0 text-sm text-gray-500 bg-transparent

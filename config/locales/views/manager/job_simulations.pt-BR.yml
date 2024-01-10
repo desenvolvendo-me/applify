@@ -17,10 +17,5 @@ pt-BR:
         click_to_send: 'Clique para enviar'
         drag_and_drop: 'ou arraste e solte'
         description: 'SVG, PNG, JPG ou GIF (MÁX. 800x400px)'
-      partials:
-        _form:
-          title: 'Perguntas'
-      _simulation_question_fields:
-        choose: 'Escolha uma opção'
-        check_yes: 'Sim'
-        check_no: 'Não'
+      form:
+        title: 'Perguntas'

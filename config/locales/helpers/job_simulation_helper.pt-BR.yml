@@ -1,7 +1,10 @@
 pt-BR:
   helpers:
     job_simulation:
-      display_answer:
+      render_check_field:
+        choose: 'Escolha uma opção'
+        check_yes: 'Sim'
+        check_no: 'Não'
       private:
         file_loaded:
           success: 'Arquivo enviado.'
