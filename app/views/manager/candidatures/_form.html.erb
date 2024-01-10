@@ -8,8 +8,8 @@
       </div>
 
       <div class="flex">
-        <%= f.input :job_position, collection: Candidature.job_positions.keys.map { |key| [t("enum.job_positions.#{key}"), key] }, selected:'junior_developer' %>
-        <%= f.input :situation, as: :select, collection: Candidature.situations.keys.map{ |key| [t("enum.situations.#{key}"), key] }, selected:'send' %>
+        <%= f.input :job_position, collection: Candidature.job_positions.keys.map { |key| [t("activerecord.attributes.candidature.enum.job_positions.#{key}"), key] }, selected:'junior_developer' %>
+        <%= f.input :situation, as: :select, collection: Candidature.situations.keys.map{ |key| [t("activerecord.attributes.candidature.enum.situations.#{key}"), key] }, selected:'send' %>
       </div>
 
       <div class="flex">

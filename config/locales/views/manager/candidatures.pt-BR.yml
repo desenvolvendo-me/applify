@@ -1,12 +1,8 @@
 pt-BR:
   manager:
     candidatures:
-      show_candidature: 'Mostrar'
-      edit_candidature: 'Editar'
-      delete: 'Apagar'
       done: 'Finalizar'
       back: 'Voltar'
-      delete_confirm: 'Você tem certeza?'
       index:
         add_candidature: "Adicionar Candidatura"
         company_name: "Empresa"
@@ -27,12 +23,16 @@ pt-BR:
         back: 'Voltar'
         delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
+      candidature:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
   helpers:
     submit:
       candidature:
         create: "Salvar"
         update: "Atualizar"
-
   activerecord:
     errors:
       models:
@@ -40,7 +40,6 @@ pt-BR:
           attributes:
             company_name:
               blank: "Empresa não pode ficar em branco"
-
   models:
     candidature:
       one: 'Candidatura'

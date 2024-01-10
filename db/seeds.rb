@@ -15,6 +15,11 @@ if Rails.env.development?
     bio: FFaker::LoremBR.paragraphs(2).first,
     profile_picture: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/images/profile.jpg'), 'image/jpeg')
   )
+  student = User.create(email: 'student@example.com', password: '123456')
+  professional = User.create(email: 'professional@example.com', password: '123456')
+
+  student.save
+  professional.save
 
   # Stack
   stack1 = Stack.create(name: 'Ruby on Rails')
@@ -138,11 +143,6 @@ if Rails.env.development?
               status: "done", goal: goal15)
 
   # Candidatures
-  student = User.create(email: 'student@example.com', password: '123456')
-  professional = User.create(email: 'professional@example.com', password: '123456')
-
-  student.save
-  professional.save
 
   student.create_profile(name: 'student1', user_type: 'student')
   professional.create_profile(name: 'professional1', user_type: 'professional')
