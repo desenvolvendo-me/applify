@@ -22,7 +22,7 @@ module JobSimulationHelper
     when 'answer_link'
       render_link_field(form)
     when 'answer_file'
-      render 'job_simulations/upload_file', form: form
+      render 'manager/job_simulations/upload_file', form: form
     end
   end
 
@@ -30,14 +30,14 @@ module JobSimulationHelper
 
   def render_check_field(form)
     form.select :answer_check,
-                [[t('job_simulations._simulation_question_fields.choose'),
+                [[t('helpers.job_simulation.render_check_field.choose'),
                   nil],
                  [
-                   t('job_simulations._simulation_question_fields.check_yes'),
+                   t('helpers.job_simulation.private.answer_check.check_yes'),
                    true
                  ],
                  [
-                   t('job_simulations._simulation_question_fields.check_no'),
+                   t('helpers.job_simulation.private.answer_check.check_no'),
                    false
                  ]], {},
                 class: 'w-1/2 py-2.5 px-0 text-sm text-gray-500 bg-transparent
