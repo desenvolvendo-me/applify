@@ -15,10 +15,19 @@
 #  situation               :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  company_id              :bigint           not null
+#
+# Indexes
+#
+#  index_candidatures_on_company_id  (company_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
 #
 FactoryBot.define do
   factory :candidature do
-    company_name { FFaker::Company.name }
+    company { create(Company.name) }
     situation { 'sending' }
     job_position { 'junior_developer' }
     frame_work { 'React' }

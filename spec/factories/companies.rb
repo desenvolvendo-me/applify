@@ -16,5 +16,11 @@ FactoryBot.define do
     description { FFaker::Company.catch_phrase }
     linkedin { "linkedin/in/#{name}" }
     site { "www.#{name}.com.br" }
+
+    trait :candidatures do
+      after(:create) do |company|
+        create_list(:candidature, 3, company: company)
+      end
+    end
   end
 end

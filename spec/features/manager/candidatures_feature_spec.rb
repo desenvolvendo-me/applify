@@ -9,8 +9,9 @@ RSpec.feature 'Manager Candidature', type: :feature do
   end
 
   before do
+    company = create(:company, name: 'Amazon')
     create(:candidature,
-           company_name: 'Amazon',
+           company: company,
            situation: 'answered',
            job_position: 'junior_developer',
            frame_work: 'React',
@@ -47,7 +48,7 @@ RSpec.feature 'Manager Candidature', type: :feature do
     visit manager_candidature_path(Candidature.last)
     click_link 'Editar'
 
-    fill_in 'Empresa', with: 'Ruby'
+    select 'Ruby', from: 'Linguagem de Programação'
     click_button 'Atualizar'
 
     expect(page).to have_text('Candidatura atualizada com sucesso')
