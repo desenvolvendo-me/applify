@@ -30,9 +30,9 @@ RSpec.describe JobSimulationHelper, type: :helper do
       rendered_html = helper.render_answer_field(form_builder).to_s
 
       expect(rendered_html).to have_select('simulation_question_answer_check') do |options|
-        expect(options).to have_selector("option[value='']", text: I18n.t('manager.job_simulations._simulation_question_fields.choose'))
-        expect(options).to have_selector("option[value='true'][selected='selected']", text: I18n.t('manager.job_simulations._simulation_question_fields.check_yes'))
-        expect(options).to have_selector("option[value='false']", text: I18n.t('manager.job_simulations._simulation_question_fields.check_no'))
+        expect(options).to have_selector("option[value='']", text: I18n.t('helpers.job_simulation.render_check_field.choose'))
+        expect(options).to have_selector("option[value='true'][selected='selected']", text: I18n.t('helpers.job_simulation.render_check_field.check_yes'))
+        expect(options).to have_selector("option[value='false']", text: I18n.t('helpers.job_simulation.render_check_field.check_no'))
       end
     end
 

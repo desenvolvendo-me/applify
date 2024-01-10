@@ -44,13 +44,13 @@ RSpec.feature 'Job Simulations', type: :feature do
     first('td.flex button').click
     click_on I18n.t('manager.job_simulations.job_simulation.fill_out')
 
-    expect(page).to have_text(I18n.t('manager.job_simulations.partials._form.title'))
+    expect(page).to have_text(I18n.t('manager.job_simulations.form.title'))
   end
 
   scenario 'edit each kind of input from job_simulation' do
     visit edit_manager_job_simulation_path(checklist_jr0)
 
-    select(I18n.t('manager.job_simulations._simulation_question_fields.check_yes'),
+    select(I18n.t('helpers.job_simulation.render_check_field.check_yes'),
            from: 'job_simulation[simulation_questions_attributes][0][answer_check]')
     fill_in('job_simulation[simulation_questions_attributes][1][answer_text]',
             with: 'Possuo fluência em Inglês')
