@@ -15,33 +15,3 @@
 <div class="flex w-full">
   <%= form.input :bio, placeholder: '', as: :text, input_html: { rows: '3' }, wrapper: :vertical_form_full_width %>
 </div>
-
-
-<div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-  <h1 class="font-bold text-4xl mb-4">Skills</h1>
-
-  <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg">
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-        <tr>
-          <th scope="col" class="px-4 py-3">Description</th>
-          <th scope="col" class="px-4 py-3">Level</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% profile.skills.uniq.each do |skill| %>
-          <tr class="border-b">
-            <td class="py-3 px-4"><%= skill.description %></td>
-            <td class="py-3 px-4">
-              <%= form.simple_fields_for :experiences, profile.experiences.find_by(skill_id: skill.id) do |experience_form| %>
-                <%= experience_form.input :level, collection: Experience.levels, include_blank: false, wrapper: :select_form_input %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
