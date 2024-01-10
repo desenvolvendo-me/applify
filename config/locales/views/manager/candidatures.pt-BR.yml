@@ -16,6 +16,8 @@ pt-BR:
         programming_language: "Linguagem de Programação"
       new:
         title: 'Nova Candidatura'
+        save: 'Salvar'
+        back: 'Voltar'
       edit:
         title: 'Editar Candidatura'
       show:
