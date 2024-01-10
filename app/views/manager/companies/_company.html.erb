@@ -15,8 +15,10 @@
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="<%= company.id %>-dropdown-button">
           <li><%= link_to t('.show'), manager_company_path(company), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %></li>
           <li><%= link_to t('.edit'), edit_manager_company_path(company), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %></li>
-          <li><%= link_to t('.delete'),
-                          manager_company_path(company), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirm') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %></li>
+          <% if company.candidatures.empty? %>
+            <li><%= link_to t('.delete'),
+                            manager_company_path(company), data: { turbo_method: :delete, turbo_confirm: t('.delete_confirm') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %></li>
+          <% end %>
         </ul>
       <% end %>
     </div>
