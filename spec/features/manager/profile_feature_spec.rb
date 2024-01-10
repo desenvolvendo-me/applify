@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Manager Profiles', type: :feature do
-  let(:user) { create(:user) }
-  let(:profile) { build(:profile) }
+  let!(:user) { create(:user) }
+  let!(:profile) { build(:profile) }
 
   scenario 'redirect to login page if manager is not logged in' do
     visit manager_home_path
@@ -27,25 +27,21 @@ RSpec.feature 'Manager Profiles', type: :feature do
 
     visit new_manager_profile_path
 
-    options = page.find('#profile_user_type').all('option').collect(&:text)
+    page.find('#profile_user_type').all('option').collect(&:text)
 
     fill_in 'profile[name]', with: profile.name
     fill_in 'profile[bio]', with: profile.bio
-    select options.sample, from: 'profile[user_type]'
+    select(I18n.t('enum.statuses.professional'), from: 'profile[user_type]')
     attach_file('profile[profile_picture]',
                 Rails.root.join('spec/fixtures/images/profile.jpg').to_s,
                 visible: false)
 
     find('input[type=submit]').click
-
     expect(page).to have_current_path(manager_profile_path)
     expect(page).to have_text(I18n.t('manager.profiles.create.success'))
     expect(page).to have_text(profile.name)
     expect(page).to have_text(profile.bio)
-    expect(page).to have_text(
-      I18n.t("enum.statuses.#{profile.user_type}")
-          .capitalize
-    )
+    expect(page).to have_text(I18n.t('enum.statuses.professional'))
     expect(page).to have_selector("img[src*='profile.jpg']")
   end
 
