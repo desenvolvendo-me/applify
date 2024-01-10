@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Job Simulations', type: :feature do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    login_as(user)
+  end
   let(:checklist_jr0) { create(:job_simulation, name: 'Perguntas Jr 0') }
   let(:checklist_padrao) do
     create(:job_simulation, name: 'Perguntas padrão')
@@ -20,31 +26,31 @@ RSpec.feature 'Job Simulations', type: :feature do
   end
 
   scenario '#INDEX', 'list job_simulations' do
-    visit job_simulations_path
+    visit manager_job_simulations_path
 
     expect(page).to have_text('Perguntas Jr 0')
     expect(page).to have_text('Perguntas padrão')
   end
 
   scenario '#SHOW', 'show job_simulation' do
-    visit job_simulation_path(checklist_jr0)
+    visit manager_job_simulation_path(checklist_jr0)
 
     expect(page).to have_text('Perguntas Jr 0')
   end
 
   scenario 'visit job_simulation from index' do
-    visit job_simulations_path
+    visit manager_job_simulations_path
 
     first('td.flex button').click
-    click_on I18n.t('job_simulations.job_simulation.fill_out')
+    click_on I18n.t('manager.job_simulations.job_simulation.fill_out')
 
-    expect(page).to have_text(I18n.t('job_simulations.partials._form.title'))
+    expect(page).to have_text(I18n.t('manager.job_simulations.partials._form.title'))
   end
 
   scenario 'edit each kind of input from job_simulation' do
-    visit edit_job_simulation_path(checklist_jr0)
+    visit edit_manager_job_simulation_path(checklist_jr0)
 
-    select(I18n.t('job_simulations._simulation_question_fields.check_yes'),
+    select(I18n.t('manager.job_simulations._simulation_question_fields.check_yes'),
            from: 'job_simulation[simulation_questions_attributes][0][answer_check]')
     fill_in('job_simulation[simulation_questions_attributes][1][answer_text]',
             with: 'Possuo fluência em Inglês')
@@ -55,8 +61,8 @@ RSpec.feature 'Job Simulations', type: :feature do
       Rails.root.join('spec/fixtures/files/arquivo_exemplo.txt'), visible: false
     )
 
-    click_on I18n.t 'job_simulations.edit.save'
+    click_on I18n.t 'manager.job_simulations.edit.save'
 
-    expect(page).to have_text(I18n.t('job_simulations.update.success'))
+    expect(page).to have_text(I18n.t('manager.job_simulations.update.success'))
   end
 end
