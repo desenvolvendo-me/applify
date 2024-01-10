@@ -9,7 +9,6 @@ RSpec.describe Manager::JobSimulationsController, type: :controller do
   end
   describe 'GET #index' do
     it 'returns a successful response' do
-      login_as(user)
       get :index
       expect(response).to have_http_status(:success)
     end
