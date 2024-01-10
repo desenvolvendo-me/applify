@@ -1,6 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe JobSimulationsController, type: :controller do
+RSpec.describe Manager::JobSimulationsController, type: :controller do
+  let!(:user) { create(:user) }
+  let!(:profile) { create(:profile, user: user) }
+
+  before(:each) do
+    sign_in user
+  end
   describe 'GET #index' do
     it 'returns a successful response' do
       get :index
