@@ -1,5 +1,5 @@
 pt-BR:
-  controllers:
+  manager:
     candidatures:
       create: "Candidatura salva com sucesso"
       update: "Candidatura atualizada com sucesso"

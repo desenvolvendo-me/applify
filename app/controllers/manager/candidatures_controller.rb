@@ -23,7 +23,7 @@ module Manager
 
       if @candidature.save
         redirect_to manager_candidature_path(@candidature),
-                    notice: t('controllers.candidatures.create')
+                    notice: t('.create')
       else
         render :new
       end
@@ -34,7 +34,7 @@ module Manager
     def update
       if @candidature.update(candidature_params)
         redirect_to manager_candidature_path(@candidature),
-                    notice: t('controllers.candidatures.update')
+                    notice: t('.update')
       else
         render :edit
       end
@@ -45,7 +45,7 @@ module Manager
 
       redirect_to manager_candidatures_path,
                   notice: "#{@candidature.company_name}
-                            #{t('controllers.candidatures.destroy')}",
+                            #{t('.destroy')}",
                   status: :see_other
     end
 
@@ -56,7 +56,7 @@ module Manager
 
       return if @candidature
 
-      flash[:alert] = t('controllers.candidatures.not_found')
+      flash[:alert] = t('.not_found')
       redirect_to manager_candidatures_path
     end
 
