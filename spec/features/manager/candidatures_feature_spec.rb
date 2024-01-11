@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Manager Candidature', type: :feature do
   let!(:user) { create(:user) }
   let!(:profile) { create(:profile, user: user) }
-  let!(:company) { create(:company) }
+  let!(:company) { create(:company, name: 'Amazon') }
 
   before(:each) do
     login_as(user)
@@ -27,6 +27,7 @@ RSpec.feature 'Manager Candidature', type: :feature do
   scenario 'list candidatures' do
     visit manager_candidatures_path
 
+    expect(page).to have_text('Amazon')
     expect(page).to have_text('React')
     expect(page).to have_text('Python')
     expect(page).to have_text('Respondido')
@@ -35,6 +36,7 @@ RSpec.feature 'Manager Candidature', type: :feature do
   scenario 'show candidature' do
     visit manager_candidature_path(Candidature.first)
 
+    expect(page).to have_text('Amazon')
     expect(page).to have_text('React')
     expect(page).to have_text('Python')
     expect(page).to have_text('Respondido')
