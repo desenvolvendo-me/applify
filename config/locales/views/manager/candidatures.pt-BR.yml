@@ -30,20 +30,4 @@ pt-BR:
         edit: 'Editar'
         delete: 'Apagar'
         delete_confirm: 'Você tem certeza?'
-  helpers:
-    submit:
-      candidature:
-        create: "Salvar"
-        update: "Atualizar"
-  activerecord:
-    errors:
-      models:
-        candidature:
-          attributes:
-            company_name:
-              blank: "Empresa não pode ficar em branco"
-  models:
-    candidature:
-      one: 'Candidatura'
-      other: 'Candidaturas'
 

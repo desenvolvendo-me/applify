@@ -1,5 +1,11 @@
 pt-BR:
   activerecord:
+    errors:
+      models:
+        candidature:
+          attributes:
+            company_name:
+              blank: 'Empresa não pode ficar em branco'
     models:
       candidature:
         one: 'Candidatura'

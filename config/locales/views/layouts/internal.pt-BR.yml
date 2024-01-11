@@ -11,10 +11,4 @@ pt-BR:
       dashboard: "Painel"
       open_menu: "Abrir menu principal"
       phase_1: "Fase 1"
-      sr-only:
-        open_menu: "Abrir menu principal"
-      settings: "Configurações"
-      sign_out: "Sair da conta"
       job_application: 'Candidaturas'
-      companies: 'Empresas'
-      stacks: 'Stacks'
