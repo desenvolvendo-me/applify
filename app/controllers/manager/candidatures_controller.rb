@@ -22,8 +22,7 @@ module Manager
       @candidature = current_user.profile.candidatures.build(candidature_params)
 
       if @candidature.save
-        redirect_to manager_candidature_path(@candidature),
-                    notice: t('.create')
+        redirect_to manager_candidature_path(@candidature), notice: t('.create')
       else
         render :new
       end
@@ -33,31 +32,23 @@ module Manager
 
     def update
       if @candidature.update(candidature_params)
-        redirect_to manager_candidature_path(@candidature),
-                    notice: t('.update')
+        redirect_to manager_candidature_path(@candidature), notice: t('.update')
       else
         render :edit
       end
     end
 
     def destroy
-      return unless @candidature.destroy
+      @candidature.destroy
 
       redirect_to manager_candidatures_path,
-                  notice: "#{@candidature.company_name}
-                            #{t('.destroy')}",
-                  status: :see_other
+                  notice: "#{@candidature.company_name} #{t('.destroy')}", status: :see_other
     end
 
     private
 
     def set_candidature
       @candidature = current_user.profile.candidatures.find_by(id: params[:id])
-
-      return if @candidature
-
-      flash[:alert] = t('.not_found')
-      redirect_to manager_candidatures_path
     end
 
     def candidature_params
