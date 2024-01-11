@@ -1,7 +1,7 @@
 pt-BR:
   manager:
     candidatures:
-      create: "Candidatura salva com sucesso"
-      update: "Candidatura atualizada com sucesso"
-      destroy: " deletada com sucesso"
-      not_found: "Candidatura não encontrada"
+      create: 'Candidatura salva com sucesso'
+      update: 'Candidatura atualizada com sucesso'
+      destroy: 'deletada com sucesso'
+      not_found: 'Candidatura não encontrada'

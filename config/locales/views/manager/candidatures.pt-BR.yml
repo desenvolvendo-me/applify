@@ -16,6 +16,8 @@ pt-BR:
         back: 'Voltar'
       edit:
         title: 'Editar Candidatura'
+        save: 'Salvar'
+        back: 'Voltar'
       show:
         title: 'Candidatura'
         edit: 'Editar'
