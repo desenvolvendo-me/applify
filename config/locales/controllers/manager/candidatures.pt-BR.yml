@@ -3,5 +3,5 @@ pt-BR:
     candidatures:
       create: 'Candidatura salva com sucesso'
       update: 'Candidatura atualizada com sucesso'
-      destroy: 'deletada com sucesso'
+      destroy: 'Candidatura deletada com sucesso'
       not_found: 'Candidatura não encontrada'
