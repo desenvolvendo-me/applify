@@ -95,7 +95,7 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroy the candidature' do
-      candidature = create(:candidature, profile: profile)
+      candidature = create(:candidature, company: company, profile: profile)
       expect do
         delete :destroy, params: { id: candidature.id }
       end.to change(Candidature, :count).by(-1)
