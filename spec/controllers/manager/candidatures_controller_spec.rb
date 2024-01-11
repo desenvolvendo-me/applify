@@ -9,9 +9,10 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   end
 
   let(:company) { create(:company) }
-  let(:candidature) { create(:candidature, company: company) }
-  let(:valid_attributes) { attributes_for(:candidature) }
-  let(:invalid_attributes) { { company: ' ' } }
+  let(:company2) { create(:company) }
+  let(:candidature) { create(:candidature, company: company, profile: profile) }
+  let(:candidature2) { create(:candidature, company: company2, profile: profile) }
+  let(:valid_attributes) { attributes_for(:candidature, company_id: company, profile_id: profile) }
 
   describe 'GET #index' do
     it 'returns all Candidatures' do
@@ -21,7 +22,7 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
     it 'assigns @Candidatures' do
       get :index
-      expect(assigns(:candidatures)).to eq([candidature])
+      expect(assigns(:candidatures)).to eq([candidature, candidature2])
     end
   end
 
@@ -42,16 +43,21 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   describe 'POST #create' do
     context 'with invalid params' do
       it 're-renders the "new" page' do
-        post :create, params: { candidature: invalid_attributes }
+        post :create, params: { candidature: { profile: ' ' } }
         expect(response).to render_template('new')
       end
     end
 
-    context 'with invalid params' do
-      it 're-renders the "new" "page' do
-        post :create,
-             params: { candidature: invalid_attributes }
-        expect(response).to render_template('new')
+    context 'with valid params' do
+      it 'creates a new candidature' do
+        expect do
+          post :create, params: { candidature: valid_attributes }
+        end.to change(Candidature, :count).by(1)
+      end
+
+      it 'redirects to the created candidature' do
+        post :create, params: { candidature: valid_attributes }
+        expect(response).to redirect_to(manager_candidature_path(Candidature.last))
       end
     end
   end
@@ -75,27 +81,24 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
     end
 
     context 'with invalid params' do
-      it 're-render the edit page' do
-        put :update,
-            params: { id: candidature.id,
-                      candidature: invalid_attributes }
-        expect(response).to redirect_to(manager_candidature_path)
+      it 're-renders the edit page' do
+        patch :update,
+              params: { id: candidature.id,
+                        candidature: { company_id: nil } }
+        expect(response).to render_template('edit')
       end
     end
   end
 
   describe 'DELETE #destroy' do
     it 'destroy the candidature' do
-      company = create(:company)
-      candidature = create(:candidature, company: company)
+      candidature = create(:candidature, company: company, profile: profile)
       expect do
         delete :destroy, params: { id: candidature.id }
       end.to change(Candidature, :count).by(-1)
-
-      expect(Company.exists?(company.id)).to be_truthy
     end
 
-    it 'redirect to the candidature list' do
+    it 'redirects to the candidature list' do
       delete :destroy, params: { id: candidature.id }
       expect(response).to redirect_to(manager_candidatures_path)
     end

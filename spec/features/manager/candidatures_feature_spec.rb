@@ -3,15 +3,16 @@ require 'rails_helper'
 RSpec.feature 'Manager Candidature', type: :feature do
   let!(:user) { create(:user) }
   let!(:profile) { create(:profile, user: user) }
+  let!(:company) { create(:company, name: 'Amazon') }
 
   before(:each) do
     login_as(user)
   end
 
   before do
-    company = create(:company, name: 'Amazon')
     create(:candidature,
            company: company,
+           profile: profile,
            situation: 'answered',
            job_position: 'junior_developer',
            frame_work: 'React',
@@ -46,22 +47,22 @@ RSpec.feature 'Manager Candidature', type: :feature do
 
   scenario 'update candidature' do
     visit manager_candidature_path(Candidature.last)
-    click_link 'Editar'
+    click_link I18n.t('manager.candidatures.show.edit')
 
-    select 'Ruby', from: 'Linguagem de Programação'
-    click_button 'Atualizar'
+    select('Python', from: 'candidature[programming_language]')
+    click_button I18n.t('manager.candidatures.edit.save')
 
-    expect(page).to have_text('Candidatura atualizada com sucesso')
-    expect(page).to have_text('Ruby')
+    expect(page).to have_text(I18n.t('manager.candidatures.update'))
+    expect(page).to have_text('Python')
   end
 
   scenario 'delete candidature' do
     visit manager_candidature_path(Candidature.first)
 
     accept_confirm do
-      click_link 'Apagar'
+      click_link I18n.t('manager.candidatures.show.delete')
     end
 
-    expect(page).to have_text('deletada com sucesso')
+    expect(page).to have_text(I18n.t('manager.candidatures.destroy'))
   end
 end

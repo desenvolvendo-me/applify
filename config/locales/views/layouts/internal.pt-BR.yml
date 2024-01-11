@@ -4,7 +4,7 @@ pt-BR:
       profile: 'Perfil'
       logout: 'Sair'
       are_you_sure_you_want_to_quit: 'Tem certeza que deseja sair?'
-      job_simulations: 'Simulados'
+      job_simulations: 'Checklist'
       interview_prepare: 'Prepara Entrevista'
       companies: 'Empresas'
       new: "Novo"
@@ -12,8 +12,4 @@ pt-BR:
       dashboard: "Painel"
       open_menu: "Abrir menu principal"
       phase_1: "Fase 1"
-  views:
-    layouts:
-      internal:
-        sr-only:
-          open_menu: "Abrir menu principal"
+      job_application: 'Candidaturas'

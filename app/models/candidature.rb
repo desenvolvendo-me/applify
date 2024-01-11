@@ -15,17 +15,21 @@
 #  situation               :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  profile_id              :bigint           not null
 #  company_id              :bigint           not null
 #
 # Indexes
 #
+#  index_candidatures_on_profile_id  (profile_id)
 #  index_candidatures_on_company_id  (company_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (profile_id => profiles.id)
 #  fk_rails_...  (company_id => companies.id)
 #
 class Candidature < ApplicationRecord
+  belongs_to :profile
   belongs_to :company
 
   enum situation: { dispatch: 'dispatch', sending: 'sending',

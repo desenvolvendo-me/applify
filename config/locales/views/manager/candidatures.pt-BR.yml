@@ -1,0 +1,33 @@
+pt-BR:
+  manager:
+    candidatures:
+      done: 'Finalizar'
+      back: 'Voltar'
+      index:
+        add_candidature: "Adicionar Candidatura"
+        company_name: "Empresa"
+        framework: 'Framework'
+        situation: "Situação"
+        title: "Candidaturas"
+        programming_language: "Linguagem de Programação"
+      new:
+        title: 'Nova Candidatura'
+        save: 'Salvar'
+        back: 'Voltar'
+      edit:
+        title: 'Editar Candidatura'
+        save: 'Salvar'
+        back: 'Voltar'
+      show:
+        title: 'Candidatura'
+        edit: 'Editar'
+        show: 'Mostrar'
+        back: 'Voltar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+      candidature:
+        show: 'Mostrar'
+        edit: 'Editar'
+        delete: 'Apagar'
+        delete_confirm: 'Você tem certeza?'
+

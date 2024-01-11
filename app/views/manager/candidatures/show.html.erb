@@ -1,11 +1,11 @@
 <div class="relative">
   <div class="flex justify-between items-center mb-4">
-    <h1 class="font-bold text-4xl"> <%= t('views.manager.candidatures.show_view.title') %> </h1>
+    <h1 class="font-bold text-4xl"> <%= t('.title') %> </h1>
     <div>
-      <%= link_to t('views.manager.candidatures.edit'), edit_manager_candidature_path(@candidature), class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
-      <%= link_to t('views.manager.candidatures.back'), manager_candidatures_path, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
-      <%= link_to t('views.manager.candidatures.delete') , manager_candidature_path(@candidature),
-                  data: { turbo_method: :delete, turbo_confirm: t('views.manager.candidatures.delete_confirm') }, class: "mr-2 items-center justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.edit'), edit_manager_candidature_path(@candidature), class: "mr-2 items-center hover:bg-blue-800 justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.back'), manager_candidatures_path, class: "mr-2 items-center hover:bg-blue-800 justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
+      <%= link_to t('.delete') , manager_candidature_path(@candidature),
+                  data: { turbo_method: :delete, turbo_confirm: t('.delete_confirm') }, class: "mr-2 items-center hover:bg-blue-800 justify-center text-white bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" %>
     </div>
   </div>
   <div class="flex justify-around">
@@ -24,11 +24,11 @@
   </div>
   <div class="flex justify-around">
     <div class="relative z-0 w-full mb-6 group mt-4 mx-2">
-      <div placeholder=" " readonly="readonly" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text"><%= I18n.t("enum.job_positions.#{@candidature.job_position}") %></div>
+      <div placeholder=" " readonly="readonly" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text"><%= I18n.t("activerecord.attributes.candidature.enum.job_positions.#{@candidature.job_position}") %></div>
       <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><%= Candidature.human_attribute_name(:job_position) %></label>
     </div>
     <div class="relative z-0 w-full mb-6 group mt-4 mx-2">
-      <div placeholder=" " readonly="readonly" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text"><%= I18n.t("enum.situations.#{@candidature.situation}") %></div>
+      <div placeholder=" " readonly="readonly" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" type="text"><%= I18n.t("activerecord.attributes.candidature.enum.situations.#{@candidature.situation}") %></div>
       <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"><%= Candidature.human_attribute_name(:situation) %></label>
     </div>
     <div class="relative z-0 w-full mb-6 group mt-4 mx-2">

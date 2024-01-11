@@ -3,25 +3,26 @@ module Manager
     before_action :set_candidature, only: %i[show edit update destroy]
 
     def index
-      @q = Candidature.ransack(params[:q])
+      return unless current_user&.profile
+
+      @q = current_user.profile.candidatures.ransack(params[:q])
       @candidatures = @q.result(distinct: true)
-      @candidatures = @candidatures.order('created_at')
-                                   .page(params[:page])
-                                   .per(4)
+                        .order('created_at')
+                        .page(params[:page])
+                        .per(4)
     end
 
     def show; end
 
     def new
-      @candidature = Candidature.new
+      @candidature = current_user.profile.candidatures.build
     end
 
     def create
-      @candidature = Candidature.new(candidature_params)
+      @candidature = current_user.profile.candidatures.build(candidature_params)
 
       if @candidature.save
-        redirect_to manager_candidature_path(@candidature),
-                    notice: t('controllers.candidatures.create')
+        redirect_to manager_candidature_path(@candidature), notice: t('.create')
       else
         render :new
       end
@@ -31,30 +32,27 @@ module Manager
 
     def update
       if @candidature.update(candidature_params)
-        redirect_to manager_candidature_path(@candidature),
-                    notice: t('controllers.candidatures.update')
+        redirect_to manager_candidature_path(@candidature), notice: t('.update')
       else
         render :edit
       end
     end
 
     def destroy
-      return unless @candidature.destroy
+      @candidature.destroy
 
       redirect_to manager_candidatures_path,
-                  notice: "#{@candidature.company_name}
-                            #{t('controllers.candidatures.destroy')}",
-                  status: :see_other
+                  notice: "#{@candidature.company_name} #{t('.destroy')}", status: :see_other
     end
 
     private
 
     def set_candidature
-      @candidature = Candidature.find_by(id: params[:id])
+      @candidature = current_user.profile.candidatures.find_by(id: params[:id])
     end
 
     def candidature_params
-      params.require(:candidature).permit(:company_name,
+      params.require(:candidature).permit(:company_id,
                                           :situation,
                                           :job_position,
                                           :job_description,
@@ -64,7 +62,7 @@ module Manager
                                           :application_date,
                                           :presentation_letter,
                                           :knowledge_about_company,
-                                          :personal_project)
+                                          :personal_project, :profile_id)
     end
   end
 end

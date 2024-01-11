@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :companies
     resources :job_simulations
     resource :profile
-    resources :candidatures
     resources :goals
     namespace :goals do
       namespace :done do
