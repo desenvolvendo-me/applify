@@ -31,21 +31,14 @@
 FactoryBot.define do
   factory :candidature do
     association :profile
-    company { create(Company.name) }
     situation { 'sending' }
     job_position { 'junior_developer' }
     frame_work { 'React' }
     programming_language { 'Python' }
-    application_date { '10/12/2023' }
+    application_date { '10-12-2023'.to_date }
     personal_projects { 'links' }
-    job_description do
-      'There are many variations of passages of Lorem Ipsum...'
-    end
-    presentation_letter do
-      'It is a long established fact that a reader will be...'
-    end
-    knowledge_about_company do
-      'Contrary to popular belief, Lorem Ipsum is not simply random text...'
-    end
+    job_description { FFaker::Lorem.paragraph }
+    presentation_letter { FFaker::Lorem.paragraph }
+    knowledge_about_company { FFaker::Lorem.paragraph }
   end
 end

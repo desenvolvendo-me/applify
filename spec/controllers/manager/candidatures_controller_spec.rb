@@ -9,9 +9,11 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   end
 
   let(:company) { create(:company) }
-  let(:candidature) { create(:candidature, company: company) }
-  let(:valid_attributes) { attributes_for(:candidature) }
-  let(:invalid_attributes) { { company: ' ' } }
+  let(:company2) { create(:company) }
+  let(:candidature) { create(:candidature, company: company, profile: profile) }
+  let(:candidature2) { create(:candidature, company: company2, profile: profile) }
+  let(:valid_attributes) { attributes_for(:candidature, company_id: company, profile_id: profile) }
+
 
   describe 'GET #index' do
     it 'returns all Candidatures' do
@@ -20,7 +22,6 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
     end
 
     it 'assigns @Candidatures' do
-      cadidature2 = create(:candidature)
       get :index
       expect(assigns(:candidatures)).to eq([candidature, candidature2])
     end
@@ -43,7 +44,7 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   describe 'POST #create' do
     context 'with invalid params' do
       it 're-renders the "new" page' do
-        post :create, params: { candidature: invalid_attributes }
+        post :create, params: { candidature: { profile: ' ' } }
         expect(response).to render_template('new')
       end
     end
@@ -57,11 +58,11 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
       it 'redirects to the created candidature' do
         post :create, params: { candidature: valid_attributes }
-        expect(response)
-          .to redirect_to(manager_candidature_path(Candidature.last))
+        expect(response).to redirect_to(manager_candidature_path(Candidature.last))
       end
     end
   end
+
 
   describe 'GET #edit' do
     it 'return save successful view' do
@@ -83,17 +84,18 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
 
     context 'with invalid params' do
       it 're-renders the edit page' do
-        put :update,
-            params: { id: candidature.id,
-                      candidature: invalid_attributes }
+        patch :update,
+              params: { id: candidature.id,
+                        candidature: { company_id: nil } }
         expect(response).to render_template('edit')
       end
     end
+
   end
 
   describe 'DELETE #destroy' do
     it 'destroy the candidature' do
-      candidature = create(:candidature)
+      candidature = create(:candidature, profile: profile)
       expect do
         delete :destroy, params: { id: candidature.id }
       end.to change(Candidature, :count).by(-1)
