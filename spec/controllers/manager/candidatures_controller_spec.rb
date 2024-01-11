@@ -14,7 +14,6 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
   let(:candidature2) { create(:candidature, company: company2, profile: profile) }
   let(:valid_attributes) { attributes_for(:candidature, company_id: company, profile_id: profile) }
 
-
   describe 'GET #index' do
     it 'returns all Candidatures' do
       get :index
@@ -63,7 +62,6 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
     end
   end
 
-
   describe 'GET #edit' do
     it 'return save successful view' do
       get :edit, params: { id: candidature.id }
@@ -90,7 +88,6 @@ RSpec.describe Manager::CandidaturesController, type: :controller do
         expect(response).to render_template('edit')
       end
     end
-
   end
 
   describe 'DELETE #destroy' do

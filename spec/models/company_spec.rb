@@ -18,9 +18,10 @@ RSpec.describe Company, type: :model do
 
   describe 'validations' do
     let(:company) { create(:company) }
+    let(:profile) { create(:profile, user: create(:user)) }
 
     context 'when associated with candidatures' do
-      let!(:candidature) { create(:candidature, company: company) }
+      let!(:candidature) { create(:candidature, company: company, profile: profile) }
 
       it 'does not allow deletion' do
         expect { company.destroy }.to raise_error(ActiveRecord::DeleteRestrictionError)

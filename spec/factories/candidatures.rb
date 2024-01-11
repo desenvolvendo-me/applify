@@ -34,7 +34,7 @@ FactoryBot.define do
     situation { 'sending' }
     job_position { 'junior_developer' }
     frame_work { 'React' }
-    programming_language { 'Python' }
+    programming_language { %w[Python Java JavaScript Ruby C# PHP].sample }
     application_date { '10-12-2023'.to_date }
     personal_projects { 'links' }
     job_description { FFaker::Lorem.paragraph }
