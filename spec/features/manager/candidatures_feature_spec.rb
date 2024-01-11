@@ -47,12 +47,12 @@ RSpec.feature 'Manager Candidature', type: :feature do
 
   scenario 'update candidature' do
     visit manager_candidature_path(Candidature.last)
-    click_link 'Editar'
+    click_link I18n.t('manager.candidatures.show.edit')
 
-    fill_in 'Empresa', with: 'Ruby'
-    click_button 'Atualizar'
+    fill_in 'candidature[company_name]', with: 'Ruby'
+    click_button I18n.t('manager.candidatures.edit.save')
 
-    expect(page).to have_text('Candidatura atualizada com sucesso')
+    expect(page).to have_text(I18n.t('manager.candidatures.update'))
     expect(page).to have_text('Ruby')
   end
 
@@ -60,9 +60,9 @@ RSpec.feature 'Manager Candidature', type: :feature do
     visit manager_candidature_path(Candidature.first)
 
     accept_confirm do
-      click_link 'Apagar'
+      click_link I18n.t('manager.candidatures.show.delete')
     end
 
-    expect(page).to have_text('deletada com sucesso')
+    expect(page).to have_text(I18n.t('manager.candidatures.destroy'))
   end
 end
