@@ -11,6 +11,8 @@
 #  updated_at  :datetime         not null
 #
 class Company < ApplicationRecord
+  has_paper_trail
+
   has_and_belongs_to_many :stacks
   has_many :candidatures, dependent: :restrict_with_exception
 end
