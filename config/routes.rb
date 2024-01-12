@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
+    get 'changes-histories', to: 'versions#index', as: :versions_resource
     resources :candidatures
     resources :stacks
     resources :companies

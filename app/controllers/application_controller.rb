@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :set_paper_trail_whodunnit
+
   before_action :check_profile_completion, if: lambda {
     user_signed_in? && !creating_profile?
   }
