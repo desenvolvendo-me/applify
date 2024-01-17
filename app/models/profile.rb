@@ -22,6 +22,10 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one_attached :profile_picture
+  has_many :experiences, dependent: :destroy
+  has_many :skills, through: :experiences
+
+  accepts_nested_attributes_for :experiences
 
   enum user_type: { student: 0, professional: 1 }
 

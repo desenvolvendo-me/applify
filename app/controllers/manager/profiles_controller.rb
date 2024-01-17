@@ -1,23 +1,8 @@
 module Manager
   class ProfilesController < InternalController
-    before_action :set_profile, only: %i[show edit update destroy]
+    before_action :set_profile, only: %i[show edit update]
 
     def show; end
-
-    def new
-      @profile = current_user.build_profile
-    end
-
-    def create
-      @profile = current_user.build_profile(profile_params)
-
-      if @profile.save
-        redirect_to manager_profile_url,
-                    notice: t('.success')
-      else
-        render :new
-      end
-    end
 
     def edit; end
 
@@ -28,12 +13,6 @@ module Manager
       else
         render :edit
       end
-    end
-
-    def destroy
-      @profile.destroy
-      redirect_to manager_home_url,
-                  notice: t('.success')
     end
 
     private
@@ -48,7 +27,8 @@ module Manager
         :name,
         :user_type,
         :profile_picture,
-        :bio
+        :bio,
+        experiences_attributes: %i[id level]
       )
     end
   end
