@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :check_profile_completion, if: lambda {
-    user_signed_in? && !creating_profile?
+  before_action :ensure_profile, if: lambda {
+    user_signed_in? && current_user.profile.blank?
   }
 
   before_action :authenticate_user!, if: lambda {
@@ -9,14 +9,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def check_profile_completion
-    return if current_user.profile.present?
+  def ensure_profile
+    success = Profiles::Creator.call(current_user)
 
-    redirect_to new_manager_profile_path
-  end
-
-  def creating_profile?
-    controller_name == 'profiles' &&
-      (action_name == 'new' || action_name == 'create')
+    redirect_to edit_manager_profile_path if success
   end
 end

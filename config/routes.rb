@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :stacks
     resources :companies
     resources :job_simulations
-    resource :profile
+    resource :profile, except: %i[new create]
     resources :candidatures
     resources :goals
     namespace :goals do

@@ -4,21 +4,6 @@ module Manager
 
     def show; end
 
-    def new
-      @profile = current_user.build_profile
-    end
-
-    def create
-      @profile = current_user.build_profile(profile_params)
-
-      if @profile.save
-        redirect_to manager_profile_url,
-                    notice: t('.success')
-      else
-        render :new
-      end
-    end
-
     def edit; end
 
     def update
