@@ -1,6 +1,6 @@
 module Manager
   class ProfilesController < InternalController
-    before_action :set_profile, only: %i[show edit update destroy]
+    before_action :set_profile, only: %i[show edit update]
 
     def show; end
 
@@ -13,12 +13,6 @@ module Manager
       else
         render :edit
       end
-    end
-
-    def destroy
-      @profile.destroy
-      redirect_to manager_home_url,
-                  notice: t('.success')
     end
 
     private
